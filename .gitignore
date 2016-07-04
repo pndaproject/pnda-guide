@@ -1,0 +1,9 @@
+_book
+pnda-guide.pdf
+pnda-guide.zip
+pnda-guide.epub
+pnda-guide.mobi
+*.graffle
+node_modules
+archives
+scripts
