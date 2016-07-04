@@ -29,7 +29,6 @@ It consists of the following source code repositories and sub-projects:
    * [data-service](platform-data-mgmnt/data-service/README.md): API to set data retention policies
    * [hdfs-cleaner](platform-data-mgmnt/hdfs-cleaner/README.md): cron job to clean up HDFS data
    * [oozie-templates](platform-data-mgmnt/oozie-templates/README.md): templates that archive or delete data
- * [platform-elk-dashboards](platform-elk-dashboards/README.md): pre-configured ELK dashboards
  * [platform-package-repository](platform-package-repository/README.md): manages a simple package repository backed by OpenStack Swift
 
 ## Forked projects

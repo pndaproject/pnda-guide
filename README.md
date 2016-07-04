@@ -4,9 +4,9 @@ PNDA is a simple, scalable, open big data platform supporting operational and bu
 
 This guide covers PNDA release 3. 
 
-Last updated: June 30, 2016
+Last updated: July 4, 2016
 
-Version: 0.1.2
+Version: 0.1.0
 
 ## [Overview](overview/README.md)
 
@@ -136,7 +136,6 @@ The PNDA distribution consists of the following source code repositories and sub
    * [data-service](repos/platform-data-mgmnt/data-service/README.md): API to set data retention policies
    * [hdfs-cleaner](repos/platform-data-mgmnt/hdfs-cleaner/README.md): cron job to clean up HDFS data
    * [oozie-templates](repos/platform-data-mgmnt/oozie-templates/README.md): templates that archive or delete data
- * [platform-elk-dashboards](repos/platform-elk-dashboards/README.md): pre-configured ELK dashboards
  * [platform-package-repository](repos/platform-package-repository/README.md): manages a simple package repository backed by OpenStack Swift
 
 ### Forked Projects

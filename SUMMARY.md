@@ -63,7 +63,6 @@
             * [data-service](repos/platform-data-mgmnt/data-service/README.md)
             * [hdfs-cleaner](repos/platform-data-mgmnt/hdfs-cleaner/README.md)
             * [oozie-templates](repos/platform-data-mgmnt/oozie-templates/README.md)
-        * [platform-elk-dashboards](repos/platform-elk-dashboards/README.md)
         * [platform-package-repository](repos/platform-package-repository/README.md)
     * Forked Projects
         * [gobblin](repos/gobblin/README.md)
