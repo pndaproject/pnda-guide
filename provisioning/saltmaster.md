@@ -121,11 +121,26 @@ To configure salt-cloud for use **on the Salt Master instance**:
 
 ## Configure Salt for provisioning
 
+A Salt provisioning is configured by creating Salt pillar files in the `/srv/pillar` directory.
+These files must be referenced by the `/srv/pillar/top.sls` file. For example:
+
+/srv/pillar/top.sls
+
+```yaml
+{{ env }}:
+  '*':
+    - openstack
+    - java
+    - pnda
+```
+
+### Mandatory configuration
+
 Create for the following files for Salt **on the Salt Master instance**:
 
 /srv/pillar/openstack.sls
 
-This contains credentials for connecting with OpenStack.
+This MUST contains credentials for connecting with OpenStack.
 
 ```
 keystone.user: <username>
@@ -134,15 +149,27 @@ keystone.tenant: <tenant name>
 keystone.auth_url: <auth url>
 ```
 
+/srv/pillar/pnda.sls
+
+This MUST contains at least the [package server](../repos/pnda-package-server-docker/README.md) URI. For example:
+
+```yaml
+packages_server:
+  base_uri: 'http://<private-packages-server>'
+```
+
+### Optional configuration
+
+You can optionally add other pillar configuration to fit you needs. For example you can set an alternate location to download Oracle JDK by creating the following file:
+
 /srv/pillar/java.sls
 
 This provides source urls for downloading the JDK in case the Oracle mirror proves unreliable.
 
-```
+```yaml
 java:
-  source_url: 'http://10.10.10.10/java/jdk/8u74-b02/jdk-8u74-linux-x64.tar.gz'
+  source_url: 'http://<your-private-mirror>/java/jdk/8u74-b02/jdk-8u74-linux-x64.tar.gz'
 ```
-
 
 ## Usage
 
