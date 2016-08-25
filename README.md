@@ -4,9 +4,9 @@ PNDA is a simple, scalable, open big data platform supporting operational and bu
 
 This guide covers PNDA release 3. 
 
-Last updated: July 4, 2016
+Last updated: August 25, 2016
 
-Version: 0.1.0
+Version: 0.1.1
 
 ## Quick Links
 
