@@ -110,6 +110,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
 
   * server.properties configuration file looks like:
 
+```properties
     broker.id=0
     delete.topic.enable=true
     listeners=SASL_SSL://:9093
@@ -139,9 +140,11 @@ Let's consider that you have genereated the right keys and certificate. In this 
     sasl.mechanism.inter.broker.protocol=PLAIN
     authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
     super.users=User:admin
+```
 
   * the JAAS file containing authentication, named config/kafka_server_jaas.conf
 
+```properties
     KafkaServer {
       org.apache.kafka.common.security.plain.PlainLoginModule required
       username="admin"
@@ -150,20 +153,26 @@ Let's consider that you have genereated the right keys and certificate. In this 
       user_test="test"
       user_pnda="pnda"
     };
+```
 
   * now, you can launch the broker:
 
+```sh
     cd /opt/pnda/kafka_2.11-0.10.0.0
     export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_server_jaas.conf"
     bin/kafka-server-start.sh config/server-ssl-sasl.properties
+```
 
   * creating ACL on the broker, let's create ACL for a consumer, the test user and ACL for a producer, the pnda user
 
+```sh
    cd /opt/pnda/kafka_2.11-0.10.0.0
    bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:test --consumer --topic avro.log.test --group test
    bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:pnda --producer --topic avro.log.test
+```
 
   * check the ACLs:
+```sh
     cd /opt/pnda/kafka_2.11-0.10.0.0
     bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --list 
 
@@ -179,11 +188,13 @@ Let's consider that you have genereated the right keys and certificate. In this 
 
     Current ACLs for resource `Cluster:kafka-cluster`: 
       User:pnda has Allow permission for operations: Create from hosts: * 
+```
 
 2. Now on the consumer side, you will need so configure:
 
   * the consumer.properties configuration file
 
+```properties
     group.id=test
     security.protocol=SSL
     ssl.keystore.location=/home/jegarnie/pnda/streamset/server.keystore.jks
@@ -191,52 +202,68 @@ Let's consider that you have genereated the right keys and certificate. In this 
     ssl.key.password=test1234
     security.protocol=SASL_SSL
     sasl.mechanism=PLAIN
+```
 
   * the JAAS file named kafka_client_jaas_consumer.conf
 
+```properties
     KafkaClient {
         org.apache.kafka.common.security.plain.PlainLoginModule required
         username="test"
         password="test";
     };
+```
 
   * now you can launch the consumer:
+
+```sh
     export KAFKA_OPTS="-Djava.security.auth.login.config=/home/jegarnie/soft/kafka_2.11-0.10.0.0/config/kafka_client_jaas_consumer.conf"
     cd /opt/pnda/kafka_2.11-0.10.0.0
     bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic avro.log.test --consumer.config config/consumer.properties --new-consumer
+```
 
 3. On the producer side, this is quite the same:
 
   * the producer.properties configuration file:
+
+```properties
     security.protocol=SSL
     ssl.keystore.location=/home/jegarnie/pnda/streamset/server.keystore.jks
     ssl.keystore.password=test1234
     ssl.key.password=test1234
     security.protocol=SASL_SSL
     sasl.mechanism=PLAIN
+```
 
   * the JAAS file named kafka_client_jaas_producer.conf
 
+```properties
     KafkaClient {
         org.apache.kafka.common.security.plain.PlainLoginModule required
         username="pnda"
         password="pnda";
     };
+```
 
   * now you can launch the producer in a new windows:
+
+```sh
     export KAFKA_OPTS="-Djava.security.auth.login.config=/home/jegarnie/soft/kafka_2.11-0.10.0.0/config/kafka_client_jaas_producer.conf"
     cd /opt/pnda/kafka_2.11-0.10.0.0 
     bin/kafka-console-producer.sh --broker-list localhost:9093 --topic avro.log.test --producer.config config/producer.properties 
+```
 
 4. Then on the producer window, you can type some message and you should see them on the consumer window.
 
 5. You can also use the kafka clients provided [here](https://github.com/pndaproject/example-kafka-clients). As for example, the python client use the new Kafka API:
 
+```python
   ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
   ctx.load_cert_chain(certfile="../ca-cert", keyfile="../ca-key", password="test1234")
   producer = KafkaProducer(bootstrap_servers=["ip6-localhost:9093"],security_protocol="SASL_SSL",\
     ssl_context=ctx,\
     sasl_mechanism="PLAIN",sasl_plain_username="pnda",sasl_plain_password="pnda")
+```
 
 ## Deployment Manager
 
