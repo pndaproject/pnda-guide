@@ -120,7 +120,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
     socket.send.buffer.bytes=102400
     socket.receive.buffer.bytes=102400
     socket.request.max.bytes=104857600
-    log.dirs=/home/jegarnie/soft/kafka_2.11-0.10.0.0/data/kafka-logs
+    log.dirs=/opt/pnda/kafka_2.11-0.10.0.0/data/kafka-logs
     num.partitions=1
     num.recovery.threads.per.data.dir=1
     log.retention.hours=168
@@ -130,10 +130,10 @@ Let's consider that you have genereated the right keys and certificate. In this 
     zookeeper.connection.timeout.ms=6000
     security.protocol=SASL_SSL
     ssl.client.auth=required
-    ssl.keystore.location=/home/jegarnie/pnda/streamset/server.keystore.jks
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
     ssl.keystore.password=test1234
     ssl.key.password=test1234
-    ssl.truststore.location=/home/jegarnie/pnda/streamset/server.truststore.jks
+    ssl.truststore.location=/opt/pnda/server.truststore.jks
     ssl.truststore.password=test1234
 
     sasl.enabled.mechanisms=PLAIN
@@ -197,7 +197,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
 ```properties
     group.id=test
     security.protocol=SSL
-    ssl.keystore.location=/home/jegarnie/pnda/streamset/server.keystore.jks
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
     ssl.keystore.password=test1234
     ssl.key.password=test1234
     security.protocol=SASL_SSL
@@ -217,7 +217,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
   * now you can launch the consumer:
 
 ```sh
-    export KAFKA_OPTS="-Djava.security.auth.login.config=/home/jegarnie/soft/kafka_2.11-0.10.0.0/config/kafka_client_jaas_consumer.conf"
+    export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_client_jaas_consumer.conf"
     cd /opt/pnda/kafka_2.11-0.10.0.0
     bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic avro.log.test --consumer.config config/consumer.properties --new-consumer
 ```
@@ -228,7 +228,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
 
 ```properties
     security.protocol=SSL
-    ssl.keystore.location=/home/jegarnie/pnda/streamset/server.keystore.jks
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
     ssl.keystore.password=test1234
     ssl.key.password=test1234
     security.protocol=SASL_SSL
@@ -248,7 +248,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
   * now you can launch the producer in a new windows:
 
 ```sh
-    export KAFKA_OPTS="-Djava.security.auth.login.config=/home/jegarnie/soft/kafka_2.11-0.10.0.0/config/kafka_client_jaas_producer.conf"
+    export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_client_jaas_producer.conf"
     cd /opt/pnda/kafka_2.11-0.10.0.0 
     bin/kafka-console-producer.sh --broker-list localhost:9093 --topic avro.log.test --producer.config config/producer.properties 
 ```
