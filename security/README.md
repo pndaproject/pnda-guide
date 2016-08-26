@@ -66,7 +66,8 @@ In the following sections, we go into detail how we plan to tackle some of these
 
 ## Kafka
 
-Authentication of Kafka from clients (producers and consumers) can be supported using either SSL or SASL. How data gets ingested into the platform will determine the security configuration of Kafka. If data producers are running in the same environment as PNDA, then Kerberos is the preferred choice (as Kerberos authentication requires access to KDC and Active Directory). On another hand, if outside clients ingest data into Kafka, it can be configured to run SSL.
+Authentication of Kafka from clients (producers and consumers) can be supported using either SSL and/or SASL. How data gets ingested into the platform will determine the security configuration of Kafka. If data producers are running in the same environment as PNDA, then Kerberos is the preferred choice (as Kerberos authentication requires access to KDC and Active Directory). On another hand, if outside clients ingest data into Kafka, it can be configured to run SSL.
+For more details about Kafka security, check [Kafka Broker Security](http://kafka.apache.org/documentation.html#security_configbroker)
 
 If Kafka runs SSL scheme, clients can authenticate themselves by setting the following properties: 
 
@@ -99,8 +100,170 @@ Kafka ACLs are specified in a general format of  “Principal P is [Allowed/Deni
 - Producers need `WRITE` permission on the `topic`
 - Consumers need `READ` permission on `topic` and `consumer-group`
 
-The above discussion is about how Security can be enabled with the Kafka 0.9.0 release. Work is still ongoing for some dependent components such as Logstash, Kafka manager, and the Spark-Kafka connector.
- 
+The above discussion is about how Security can be enabled since the Kafka 0.9.0 release. Work is still ongoing for some dependent components such as Logstash, Kafka manager, and the Spark-Kafka connector.
+
+### Example using SASL_SSL / ACL on a secure Kafka & clients
+
+Let's consider that you have genereated the right keys and certificate. In this example, we will use Kafka 10.0.1 and will just use PLAIN/JAAS files for authentication.
+
+1. the first step is to secure the Kafka broker:
+
+  * server.properties configuration file looks like:
+
+```properties
+    broker.id=0
+    delete.topic.enable=true
+    listeners=SASL_SSL://:9093
+    security.inter.broker.protocol=SASL_SSL
+    num.network.threads=3
+    num.io.threads=8
+    socket.send.buffer.bytes=102400
+    socket.receive.buffer.bytes=102400
+    socket.request.max.bytes=104857600
+    log.dirs=/opt/pnda/kafka_2.11-0.10.0.0/data/kafka-logs
+    num.partitions=1
+    num.recovery.threads.per.data.dir=1
+    log.retention.hours=168
+    log.segment.bytes=1073741824
+    log.retention.check.interval.ms=300000
+    zookeeper.connect=localhost:2181
+    zookeeper.connection.timeout.ms=6000
+    security.protocol=SASL_SSL
+    ssl.client.auth=required
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
+    ssl.keystore.password=test1234
+    ssl.key.password=test1234
+    ssl.truststore.location=/opt/pnda/server.truststore.jks
+    ssl.truststore.password=test1234
+
+    sasl.enabled.mechanisms=PLAIN
+    sasl.mechanism.inter.broker.protocol=PLAIN
+    authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
+    super.users=User:admin
+```
+
+  * the JAAS file containing authentication, named config/kafka_server_jaas.conf
+
+```properties
+    KafkaServer {
+      org.apache.kafka.common.security.plain.PlainLoginModule required
+      username="admin"
+      password="admin"
+      user_admin="admin"
+      user_test="test"
+      user_pnda="pnda"
+    };
+```
+
+  * now, you can launch the broker:
+
+```sh
+    cd /opt/pnda/kafka_2.11-0.10.0.0
+    export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_server_jaas.conf"
+    bin/kafka-server-start.sh config/server-ssl-sasl.properties
+```
+
+  * creating ACL on the broker, let's create ACL for a consumer, the test user and ACL for a producer, the pnda user
+
+```sh
+   cd /opt/pnda/kafka_2.11-0.10.0.0
+   bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:test --consumer --topic avro.log.test --group test
+   bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:pnda --producer --topic avro.log.test
+```
+
+  * check the ACLs:
+```sh
+    cd /opt/pnda/kafka_2.11-0.10.0.0
+    bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --list 
+
+
+    Current ACLs for resource `Group:test`: 
+      User:test has Allow permission for operations: Read from hosts: * 
+
+    Current ACLs for resource `Topic:avro.log.test`: 
+      User:pnda has Allow permission for operations: Describe from hosts: *
+      User:pnda has Allow permission for operations: Write from hosts: *
+      User:test has Allow permission for operations: Read from hosts: *
+      User:test has Allow permission for operations: Describe from hosts: * 
+
+    Current ACLs for resource `Cluster:kafka-cluster`: 
+      User:pnda has Allow permission for operations: Create from hosts: * 
+```
+
+2. Now on the consumer side, you will need so configure:
+
+  * the consumer.properties configuration file
+
+```properties
+    group.id=test
+    security.protocol=SSL
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
+    ssl.keystore.password=test1234
+    ssl.key.password=test1234
+    security.protocol=SASL_SSL
+    sasl.mechanism=PLAIN
+```
+
+  * the JAAS file named kafka_client_jaas_consumer.conf
+
+```properties
+    KafkaClient {
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+        username="test"
+        password="test";
+    };
+```
+
+  * now you can launch the consumer:
+
+```sh
+    export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_client_jaas_consumer.conf"
+    cd /opt/pnda/kafka_2.11-0.10.0.0
+    bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic avro.log.test --consumer.config config/consumer.properties --new-consumer
+```
+
+3. On the producer side, this is quite the same:
+
+  * the producer.properties configuration file:
+
+```properties
+    security.protocol=SSL
+    ssl.keystore.location=/opt/pnda/server.keystore.jks
+    ssl.keystore.password=test1234
+    ssl.key.password=test1234
+    security.protocol=SASL_SSL
+    sasl.mechanism=PLAIN
+```
+
+  * the JAAS file named kafka_client_jaas_producer.conf
+
+```properties
+    KafkaClient {
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+        username="pnda"
+        password="pnda";
+    };
+```
+
+  * now you can launch the producer in a new windows:
+
+```sh
+    export KAFKA_OPTS="-Djava.security.auth.login.config=/opt/pnda/kafka_2.11-0.10.0.0/config/kafka_client_jaas_producer.conf"
+    cd /opt/pnda/kafka_2.11-0.10.0.0 
+    bin/kafka-console-producer.sh --broker-list localhost:9093 --topic avro.log.test --producer.config config/producer.properties 
+```
+
+4. Then on the producer window, you can type some message and you should see them on the consumer window.
+
+5. You can also use the kafka clients provided [here](https://github.com/pndaproject/example-kafka-clients). As for example, the python client use the new Kafka API:
+
+```python
+  ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+  ctx.load_cert_chain(certfile="../ca-cert", keyfile="../ca-key", password="test1234")
+  producer = KafkaProducer(bootstrap_servers=["ip6-localhost:9093"],security_protocol="SASL_SSL",\
+    ssl_context=ctx,\
+    sasl_mechanism="PLAIN",sasl_plain_username="pnda",sasl_plain_password="pnda")
+```
 
 ## Deployment Manager
 
