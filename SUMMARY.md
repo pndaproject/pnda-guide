@@ -9,6 +9,8 @@
     * [Getting started with Heat](provisioning/heat.md)
     * [Creating images for use with Heat templates](repos/pnda-dib-elements/README.md)
     * [Using the PNDA Heat templates](repos/pnda-heat-templates/README.md)
+    * [Getting started with AWS](provisioning/aws.md)
+    * [Using the PNDA AWS templates](repos/pnda-aws-templates/README.md)
     * [Building the package server](repos/pnda-heat-templates/README.md)
     * [Getting started with SaltStack](provisioning/saltstack.md)
     * [Provisioning with Salt Cloud](provisioning/salt-cloud.md)
@@ -48,6 +50,7 @@
         * [platform-salt](repos/platform-salt/README.md)
         * [platform-salt-cloud](repos/platform-salt-cloud/README.md)
         * [pnda-heat-templates](repos/pnda-heat-templates/link.md)
+        * [pnda-aws-templates](repos/pnda-aws-templates/link.md)
         * [pnda-dib-elements](repos/pnda-dib-elements/link.md)
         * [pnda-package-server-docker](repos/pnda-package-server-docker/link.md)
     * Platform
