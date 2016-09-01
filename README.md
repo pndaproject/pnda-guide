@@ -38,12 +38,14 @@ This checklist will get you started setting up a fully operational PNDA cluster,
 
 ## [Provisioning](provisioning/README.md)
 
-This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack and OpenStack Heat.
+This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
  * [Platform requirements](provisioning/platform_requirements.md)
  * [Getting started with Heat](provisioning/heat.md)
  * [Creating images for use with Heat templates](repos/pnda-dib-elements/README.md)
  * [Using the PNDA Heat templates](repos/pnda-heat-templates/README.md)
+ * [Getting started with AWS](provisioning/aws.md)
+ * [Using the PNDA AWS templates](repos/pnda-aws-templates/README.md)
  * [Getting started with SaltStack](provisioning/saltstack.md)
  * [Provisioning with Salt Cloud](provisioning/salt-cloud.md)
  * [Configuring a Salt Master](provisioning/saltmaster.md)
@@ -126,6 +128,7 @@ The PNDA distribution consists of the following source code repositories and sub
  * [platform-salt](repos/platform-salt/README.md): provisioning logic for creating PNDA
  * [platform-salt-cloud](repos/platform-salt-cloud/README.md): cluster templates for creating PNDA with salt-cloud
  * [pnda-heat-templates](repos/pnda-heat-templates/README.md): cluster templates for creating PNDA with Heat
+ * [pnda-aws-templates](repos/pnda-aws-templates/README.md): cluster templates for creating PNDA with CloudFormation on AWS
  * [pnda-dib-elements](repos/pnda-dib-elements/README.md): tools for building disk image templates
  * [pnda-package-server-docker](repos/pnda-package-server-docker/README.md): tools for creating package server
 
