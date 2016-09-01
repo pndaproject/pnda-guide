@@ -14,7 +14,7 @@ The following table lists the version numbers of the technologies used in the la
 |Jupyter Hub|0.6.1|
 |Jupyter|4.2.0|
 |OpenTSDB|2.2.0|
-|Grafana|3.1.1-1470047149|
+|Grafana|3.1.1|
 |Anaconda|4.0.0|
 |Hadoop (see below for components)|CM 5.5.3, CDH 5.5.2-1.cdh5.5.2.p0.4 |
 |Apache Avro |avro-1.7.6+cdh5.5.2+113|
