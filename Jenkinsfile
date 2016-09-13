@@ -1,28 +1,34 @@
 node {
     try {
         stage 'Build'
-        def workspace = pwd() 
+        
         deleteDir()
+        
         checkout scm
+        
+        def workspace = pwd()
+        def version = env.BRANCH_NAME
 
-        sh '''
-            echo $PWD
-            echo $BRANCH_NAME
-
+        if(env.BRANCH_NAME=="master") {
+            version = sh(returnStdout: true, script: 'git describe --abbrev=0 --tags').trim()
+            checkout([$class: 'GitSCM', branches: [[name: "tags/${version}"]], extensions: [[$class: 'CleanCheckout']]])
+        }
+        
+        sh """
             npm install gitbook-cli
             node_modules/gitbook-cli/bin/gitbook.js init
             node_modules/gitbook-cli/bin/gitbook.js build
             rm _book/Jenkinsfile
-            mv _book pnda-guide-$BRANCH_NAME
-            tar zcf pnda-guide-$BRANCH_NAME.tar.gz pnda-guide-$BRANCH_NAME
-        '''
+            mv _book pnda-guide-${version}
+            tar zcf pnda-guide-${version}.tar.gz pnda-guide-${version}
+        """
 
         stage 'Test'
         sh '''
         '''
 
         stage 'Deploy' 
-        build job: 'deploy-component', parameters: [[$class: 'StringParameterValue', name: 'branch', value: env.BRANCH_NAME],[$class: 'StringParameterValue', name: 'component', value: "public-documentation"],[$class: 'StringParameterValue', name: 'release_path', value: "resources/releases"],[$class: 'StringParameterValue', name: 'release', value: "${workspace}/pnda-guide-${env.BRANCH_NAME}.tar.gz"]]
+        build job: 'deploy-component', parameters: [[$class: 'StringParameterValue', name: 'branch', value: env.BRANCH_NAME],[$class: 'StringParameterValue', name: 'component', value: "public-documentation"],[$class: 'StringParameterValue', name: 'release_path', value: "resources/releases"],[$class: 'StringParameterValue', name: 'release', value: "${workspace}/pnda-guide-${version}.tar.gz"]]
 
         emailext attachLog: true, body: "Build succeeded (see ${env.BUILD_URL})", subject: "[JENKINS] ${env.JOB_NAME} succeeded", to: "${env.EMAIL_RECIPIENTS}"
 
