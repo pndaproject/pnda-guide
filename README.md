@@ -2,11 +2,11 @@
 
 PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment. 
 
-This guide covers PNDA release 3. 
+This guide covers PNDA release 3.1 
 
-Last updated: August 25, 2016
+Last updated: September 9, 2016
 
-Version: 0.1.1
+Version: 0.1.2
 
 ## Quick Links
 
@@ -175,5 +175,9 @@ The PNDA distribution consists of the following source code repositories and sub
  * [pnda-guide](README.md): this guide
  
 ## [References](others/README.md)
+
+## Release Notes
+
+- [PNDA 3.1](others/release-note-3.1.md) (September 2016)
 
 ## [Changelog](CHANGELOG.md)
