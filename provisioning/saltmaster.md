@@ -28,6 +28,8 @@ wget -O install_salt.sh https://bootstrap.saltstack.com
 sudo sh install_salt.sh -D -U -M stable 2015.8.10
 ```
 
+As the bootstrap cloud did not install salt-cloud, you will need to install it manually, for doing so, please check [SaltStack documentation on salt-cloud](https://docs.saltstack.com/en/latest/topics/cloud/#quickstart). 
+
 Replace /etc/salt/master with the following content:
 
 ```yaml
