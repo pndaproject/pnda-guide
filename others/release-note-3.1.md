@@ -78,7 +78,7 @@ We've added support for provisioning PNDA in AWS using [CloudFormation](https://
 - First release of example streaming app
  
 #### [gobblin](https://github.com/pndaproject/gobblin)
-##### Changes
+##### Changed
 - Enhanced CI support
  
 #### [platform-console-backend](https://github.com/pndaproject/platform-console-backend)
@@ -89,15 +89,15 @@ We've added support for provisioning PNDA in AWS using [CloudFormation](https://
 - PNDA-1980: Debug output adjusted to prevent console backend log files growing very large
  
 #### [platform-console-frontend](https://github.com/pndaproject/platform-console-frontend)
-##### Changes
+##### Changed
 - Enhanced CI support
  
 #### [platform-data-mgmnt](https://github.com/pndaproject/platform-data-mgmnt)
-##### Changes
+##### Changed
 - Enhanced CI support
  
 #### [platform-deployment-manager](https://github.com/pndaproject/platform-deployment-manager)
-##### Changes
+##### Changed
 - Improvements to documentation
 - Enhanced CI support
  
@@ -150,7 +150,7 @@ We've added support for provisioning PNDA in AWS using [CloudFormation](https://
 - Update the CLI banner
  
 #### [platform-testing](https://github.com/pndaproject/platform-testing)
-##### Changes
+##### Changed
 - Enhanced CI support
  
 #### [platform-tools](https://github.com/pndaproject/platform-tools)

@@ -23,6 +23,10 @@ The design consists of a main class that implements the APIs and coordinates bet
 
 HTTP and Python bindings are provided for these APIs.
 
+## Connecting
+
+By default, the Deployment Manager is installed on `edge` node o. In order to access it go to: http://[cluster-name]-cdh-edge:5000
+
 ## Repository ##
 
 Packages are made available via a repository. The Deployment Manager is configured with a client of this repository at instantiation time. The reference repository is implemented as a thin wrapper over an Openstack Swift container.
