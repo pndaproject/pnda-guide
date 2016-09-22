@@ -84,4 +84,5 @@
     * Documentation
         * pnda-guide
 * [References](others/README.md)
+* [Release Notes](others/release-note-3.1.md)
 * [Changelog](CHANGELOG.md)

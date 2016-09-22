@@ -1,5 +1,5 @@
 # Versions
-The following table lists the version numbers of the technologies used in the latest development version of PNDA.
+The following table lists the technologies used in this PNDA release.
 
 | Technology | Version |
 |---|---|
