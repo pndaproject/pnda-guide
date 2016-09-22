@@ -1,13 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [0.1.1] 2016-07-04
+## [0.1.2] 2016-09-09
+### Changed
+- Set grafana version to 3.1.1
+- Add details and links about AWS provisioning using CloudFormation
+- Add technology versions page to guide
+- Update Kafka security with details about SASL_SSL & ACL
 
-* new download link for the guide (pdf, mobi and epub)
+## [0.1.1] 2016-07-04
+### Changed
+- New download link for the guide (pdf, mobi and epub)
 
 ## [0.1.0] 2016-07-04
-
-* Initial release.
+### First release
 
 ## [Pre-release]
 

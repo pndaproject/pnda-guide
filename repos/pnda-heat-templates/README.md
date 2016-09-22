@@ -63,7 +63,7 @@ You MUST edit the `pnda_archive_container` to point to the Swift container where
 
     pnda_archive_container: 'pnda_archives'
 
-You can optionally add the `JavaMirror` or `ClouderaParcelsMirror` parameters to point to your private mirrors of the Sun Oracle Java tarball and Cloudera Parcels mirror. It can make deployment faster.  For example:
+You can optionally add the `JavaMirror`, `ClouderaParcelsMirror` and `AnacondaParcelsMirror` parameters to point to your private mirrors of the Sun Oracle Java tarball and Cloudera Parcels mirror. It can make deployment faster.  For example:
 
     JavaMirror: 'http://pnda-mirror.example.com/java/jdk/8u74-b02/jdk-8u74-linux-x64.tar.gz'
     ClouderaParcelsMirror: 'http://pnda-mirror.example.com/mirror/archive.cloudera.com/cdh5/parcels/5.5.2/'
