@@ -3,6 +3,7 @@
 This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
  * [Platform requirements](platform_requirements.md)
+ * [Building the package server](../repos/pnda-package-server-docker/README.md)
  * [Getting started with Heat](heat.md)
  * [Creating images for use with Heat templates](../repos/pnda-dib-elements/README.md)
  * [Using the PNDA Heat templates](../repos/pnda-heat-templates/README.md)
