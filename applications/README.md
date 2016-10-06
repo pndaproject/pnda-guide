@@ -66,7 +66,9 @@ The following component types currently are supported.
 - **sparkStreaming**	
  - A spark streaming application.
  - A text file named `application.properties` will be automatically appended with all variables known the the deployment manager and made available on the classpath. 
-
+- **jupyter**	
+ - A set of one or more notebook .ipynb files are deployed to Jupyter. They are not run automatically.
+ 
 ## Descriptors ##
 
 All component types may contain the following optional descriptors.
