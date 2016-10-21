@@ -42,7 +42,7 @@ It consists of the following source code repositories and sub-projects:
 
 ## Examples
 
- * [example-applications](repos/example-applications/README.md)
+ * [example-applications](repos/example-applications/README.md): example applications that can be built and run on PNDA
    * [spark-batch](repos/example-applications/spark-batch/README.md): example batch data processing application
    * [spark-streaming](repos/example-applications/spark-streaming/README.md): example streaming data processing application
    * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
