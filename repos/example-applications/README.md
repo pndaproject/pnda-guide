@@ -1,4 +1,4 @@
-# Example Kafka Clients
+# Example Applications
 
 This repository contains a number of example applications that can be built and run on PNDA. Each application directory contains more detailed information.
 
