@@ -42,14 +42,15 @@ It consists of the following source code repositories and sub-projects:
 
 ## Examples
 
- * [spark-batch](example-applications/spark-batch/README.md): example batch data processing application
- * [spark-streaming](example-applications/spark-streaming/README.md): example streaming data processing application
- * [jupyter-notebooks](example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
- * [example-kafka-clients](example-kafka-clients/README.md): examples for working with kafka clients
-   * [java](example-kafka-clients/java/README.md)
-   * [php](example-kafka-clients/php/README.md)
-   * [python](example-kafka-clients/python/README.md)
- * [kafka-spark-opentsdb](example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
+ * [example-applications](repos/example-applications/README.md)
+   * [spark-batch](repos/example-applications/spark-batch/README.md): example batch data processing application
+   * [spark-streaming](repos/example-applications/spark-streaming/README.md): example streaming data processing application
+   * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
+   * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
+ * [example-kafka-clients](repos/example-kafka-clients/README.md): examples for working with kafka clients
+   * [java](repos/example-kafka-clients/java/README.md)
+   * [php](repos/example-kafka-clients/php/README.md)
+   * [python](repos/example-kafka-clients/python/README.md)
 
 ## Documentation
 

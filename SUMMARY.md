@@ -73,14 +73,15 @@
         * [prod-odl-kafka](repos/prod-odl-kafka/README.md)
         * [prod-logstash-codec-avro](repos/prod-logstash-codec-avro/link.md)
     * Examples
-        * [spark-batch](repos/example-applications/spark-batch/README.md)
-        * [spark-streaming](repos/example-applications/spark-streaming/README.md)
-        * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/link.md)
+        * [example-applications](repos/example-applications/README.md)
+            * [spark-batch](repos/example-applications/spark-batch/README.md)
+            * [spark-streaming](repos/example-applications/spark-streaming/README.md)
+            * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/link.md)
+            * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md)
         * [example-kafka-clients](repos/example-kafka-clients/README.md)
             * [java](repos/example-kafka-clients/java/README.md)
             * [php](repos/example-kafka-clients/php/README.md)
             * [python](repos/example-kafka-clients/python/README.md)
-        * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md)
     * Documentation
         * pnda-guide
 * [References](others/README.md)
