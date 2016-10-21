@@ -39,7 +39,7 @@
 * [Structured Query](query/README.md)
     * [Impala](query/impala.md)
 * [Data Exploration](exploration/README.md)
-    * [Jupyter](repos/example-jupyter-notebooks/README.md)
+    * [Jupyter](repos/example-applications/jupyter-notebooks/README.md)
     * [Exploratory data analytics tutorial](exploration/lab.md)
 * [Time Series](timeseries/README.md)
     * [OpenTSDB](timeseries/opentsdb.md)
@@ -73,14 +73,14 @@
         * [prod-odl-kafka](repos/prod-odl-kafka/README.md)
         * [prod-logstash-codec-avro](repos/prod-logstash-codec-avro/link.md)
     * Examples
-        * [example-spark-batch](repos/example-spark-batch/README.md)
-        * [example-spark-streaming](repos/example-spark-streaming/README.md)
-        * [example-jupyter-notebooks](repos/example-jupyter-notebooks/link.md)
+        * [spark-batch](repos/example-applications/spark-batch/README.md)
+        * [spark-streaming](repos/example-applications/spark-streaming/README.md)
+        * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/link.md)
         * [example-kafka-clients](repos/example-kafka-clients/README.md)
             * [java](repos/example-kafka-clients/java/README.md)
             * [php](repos/example-kafka-clients/php/README.md)
             * [python](repos/example-kafka-clients/python/README.md)
-        * [example-kafka-spark-opentsdb-app](repos/example-kafka-spark-opentsdb-app/README.md)
+        * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md)
     * Documentation
         * pnda-guide
 * [References](others/README.md)

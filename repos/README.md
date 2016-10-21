@@ -42,14 +42,14 @@ It consists of the following source code repositories and sub-projects:
 
 ## Examples
 
- * [example-spark-batch](example-spark-batch/README.md): example batch data processing application
- * [example-spark-streaming](example-spark-streaming/README.md): example streaming data processing application
- * [example-jupyter-notebooks](example-jupyter-notebooks/README.md): examples for working with Jupyter notebooks
+ * [spark-batch](example-applications/spark-batch/README.md): example batch data processing application
+ * [spark-streaming](example-applications/spark-streaming/README.md): example streaming data processing application
+ * [jupyter-notebooks](example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
  * [example-kafka-clients](example-kafka-clients/README.md): examples for working with kafka clients
    * [java](example-kafka-clients/java/README.md)
    * [php](example-kafka-clients/php/README.md)
    * [python](example-kafka-clients/python/README.md)
- * [example-kafka-spark-opentsdb-app](example-kafka-spark-opentsdb-app/README.md): example consumer that feeds data to OpenTSDB
+ * [kafka-spark-opentsdb](example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
 
 ## Documentation
 
