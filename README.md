@@ -161,14 +161,15 @@ The PNDA distribution consists of the following source code repositories and sub
 
 ### Examples
 
- * [example-spark-batch](repos/example-spark-batch/README.md): example batch data processing application
- * [example-spark-streaming](repos/example-spark-streaming/README.md): example streaming data processing application
- * [example-jupyter-notebooks](repos/example-jupyter-notebooks/README.md): examples for working with Jupyter notebooks
+ * [example-applications](repos/example-applications/README.md): example applications that can be built and run on PNDA
+   * [spark-batch](repos/example-applications/spark-batch/README.md): example batch data processing application
+   * [spark-streaming](repos/example-applications/spark-streaming/README.md): example streaming data processing application
+   * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
+   * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
  * [example-kafka-clients](repos/example-kafka-clients/README.md): examples for working with kafka clients
    * [java](repos/example-kafka-clients/java/README.md)
    * [php](repos/example-kafka-clients/php/README.md)
    * [python](repos/example-kafka-clients/python/README.md)
- * [example-kafka-spark-opentsdb-app](repos/example-kafka-spark-opentsdb-app/README.md): example consumer that feeds data to OpenTSDB
  
 ### Documentation
 

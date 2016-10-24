@@ -2,7 +2,7 @@
 
 ## Objectives ##
 
-This tutorial demonstrates how to use [Jupyter](jupyter.md) to access data and make sense of data interactively using the Jupyter pyspark interpreter. This tutorial uses the PNDA [example notebook](../repos/example-jupyter-notebooks/README.md), where you should be able to find how to connect and upload the example notebook to the Jupyter server on your PNDA cluster.
+This tutorial demonstrates how to use [Jupyter](jupyter.md) to access data and make sense of data interactively using the Jupyter pyspark interpreter. This tutorial uses the PNDA [example notebook](../repos/example-applications/jupyter-notebooks/README.md), where you should be able to find how to connect and upload the example notebook to the Jupyter server on your PNDA cluster.
 
 ## Technical Accomplishments ##
 
