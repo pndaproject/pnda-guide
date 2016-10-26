@@ -145,7 +145,8 @@ In order to benefit from upstream bug fixes the version of Salt used has been mo
 - sed command to update Cloud-init configuration file
 
 #### [pnda-guide](https://github.com/pndaproject/pnda-guide)
-- TBD
+##### Changed
+- Clarifications and improvements to many areas for 3.2 release
  
 #### [pnda-heat-templates](https://github.com/pndaproject/pnda-heat-templates)
 ##### Changed
