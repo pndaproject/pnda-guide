@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] 2016-10-21
+### Changed
+- Clarifications and improvements to many areas for 3.2 release
+
 ## [0.1.2] 2016-09-09
 ### Changed
 - Set grafana version to 3.1.1
