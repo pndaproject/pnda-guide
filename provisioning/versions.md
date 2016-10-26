@@ -3,7 +3,7 @@ The following table lists the technologies used in this PNDA release.
 
 | Technology | Version |
 |---|---|
-|SaltStack|2015.8.10|
+|SaltStack|2015.8.11|
 |OpenStack Heat templates|2014-10-16|
 |AWS CFN templates|2010-09-09|
 |Kafka|0.10.0.1|
