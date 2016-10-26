@@ -54,7 +54,7 @@ PNDA uses Apache Spark Streaming to achieve high-velocity stream processing. Sim
 
 Data exploration is a prerequisite step before formal anlaysis. From a data science perspective, free-form data exploration helps the process of understanding the raw data structure, or determining how to clean or transform the data. It enables experimentation with different statistical models or machine learning algorithms, and gives early business insight into the data.   
 
-PNDA integrates [Jupyter Notebook](../repos/example-jupyter-notebooks/README.md), a web-based application that enables interactive, free-form data exploration. With the predefined *Pyspark kernel* and PNDA [platform libraries](../repos/platform-libraries/README.md), you can load data from the distributed file system, run experiments in batch mode, and even rapid prototype big data applications. Together with the pre-configured graphic tools, you can also graphically review your application data or experimental results. 
+PNDA integrates [Jupyter Notebook](../repos/example-applications/jupyter-notebooks/README.md), a web-based application that enables interactive, free-form data exploration. With the predefined *Pyspark kernel* and PNDA [platform libraries](../repos/platform-libraries/README.md), you can load data from the distributed file system, run experiments in batch mode, and even rapid prototype big data applications. Together with the pre-configured graphic tools, you can also graphically review your application data or experimental results. 
 
 ## Structured query over big data
 

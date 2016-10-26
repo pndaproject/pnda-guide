@@ -8,6 +8,23 @@ This repository contains scripts that can build a fully functional package serve
 
 The scripts are designed to run inside a [Docker](https://www.docker.com) container. See the instructions for [installing Docker](https://docs.docker.com/engine/installation).
 
+The scripts were tested using a host machine running [Ubuntu](http://www.ubuntu.com)
+
+1. 14.04 LTS with 8 GB of memory & Docker version 1.8.3
+2. 16.04 LTS with 10 GB of memory & Docker version 1.12.1, build 23cf638
+
+A minumum of 10Gb disk space is recommended.
+
+The scripts may work in other UNIX environments as well. See the [Questions & Answers](http://pndaproject.io/qa) site for further information.
+
+## Pull in the repo
+
+Before you can build the package server container, you must clone the repository onto your host machine:
+
+`git clone https://github.com/pndaproject/pnda-package-server-docker`
+
+Now change directory into `pnda-package-server-docker`
+
 ## Building the package server container
 
 TODO: push the docker images to a registry.

@@ -2,14 +2,21 @@
 
 Deploying PNDA using Heat templates requires an image with some pre-installed elements, such as `os-collect-config`. This guide describes how to build such an image from a set of external disk-image-builder elements.
 
-PNDA currently uses the Ubuntu operating system. 
+PNDA currently uses the Ubuntu operating system, but you can use Ubuntu or Centos OSes to create the PNDA image.
 
 ## Pre-requesites
 
 **Important:** these dependencies install correctly on an Ubuntu 14.04 *server* image but fail on a *desktop* images.
 
+If you are on Ubuntu:
 ```
 sudo apt-get -y install python-pip python-dev qemu-utils libguestfs-tools
+```
+
+If you are on Centos:
+```
+sudo yum install epel-release
+sudo yum install python-pip python-devel libguestfs-tools
 ```
 
 ## Setting up a virtualenv
@@ -29,26 +36,18 @@ virtualenv /path/to/project/pnda-dib
 
 ## Getting the required elements
 
-Clone the `openstack/tripleo-image-elements` repo:
-
+Update submodules:
 ```
-git clone https://github.com/openstack/tripleo-image-elements.git
-```
-
-Clone the `openstack/heat-templates` repo:
-
-```
-git clone https://github.com/openstack/heat-templates.git
+git submodule init
+git submodule update
 ```
 
 Install `openstack/diskimage-builder`:
 
 ```
-git clone https://github.com/openstack/dib-utils.git
 cd dib-utils
 python setup.py install
 cd ..
-git clone https://github.com/openstack/diskimage-builder.git
 cd diskimage-builder
 python setup.py install
 cd ..
@@ -56,24 +55,32 @@ pip install six
 pip install PyYAML
 ```
 
-Set up environment variables, assuming you currently are in this repository's project directory (there is at least a pnda-cloud-init directory present):
+Set up environment variables, assuming you currently are in this repository's project directory (there is at least a elements directory present):
 
 
 ```
 cat > dib_env.sh <<EOF
-export ELEMENTS_PATH=tripleo-image-elements/elements:heat-templates/hot/software-config/elements:.
+export ELEMENTS_PATH=tripleo-image-elements/elements:heat-templates/hot/software-config/elements:elements
 export BASE_ELEMENTS="ubuntu"
+
 # MANDATORY ELEMENTS FOR PNDA PROVISIONING
 export AGENT_ELEMENTS="os-collect-config os-refresh-config os-apply-config"
+
 # MANDATORY ELEMENTS FOR PNDA PROVISIONING
 export DEPLOYMENT_BASE_ELEMENTS="heat-config heat-config-script"
+
 # NON MANDATORY ELEMENTS FOR PNDA PROVISIONING
 # but might be helpful if you plan to use anible, saltstack or puppet
 # export DEPLOYMENT_TOOL="heat-config-ansible heat-config-salt heat-config-puppet"
 # PNDA ELEMENTS
+
+# USE AN ALTERNATE UBUNTU MIRROR
+# export DIB_DISTRIBUTION_MIRROR="http://[MIRRORIP]/ubuntu"
+
 export PNDA_ELEMENTS="cloud-init-pnda"
 export IMAGE_NAME=ubuntu-software-config
 export ALL_ELEMENTS="\$BASE_ELEMENTS \$AGENT_ELEMENTS \$DEPLOYMENT_BASE_ELEMENTS \$DEPLOYMENT_TOOL \$PNDA_ELEMENTS"
+
 EOF
 . dib_env.sh
 ```
@@ -96,5 +103,5 @@ Upload the image to the OpenStack image service:
 
 ```
 . your_openstack_rc.sh
-glance image-create --name pnda-base --file ubuntu-software-config.qcow2 --progress --disk-format qcow2 --container-format bare --is-public true
+glance image-create --name pnda-base --file ubuntu-software-config.qcow2 --progress --disk-format qcow2 --container-format bare
 ```

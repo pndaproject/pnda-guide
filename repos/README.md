@@ -42,14 +42,15 @@ It consists of the following source code repositories and sub-projects:
 
 ## Examples
 
- * [example-spark-batch](example-spark-batch/README.md): example batch data processing application
- * [example-spark-streaming](example-spark-streaming/README.md): example streaming data processing application
- * [example-jupyter-notebooks](example-jupyter-notebooks/README.md): examples for working with Jupyter notebooks
- * [example-kafka-clients](example-kafka-clients/README.md): examples for working with kafka clients
-   * [java](example-kafka-clients/java/README.md)
-   * [php](example-kafka-clients/php/README.md)
-   * [python](example-kafka-clients/python/README.md)
- * [example-kafka-spark-opentsdb-app](example-kafka-spark-opentsdb-app/README.md): example consumer that feeds data to OpenTSDB
+ * [example-applications](repos/example-applications/README.md): example applications that can be built and run on PNDA
+   * [spark-batch](repos/example-applications/spark-batch/README.md): example batch data processing application
+   * [spark-streaming](repos/example-applications/spark-streaming/README.md): example streaming data processing application
+   * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
+   * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
+ * [example-kafka-clients](repos/example-kafka-clients/README.md): examples for working with kafka clients
+   * [java](repos/example-kafka-clients/java/README.md)
+   * [php](repos/example-kafka-clients/php/README.md)
+   * [python](repos/example-kafka-clients/python/README.md)
 
 ## Documentation
 

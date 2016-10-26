@@ -2,7 +2,7 @@
 
 ## Objectives
 
-In this lab you will discover how to compile and deploy a [Spark Streaming](../repos/example-spark-streaming/README.md) application and then use [Impala](../query/impala.md) to query the data it writes to [HBase](https://hbase.apache.org/).
+In this lab you will discover how to compile and deploy a [Spark Streaming](../repos/example-applications/spark-streaming/README.md) application and then use [Impala](../query/impala.md) to query the data it writes to [HBase](https://hbase.apache.org/).
 
 Applications that run on PNDA are packaged as `tar.gz` archives and pushed to an application repository. The `tar` archive contains all the binaries and configuration required to run the application. 
 
@@ -17,7 +17,7 @@ Make sure you are familiar with the following before proceeding with the lab:
 - The [Deployment Manager API](../repos/platform-deployment-manager/README.md) provides a mechanism for discovering available packages and deploying & undeploying functionality. It works with a well-defined package structure to make it fast and straightforward to get real scalable analytics running on the platform.
 - Make sure that your package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
 - The [platform-package-repository](../repos/platform-package-repository/README.md) tool lets you upload packages to OpenStack Swift. 
-- - Read the technical notes in the [example repository](../repos/example-spark-streaming/README.md).
+- - Read the technical notes in the [example repository](../repos/example-applications/spark-streaming/README.md).
 
 ## Requirements
 
@@ -35,7 +35,7 @@ The PNDA distribution is available on GitHub at:
 
  * [https://github.com/pndaproject](https://github.com/pndaproject)
 
-Clone the [example-spark-streaming](../repos/example-spark-streaming/README.md) repository. 
+Clone the [spark-streaming](../repos/example-applications/spark-streaming/README.md) repository. 
 
 ### Compile with maven
 
@@ -54,7 +54,7 @@ Use the graphical interface in the console to deploy [packages](../console/packa
 
 ## Producing test data
 
-The technical notes in the [example repository](../repos/example-spark-streaming/README.md) describe how to set up a test producer that will create suitable test data for consumption by this example application.
+The technical notes in the [example repository](../repos/example-applications/spark-streaming/README.md) describe how to set up a test producer that will create suitable test data for consumption by this example application.
 
 ## Understanding what the application is doing
 
