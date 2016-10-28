@@ -61,6 +61,7 @@ Other pages on the console let you view detailed metrics, deploy packages, run a
  * [Packages](console/packages.md)
  * [Applications](console/applications.md)
  * [Datasets](console/datasets.md)
+ * [UI links and credentials](console/uicredentials.md) 
 
 ## [Producers](producer/README.md)
 
