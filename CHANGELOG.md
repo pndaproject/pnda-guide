@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] 2016-10-31
+###
+- Updated to note details of hotfix in release 3.2.1
+
 ## [0.1.3] 2016-10-21
 ### Changed
 - Clarifications and improvements to many areas for 3.2 release
