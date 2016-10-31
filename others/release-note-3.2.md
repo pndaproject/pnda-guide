@@ -37,7 +37,7 @@ In order to benefit from upstream bug fixes the version of Salt used has been mo
 |[platform-tools](#platform-tools)|0.1.0|01 Jul 2016|
 |[pnda-aws-templates](#pnda-aws-templates)|1.0.0|21 Oct 2016|
 |[pnda-dib-elements](#pnda-dib-elements)|0.1.1|21 Oct 2016|
-|[pnda-guide](#pnda-guide)|0.1.2|09 Sep 2016|
+|[pnda-guide](#pnda-guide)|0.1.3|21 Oct 2016|
 |[pnda-heat-templates](#pnda-heat-templates)|1.0.0|21 Oct 2016|
 |[pnda-package-server-docker](#pnda-package-server-docker)|0.1.1|21 Oct 2016|
 |[prod-logstash-codec-avro](#prod-logstash-codec-avro)|0.2.0|09 Sep 2016|
