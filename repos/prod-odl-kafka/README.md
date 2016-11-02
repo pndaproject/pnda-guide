@@ -27,7 +27,7 @@ The `prod-odl-kafka` has been development using Lithium maven artetype and teste
 ### Step 1: Clone source code
 
 ```
-git clone https://cto-github.cisco.com/CTAO-Team6-Analytics/prod-odl-kafka.git
+git clone https://github.com/CiscoDevNet/odl-kafka-plugin.git
 ```
 
 ### Step 2: Build from source
