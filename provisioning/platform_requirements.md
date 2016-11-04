@@ -1,8 +1,8 @@
-# Platform requirements
+# Cloud platform requirements
 
-PNDA is designed to be deployed on an [OpenStack](https://www.openstack.org/) cloud computing infrastructure. This guide assumes that you are familiar with OpenStack, and that you have an environment set up in which you can create instances, whether in a public or private cloud.
+PNDA is designed to be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on Amazon Web Services (AWS). This guide assumes that you are familiar with OpenStack, and that you have an environment set up in which you can create instances, whether in a public or private cloud. Or in the case of AWS, have an account with AWS.
 
-## Requirements
+## Openstack Requirements
 
 - PNDA is supported on OpenStack [Kilo](http://releases.openstack.org) or later.
 - Instances are created using [Ubuntu](http://www.ubuntu.com) version 14.04.
@@ -25,45 +25,112 @@ The Swift container and pseudo-folder path within the Swift container can be con
 Data from PNDA data sets can be archived to Swift automatically. A Swift container must be created in Swift to be used for this purpose. By default a swift container called `archive` should be created but this can be configured using the `pnda.archive_container` setting in the salt pillar.
 
 ## Resources
+The resource requirements for the default pico and standard flavor PNDA clusters are detailed below. However, you are strongly encouraged to create a PNDA flavor specifically designed for your infrastructure.
 
-A typical standard PNDA cluster has the following requirements. However, you are strongly encouraged to create a PNDA flavor specifically designed for your infrastructure.
+### HEAT
+#### Cluster configuration: Pico
 
-### Cluster configuration
+Pico flavor is intended for development / learning purposes. It is fully functional, but does not run the core services in high-availability mode and does not provide much storage space or compute resource.
 
-| Role | Flavor | Number required |
-| --- | --- | --- |
-|  `Manager1Flavor`| `C`|1|
-|  `Manager2Flavor`| `A`|1|
-|  `Manager3Flavor`| `A`|1|
-|  `Manager4Flavor`| `A`|1|
-|  `LogserverFlavor`| `H`|1|
-|  `EdgeFlavor`| `G`|1|
-|  `JupyterFlavor`| `B`|1|
-|  `OpentsdbFlavor`| `E`|2|
-|  `ToolsFlavor`| `F`|1|
-|  `ZookeeperFlavor`| `F`|3|
-|  `KafkaFlavor`| `D`|2|
-|  `DatanodeFlavor`| `A`|3|
-|  `BastionFlavor`| `I`|1|
-|  `SaltmasterFlavor`| `I`|1|
-|  `DatanodeVolumeSize`| 1024|per DN|
+| Role | Number required | CPUs | Memory | Storage
+| --- | --- | --- | --- | --- |
+|  `bastion`   | 1 | 1 |  2 GB | 20 GB
+|  `saltmaster`| 1 | 1 |  2 GB | 20 GB
+|  `edge`      | 1 | 4 | 10 GB | 30 GB
+|  `mgr1`      | 1 | 4 | 8 GB | 30 GB
+|  `datanode`  | 1 | 4 | 8 GB | 65 GB
+|  `kafka`     | 1 | 2 | 8 GB | 30 GB
+| -  |  - | -  |  - | -  |
+|  `total`     | 6 | 16 | 38 GB | 198 GB
 
-Instances are defined with the following sizes:
+The storage per node is allocated as:
+ - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 20 GB operating system partition. This is configured in the templates per-node.
+ - 35 GB HDFS (only on datanode). This is configured in the templates for the datanode.
 
-|Flavor|vCPUs|Memory|Storage|
-|-----|--:|------:|-------:|
-| `A` | 8 | 32 GB | 250 GB |
-| `B` | 8 | 16 GB | 250 GB |
-| `C` | 4 | 16 GB | 250 GB |
-| `D` | 4 | 16 GB |  50 GB |
-| `E` | 4 |  8 GB |  50 GB |
-| `F` | 2 |  8 GB |  50 GB |
-| `G` | 1 |  4 GB | 250 GB |
-| `H` | 2 |  4 GB | 500 GB |
-| `I` | 1 |  2 GB |  20 GB |
+#### Cluster configuration: Standard
+
+Standard flavor is intended for meaningful PoC and investigations at scale. It runs the core services in high-availability mode and provides reasonable storage space and compute resource.
+
+| Role | Number required | CPUs | Memory | Storage
+| --- | --- | --- | --- | --- |
+|  `bastion`   | 1 | 1 |  2 GB |   50 GB
+|  `saltmaster`| 1 | 1 |  2 GB |   50 GB
+|  `edge`      | 1 | 1 |  4 GB |  500 GB
+|  `mgr1`      | 1 | 8 | 32 GB |  500 GB
+|  `mgr2`      | 1 | 8 | 32 GB |  500 GB
+|  `mgr3`      | 1 | 8 | 32 GB |  500 GB
+|  `mgr4`      | 1 | 8 | 32 GB |  500 GB
+|  `datanode`  | 3 | 8 | 32 GB | 1324 GB
+|  `opentsdb`  | 2 | 4 |  8 GB |  300 GB
+|  `cloudera-manager`| 1 | 4 | 8 GB |  300 GB
+|  `jupyter`   | 1 | 8 | 16 GB | 300 GB
+|  `logserver` | 1 | 2 |  4 GB | 300 GB
+|  `kafka`     | 2 | 4 | 16 GB | 400 GB
+|  `zookeeper` | 3 | 2 |  8 GB | 300 GB
+|  `tools`     | 1 | 2 |  8 GB | 300 GB
+| -  |  - | -  |  - | -  |
+|  `total`     | 21 | 97 | 340 GB | 9.8TB
+
+The storage per node is allocated as:
+ - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
+ - 50-250 GB operating system partition. This is configured in the templates per-node.
 
 ## OpenStack Heat vs. Salt Cloud
 
-The primary way of provisioning a PNDA cluster is with [OpenStack Heat](../repos/pnda-heat-templates/README.md). You can run Heat on your own computer, but it only works in the OpenStack environment.
+The primary way of provisioning a PNDA cluster on OpenStack cloud is with [OpenStack Heat](../repos/pnda-heat-templates/README.md).
 
-Alternatively, you can use [Salt Cloud](saltstack.md) to provision a cluster. In this case, you must manually create a salt master instance, and then run salt remotely on that instance.
+Alternatively, you can use [Salt Cloud](saltstack.md) to provision a cluster. In this case, you must manually create a salt master instance, and then run salt remotely on that instance. Please refer to [this guide](saltstack.md) for details.
+
+### AWS
+
+#### Cluster configuration: Pico
+
+Pico flavor is intended for development / learning purposes. It is fully functional, but does not run the core services in high-availability mode and does not provide much storage space or compute resource.
+
+| Role | Instance type | Number required | CPUs | Memory | Storage
+| --- | --- | --- | --- | --- | --- | --- |
+|  `bastion`   |  t2.medium  | 1 | 2 |  4 GB   | 20 GB
+|  `edge`      |  m3.xlarge  | 1 | 4 | 15 GB   | 30 GB
+|  `mgr1`      |  m3.xlarge  | 1 | 4 | 15 GB   | 30 GB
+|  `datanode`  |  c4.xlarge  | 1 | 4 |  7.5 GB | 65 GB
+|  `kafka`     |  m3.large   | 1 | 2 |  7.5 GB | 30 GB
+| -  |  - | -  | -  | -  | -  |
+|  `total`     |  | 5 | 16 | 49 GB | 198 GB
+
+The storage per node is allocated as:
+ - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 20 GB operating system partition. This is configured in the templates per-node.
+ - 35 GB HDFS (only on datanode). This is configured in the templates for the datanode.
+
+#### Cluster configuration: Standard
+
+Standard flavor is intended for meaningful PoC and investigations at scale. It runs the core services in high-availability mode and provides reasonable storage space and compute resource.
+
+| Role | Instance type | Number required | CPUs | Memory | Storage
+| --- | --- | --- | --- | --- | --- | --- |
+|  `bastion`         |  t2.medium  | 1 | 2 |  4 GB   | 50 GB
+|  `saltmaster`      |  m3.large   | 1 | 2 |  7.5 GB | 50 GB
+|  `edge`            |  t2.medium  | 1 | 2 |  4 GB   | 500 GB
+|  `mgr1`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
+|  `mgr2`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
+|  `mgr3`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
+|  `mgr4`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
+|  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1324 GB
+|  `opentsdb`        |  m3.xlarge  | 2 | 4 | 15 GB   | 300 GB
+|  `cloudera-manager`|  m3.xlarge  | 1 | 4 | 15 GB   | 300 GB
+|  `jupyter`         |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
+|  `logserver`       |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
+|  `kafka`           |  m3.xlarge  | 2 | 4 | 15 GB   | 400 GB
+|  `zookeeper`       |  m3.large   | 3 | 2 |  7.5 GB | 300 GB
+|  `tools`           |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
+| -  |  - | -  |  - | -  | -  |
+|  `total`           |   | 21 | 94 |  352 GB | 9.8TB
+
+The storage per node is allocated as:
+ - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
+ - 50-250 GB operating system partition. This is configured in the templates per-node.
+
+
