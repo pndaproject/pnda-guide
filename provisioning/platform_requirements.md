@@ -65,12 +65,12 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `opentsdb`  | 2 | 4 |  8 GB |  300 GB
 |  `cloudera-manager`| 1 | 4 | 8 GB |  300 GB
 |  `jupyter`   | 1 | 8 | 16 GB | 300 GB
-|  `logserver` | 1 | 2 |  4 GB | 300 GB
+|  `logserver` | 1 | 2 |  4 GB | 750 GB
 |  `kafka`     | 2 | 4 | 16 GB | 400 GB
 |  `zookeeper` | 3 | 2 |  8 GB | 300 GB
 |  `tools`     | 1 | 2 |  8 GB | 300 GB
 | -  |  - | -  |  - | -  |
-|  `total`     | 21 | 97 | 340 GB | 9.8TB
+|  `total`     | 21 | 97 | 340 GB | 10.2TB
 
 The storage per node is allocated as:
  - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
@@ -121,12 +121,12 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `opentsdb`        |  m3.xlarge  | 2 | 4 | 15 GB   | 300 GB
 |  `cloudera-manager`|  m3.xlarge  | 1 | 4 | 15 GB   | 300 GB
 |  `jupyter`         |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
-|  `logserver`       |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
+|  `logserver`       |  m3.large   | 1 | 2 |  7.5 GB | 750 GB
 |  `kafka`           |  m3.xlarge  | 2 | 4 | 15 GB   | 400 GB
 |  `zookeeper`       |  m3.large   | 3 | 2 |  7.5 GB | 300 GB
 |  `tools`           |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
 | -  |  - | -  |  - | -  | -  |
-|  `total`           |   | 21 | 94 |  352 GB | 9.8TB
+|  `total`           |   | 21 | 94 |  352 GB | 10.2TB
 
 The storage per node is allocated as:
  - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
