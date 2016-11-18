@@ -41,7 +41,7 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 |  `datanode`  | 1 | 4 | 8 GB | 65 GB
 |  `kafka`     | 1 | 2 | 8 GB | 30 GB
 | -  |  - | -  |  - | -  |
-|  `total`     | 6 | 16 | 38 GB | 198 GB
+|  `total`     | 6 | 16 | 38 GB | 195 GB
 
 The storage per node is allocated as:
  - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
@@ -97,7 +97,7 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 |  `datanode`  |  c4.xlarge  | 1 | 4 |  7.5 GB | 65 GB
 |  `kafka`     |  m3.large   | 1 | 2 |  7.5 GB | 30 GB
 | -  |  - | -  | -  | -  | -  |
-|  `total`     |  | 5 | 16 | 49 GB | 198 GB
+|  `total`     |  | 5 | 16 | 49 GB | 175 GB
 
 The storage per node is allocated as:
  - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
