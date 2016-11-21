@@ -56,24 +56,24 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 | --- | --- | --- | --- | --- |
 |  `bastion`   | 1 | 1 |  2 GB |   50 GB
 |  `saltmaster`| 1 | 1 |  2 GB |   50 GB
-|  `edge`      | 1 | 1 |  4 GB |  500 GB
-|  `mgr1`      | 1 | 8 | 32 GB |  500 GB
-|  `mgr2`      | 1 | 8 | 32 GB |  500 GB
-|  `mgr3`      | 1 | 8 | 32 GB |  500 GB
-|  `mgr4`      | 1 | 8 | 32 GB |  500 GB
-|  `datanode`  | 3 | 8 | 32 GB | 1324 GB
-|  `opentsdb`  | 2 | 4 |  8 GB |  300 GB
-|  `cloudera-manager`| 1 | 4 | 8 GB |  300 GB
-|  `jupyter`   | 1 | 8 | 16 GB | 300 GB
-|  `logserver` | 1 | 2 |  4 GB | 750 GB
-|  `kafka`     | 2 | 4 | 16 GB | 400 GB
-|  `zookeeper` | 3 | 2 |  8 GB | 300 GB
-|  `tools`     | 1 | 2 |  8 GB | 300 GB
+|  `edge`      | 1 | 1 |  4 GB |  370 GB
+|  `mgr1`      | 1 | 8 | 32 GB |  370 GB
+|  `mgr2`      | 1 | 8 | 32 GB |  370 GB
+|  `mgr3`      | 1 | 8 | 32 GB |  370 GB
+|  `mgr4`      | 1 | 8 | 32 GB |  370 GB
+|  `datanode`  | 3 | 8 | 32 GB | 1194 GB
+|  `opentsdb`  | 2 | 4 |  8 GB |  50 GB
+|  `cloudera-manager`| 1 | 4 | 8 GB |  170 GB
+|  `jupyter`   | 1 | 8 | 16 GB | 50 GB
+|  `logserver` | 1 | 2 |  4 GB | 500 GB
+|  `kafka`     | 2 | 4 | 16 GB | 270 GB
+|  `zookeeper` | 3 | 2 |  8 GB | 170 GB
+|  `tools`     | 1 | 2 |  8 GB | 50 GB
 | -  |  - | -  |  - | -  |
-|  `total`     | 21 | 97 | 340 GB | 10.2TB
+|  `total`     | 21 | 97 | 340 GB | 7.3TB
 
 The storage per node is allocated as:
- - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
  - 50-250 GB operating system partition. This is configured in the templates per-node.
 
@@ -112,24 +112,24 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 | --- | --- | --- | --- | --- | --- | --- |
 |  `bastion`         |  t2.medium  | 1 | 2 |  4 GB   | 50 GB
 |  `saltmaster`      |  m3.large   | 1 | 2 |  7.5 GB | 50 GB
-|  `edge`            |  t2.medium  | 1 | 2 |  4 GB   | 500 GB
-|  `mgr1`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
-|  `mgr2`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
-|  `mgr3`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
-|  `mgr4`            |  m3.2xlarge | 1 | 8 |  30 GB  | 500 GB
-|  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1324 GB
-|  `opentsdb`        |  m3.xlarge  | 2 | 4 | 15 GB   | 300 GB
-|  `cloudera-manager`|  m3.xlarge  | 1 | 4 | 15 GB   | 300 GB
-|  `jupyter`         |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
-|  `logserver`       |  m3.large   | 1 | 2 |  7.5 GB | 750 GB
-|  `kafka`           |  m3.xlarge  | 2 | 4 | 15 GB   | 400 GB
-|  `zookeeper`       |  m3.large   | 3 | 2 |  7.5 GB | 300 GB
-|  `tools`           |  m3.large   | 1 | 2 |  7.5 GB | 300 GB
+|  `edge`            |  t2.medium  | 1 | 2 |  4 GB   | 370 GB
+|  `mgr1`            |  m3.2xlarge | 1 | 8 |  30 GB  | 370 GB
+|  `mgr2`            |  m3.2xlarge | 1 | 8 |  30 GB  | 370 GB
+|  `mgr3`            |  m3.2xlarge | 1 | 8 |  30 GB  | 370 GB
+|  `mgr4`            |  m3.2xlarge | 1 | 8 |  30 GB  | 370 GB
+|  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB
+|  `opentsdb`        |  m3.xlarge  | 2 | 4 | 15 GB   | 50 GB
+|  `cloudera-manager`|  m3.xlarge  | 1 | 4 | 15 GB   | 170 GB
+|  `jupyter`         |  m3.large   | 1 | 2 |  7.5 GB | 50 GB
+|  `logserver`       |  m3.large   | 1 | 2 |  7.5 GB | 500 GB
+|  `kafka`           |  m3.xlarge  | 2 | 4 | 15 GB   | 270 GB
+|  `zookeeper`       |  m3.large   | 3 | 2 |  7.5 GB | 170 GB
+|  `tools`           |  m3.large   | 1 | 2 |  7.5 GB | 50 GB
 | -  |  - | -  |  - | -  | -  |
-|  `total`           |   | 21 | 94 |  352 GB | 10.2TB
+|  `total`           |   | 21 | 94 |  352 GB | 7.3TB
 
 The storage per node is allocated as:
- - 250 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
  - 50-250 GB operating system partition. This is configured in the templates per-node.
 
