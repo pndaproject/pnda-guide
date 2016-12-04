@@ -37,7 +37,7 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 |  `bastion`   | 1 | 1 |  2 GB | 20 GB
 |  `saltmaster`| 1 | 1 |  2 GB | 20 GB
 |  `edge`      | 1 | 4 | 10 GB | 30 GB
-|  `mgr1`      | 1 | 4 | 8 GB | 30 GB
+|  `mgr1`      | 1 | 4 | 15 GB | 30 GB
 |  `datanode`  | 1 | 4 | 8 GB | 65 GB
 |  `kafka`     | 1 | 2 | 8 GB | 30 GB
 | -  |  - | -  |  - | -  |
