@@ -13,30 +13,33 @@ This repository contains resources for launching PNDA on [Amazon Web Services](h
 
 # Steps to provision PNDA on AWS
 
-## On AWS
 1. Obtain an AWS account.
-2. Create a bucket in S3 for PNDA applications. A bucket for archived data is automatically created by PNDA. The names of these buckets are configured in pnda_env.yaml (see step 3 below). AWS credientials should be created for an IAM user with access to these specific S3 buckets only. For help creating a user with these permissions, please refer [here](s3help.md).
 
-## From a local clone of this repo
-1. Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
+2. Create a bucket in S3 for PNDA applications. A bucket for archived data is automatically created by PNDA. The names of these buckets are configured in pnda_env.yaml (see step 7 below). AWS credientials should be created for an IAM user with access to these specific S3 buckets only. For help creating a user with these permissions, please refer [here](s3help.md).
 
-2. Edit pnda_env.yaml with [AWS credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) and an Ubuntu 14.04 image ID. Regarding the AMI, you should select an AMI with type HVM as we are using instance type t2 and m3 (for more details, you can find more details on [AWS Virtualization types](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)). At least two sets of AWS credientials should be supplied:
- - One set with access to EC2 and cloud formation used to create PNDA, these are only ever stored on the client machine.
- - One or more sets created for the IAM user(s) with access to the specific S3 buckets only as these credentials will be stored in plain text on some of the nodes launched in AWS. For help creating a user with these permissions, please refer [here](s3help.md).
+3. Clone this pnda-aws-templates repository from the master branch at a specific release tag e.g. `release/x.x.x`.
 
-3. Edit pnda_env.yaml with the names of the buckets to use for PNDA applications and PNDA archived data.
+4. Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
-4. Edit pnda_env.yaml with the component package server IP address. A component package server provides a webserver for the binaries for the pnda components, the PNDA guide contains instructions on how to set up a component package server.
+5. Edit pnda_env.yaml with an Ubuntu 14.04 image ID (`cloud_formation_parameters.imageId`). This should be the AWS default ubuntu AMI for the region you are provisioning into.
 
-5. Create [an ssh keypair](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) to use when creating the EC2 instances for PNDA as ```key_name```. Place the private key ```key_name.pem``` in the root of the pnda-aws-templates directory. Ensure that key_name.pem has 0600 permissions.
+6. Edit pnda_env.yaml with [AWS credentials](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) to use to launch the cloud formation stack (`ec2_access.AWS_ACCESS_KEY_ID` and `ec2_access.AWS_SECRET_ACCESS_KEY`). These credentials should have permissions to launch cloud formation stacks and are only ever stored on the client machine.
 
-6. Install pip packages required by the CLI 
+7. Edit pnda_env.yaml with a version of platform-salt to use. Platform-salt installs PNDA software on the cloud instances created by the PNDA CLI. A local copy of platform-salt can be used (`platform_salt.PLATFORM_SALT_LOCAL`), or a remote git URI to be cloned from the cloud during provisioning (`platform_salt.PLATFORM_GIT_REPO_URI` and `platform_salt.PLATFORM_GIT_BRANCH`). Ensure that the local clone of platform-salt or the `PLATFORM_GIT_BRANCH` correspond to the same release/x.x.x tag that this pnda-aws-templates repository was cloned at.
+
+8. Edit pnda_env.yaml with the names of the buckets to use for PNDA applications (`pnda_application_repo.PNDA_APPS_CONTAINER`) and PNDA archived data (`pnda_data_archive.PNDA_ARCHIVE_CONTAINER`) and the credentials to access them. These credentials should be created for IAM user(s) with access to the specific S3 buckets only as these credentials will be stored in plain text on some of the nodes launched in AWS. For help creating a user with these permissions, please refer [here](s3help.md).
+
+9. Edit pnda_env.yaml with the component package server IP address (`pnda_component_packages.PACKAGES_SERVER_URI`). A component package server provides a webserver for the binaries for the pnda components, the PNDA guide contains instructions on how to set up a component package server.
+
+10. Create [an ssh keypair](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) to use when creating the EC2 instances for PNDA as ```key_name```. Place the private key ```key_name.pem``` in the root of the pnda-aws-templates directory. Ensure that key_name.pem has 0600 permissions.
+
+11. Install pip packages required by the CLI 
     ```sh
     cd cli
     sudo pip install -r requirements.txt
     ```
     
-7. Create a cluster:
+12. Create a cluster:
     ```sh
     cd cli
     pnda-cli.py create -e <cluster_name> -s <key_name> -f standard -o 2 -n 3 -k 2 -z 3

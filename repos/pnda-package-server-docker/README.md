@@ -13,9 +13,14 @@ The scripts were tested using a host machine running [Ubuntu](http://www.ubuntu.
 1. 14.04 LTS with 8 GB of memory & Docker version 1.8.3
 2. 16.04 LTS with 10 GB of memory & Docker version 1.12.1, build 23cf638
 
-A minumum of 10Gb disk space is recommended.
+A minumum of 12Gb disk space is recommended.
 
 The scripts may work in other UNIX environments as well. See the [Questions & Answers](http://pndaproject.io/qa) site for further information.
+
+You must also obtain the Oracle Java JDK package `jdk-8u74-linux-x64.tar.gz`. This is available from http://download.oracle.com/otn/java/jdk/8u74-b02/jdk-8u74-linux-x64.tar.gz. In order to be able to download the image, you will need to register an account with Oracle. NOTE - you are not installing the JDK package. You need to download and place the JDK tar.gz into the Package Server instance.
+
+## Copy Java JDK tar.gz to your host system
+After having obtained the Java JDK `jdk-8u74-linux-x64.tar.gz`, you need to place a copy of the file onto your host system. The method required to do this is not covered in these instructions. One would typically use a method such as sftp.
 
 ## Pull in the repo
 
@@ -64,6 +69,26 @@ The Docker container uses [Ubuntu](http://www.ubuntu.com) 14.04. The default cre
 		b. If you have an HTTPS endpoint, you will need to enter your credentials. 
 
     The `BRANCH` environment variable should be set to the branch that you want to use. The default is `master`, but if you would like to pull from a different branch then you can set the name of the branch here. Note that the branch must exist in all the repositories whose components will be compiled. 
+    
+4. Create directory location for Java JDK tar.gz
+Inside the Docker instance, create the location that will be used for the Java JDK tar.gz using the following commands:
+
+	```
+	cd /var/www/html
+	mkdir components
+	mkdir components/java
+	mkdir components/java/jdk
+	mkdir components/java/jdk/8u74-b02
+	```
+4. Place Java JDK tar.gz into Docker instance
+Copy the Java JDK tar.gz into the target directory within the Docker instance using the following commands:
+
+	On host system:
+	```
+	sftp -P 2222 root@localhost # password is ubuntu
+	cd /var/www/html/components/java/jdk/8u74-b02
+	put jdk-8u74-linux-x64.tar.gz
+	```
 
 4. Remove the existing running package server container.
 

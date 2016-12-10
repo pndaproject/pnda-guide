@@ -19,8 +19,8 @@ The application expects avro encoded events with 3 generic integer fields and a 
 
 ## Requirements
 
-* [Maven](https://maven.apache.org/docs/3.0.5/release-notes.html) 3.0.5 or later
-* [Java JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) 1.8 or later
+* [Maven](https://maven.apache.org/docs/3.0.5/release-notes.html) 3.0.5
+* [Java JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) 1.8
 
 ## Build
 

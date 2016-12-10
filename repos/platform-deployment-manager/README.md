@@ -255,12 +255,19 @@ Response Codes:
 500 - Server Error
 
 {
-        "status": "STARTED",
-        "name": "mini-mouse-masher",
-        "yarn-ids": [
-            {"component":"example", "type":"oozie", "yarn-id":"application_1455877292606_0404"}
-        ]
+        "yarn_applications": {
+		    "oozie-example": {
+			    "type": "oozie",
+				"yarn-id": "application_1479988623709_0015",
+				"component": "example",
+				"yarn-start-time": 1479992520527,
+				"yarn-state": "FINISHED"
+			}
+		},
+		"status": "STARTED",
+		"name": "spark-batch-example-app-instance"
 }
+
 ````
 
 ### Start _application_
