@@ -180,9 +180,8 @@ The PNDA distribution consists of the following source code repositories and sub
 
 ## Release Notes
 
-- [PNDA 3.3](others/release-note-3.3.md) (December 2016)
-- [PNDA 3.2.1](others/release-note-3.2.1.md) (October 2016)
-- [PNDA 3.2](others/release-note-3.2.md) (October 2016)
-- [PNDA 3.1](others/release-note-3.1.md) (September 2016)
+From PNDA 3.3, please refer to the pnda repository for all release notes.
+
+ * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
 
 ## [Changelog](CHANGELOG.md)
