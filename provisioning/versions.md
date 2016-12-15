@@ -16,23 +16,23 @@ The following table lists the technologies used in this PNDA release.
 |OpenTSDB|2.2.0|
 |Grafana|3.1.1|
 |Anaconda|4.0.0|
-|Hadoop (see below for components)|CM 5.5.3, CDH 5.5.2-1.cdh5.5.2.p0.4 |
-|Apache Avro |avro-1.7.6+cdh5.5.2+113|
-|Apache Crunch |crunch-0.11.0+cdh5.5.2+78|
-|Apache Hadoop| hadoop-2.6.0+cdh5.5.2+992|
-|Apache HBase| hbase-1.0.0+cdh5.5.2+297|
-|Apache Hive| hive-1.1.0+cdh5.5.2+377|
-|Hue| hue-3.9.0+cdh5.5.2+362|
-|Apache Impala (Incubating)| impala-2.3.0+cdh5.5.2+0|
-|Kite SDK| kite-1.0.0+cdh5.5.2+120|
-|Apache Mahout| mahout-0.9+cdh5.5.2+27|
-|Apache Oozie |oozie-4.1.0+cdh5.5.2+233|
-|Apache Parquet |parquet-1.5.0+cdh5.5.2+175|
-|Parquet-format |parquet-format-2.1.0+cdh5.5.2+13|
-|Apache Pig |pig-0.12.0+cdh5.5.2+75|
-|Apache DataFu (Incubating) |pig-udf-datafu-1.1.0+cdh5.5.2+18|
-|Apache Spark |spark-1.5.0+cdh5.5.2+114|
-|Spark-netlib |spark-netlib-master.2|
-|Apache Sqoop |sqoop-1.4.6+cdh5.5.2+35|
-|Apache Sqoop2 |sqoop2-1.99.5+cdh5.5.2+35|
-|Apache ZooKeeper| zookeeper-3.4.5+cdh5.5.2+92|
+|Hadoop (see below for components)|CM 5.9.0, CDH 5.9.0-1.cdh5.9.0.p0.23 |
+|Apache Avro |avro-1.7.6+cdh5.9.0+115|
+|Apache Crunch |crunch-0.11.0+cdh5.9.0+93|
+|Apache Hadoop| hadoop-2.6.0+cdh5.9.0+1799|
+|Apache HBase| hbase-1.2.0+cdh5.9.0+205|
+|Apache Hive| hive-1.1.0+cdh5.9.0+752|
+|Hue| hue-3.9.0+cdh5.9.0+3235|
+|Apache Impala (Incubating)| impala-2.7.0+cdh5.9.0+0|
+|Kite SDK| kite-1.0.0+cdh5.9.0+138|
+|Apache Mahout| mahout-0.9+cdh5.9.0+30|
+|Apache Oozie |oozie-4.1.0+cdh5.9.0+349|
+|Apache Parquet |parquet-1.5.0+cdh5.9.0+176|
+|Parquet-format |parquet-format-2.1.0+cdh5.9.0+14|
+|Apache Pig |pig-0.12.0+cdh5.9.0+95|
+|Apache DataFu |pig-udf-datafu-1.1.0+cdh5.9.0+20|
+|Apache Spark |spark-1.6.0+cdh5.9.0+229|
+|Apache Sqoop |sqoop-1.4.6+cdh5.9.0+77|
+|Apache Sqoop2 |sqoop2-1.99.5+cdh5.9.0+40|
+|Apache ZooKeeper| zookeeper-3.4.5+cdh5.9.0+98|
+
