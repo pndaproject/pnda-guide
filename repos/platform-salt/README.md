@@ -14,7 +14,7 @@ Then download salt installer and install it
 
 ```sh
 wget -O install_salt.sh https://bootstrap.saltstack.com
-sudo sh install_salt.sh -D -U -M stable 2015.8.10
+sudo sh install_salt.sh -D -U -M stable 2015.8.11
 ```
 
 Replace /etc/salt/master with the following content:

@@ -8,6 +8,7 @@ See the following pages for a description of features available on other tabs:
   * [Packages](packages.md)
   * [Applications](applications.md)
   * [Datasets](datasets.md)
+  * [UI links and credentials](uicredentials.md)
 
 ### Connecting
 

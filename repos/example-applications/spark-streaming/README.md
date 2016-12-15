@@ -15,8 +15,8 @@ The application expects avro encoded events with 3 generic integer fields and a 
 
 ## Requirements
 
-* [Maven](https://maven.apache.org/docs/3.0.5/release-notes.html) 3.0.5 or later
-* [Java JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) 1.8 or later
+* [Maven](https://maven.apache.org/docs/3.0.5/release-notes.html) 3.0.5
+* [Java JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) 1.8
 
 ## Build
 
@@ -75,6 +75,6 @@ To run the test script:
     cd data-source/src/main/resources
     python src_tcp_ksh.py
     
-Next, install logstash as per the instructions [here](https://cto-github.cisco.com/CTAO-Team6-Analytics/prod-logstash-codec-avro). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
+Next, install logstash as per the instructions [here](https://github.com/pndaproject/prod-logstash-codec-avro/blob/develop/README.md). Be sure to substitute any fields such as `bootstrap_servers` and `topic_id` in the kafka output config. 
 
 

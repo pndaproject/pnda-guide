@@ -15,6 +15,8 @@ The chapter "Packages & Applications" in the PNDA guide contains a lot more deta
 * [SBT](http://www.scala-sbt.org/0.13/docs/Setup.html) 0.13.8 or later
 * [Java JDK](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) 1.8 or later
 
+Please note that the current implementation does not support being compiled against Cloudera libraries.
+
 ## Build standalone jar
 
 This project is built with sbt. See the [install instructions](http://www.scala-sbt.org/release/docs/Setup.html).

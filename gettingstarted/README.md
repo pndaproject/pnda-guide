@@ -2,26 +2,23 @@
 
 This guide will help you get started setting up a fully operational PNDA cluster. The main tasks can be grouped as follows: 
 
-- [Provisioning](#provisioning) a PNDA cluster
+- [Provisioning PNDA](#provisioning-pnda)
 - [Basic data exploration](#basic-data-exploration)
 - [Producer integration](#producer-integration)
 - [Packages and applications](#packages-and-applications)
 
 Some of these tasks may be performed by different people in your organization. For example, enterprise IT staff may be responsible for provisioning a cluster, software developers may  write producers and consumers to process data, and data scientists may analyze collected data. 
 
-Before you get started, you'll need two important links:
+## Provisioning PNDA
 
-1. The GitHub repository for downloading the source code. The default repository is [https://github.com/pndaproject](https://github.com/pndaproject). Alternatively, you can use your own fork of the project. 
-2. The package server for downloading compiled packages. If you do not have access to an existing package server, you can create your own following the instructions below. 
+Before you get started, you will need -
 
-To get started with PNDA:
+- The GitHub repository for downloading the source code. The default repository is [https://github.com/pndaproject](https://github.com/pndaproject). Alternatively, you can use your own fork of the project. 
 
-1. Set up an [OpenStack](https://www.openstack.org/) cluster suitable for use with PNDA. Review the [platform requirements](../provisioning/platform_requirements.md) to make sure that your environment has enough resources to support a `standard` PNDA cluster. 
-2. Set up a [package server](../repos/pnda-package-server-docker/README.md), if you do not already have one. (You'll need the GitHub repository link for this step.)
-3. Read the [Getting started with Heat](../provisioning/heat.md) guide.
-4. Create [disk images](../repos/pnda-dib-elements/README.md) for use with Heat templates.
-5. Use the [Heat templates](../repos/pnda-heat-templates/README.md) to provision a `standard` cluster. (You'll need the GitHub repository and package server links for this step.)
-6. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
+1. Review the [platform requirements](../provisioning/platform_requirements.md).
+2. Build PNDA and stage the built components on an HTTP server. See [these notes](https://github.com/pndaproject/pnda/blob/master/build/README.md) for more details.
+3. Carefully follow the section in this guide on [provisioning PNDA](../provisioning/README.md) for your target environment.
+4. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
 
 ## Basic data exploration
 
@@ -49,7 +46,7 @@ For the purposes of this guide, we'll use the test data source for the example [
 
 ## Packages and applications
 
-1. A pre-requisite to working with packages is to ensure that the package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
+1. A pre-requisite to working with packages is to ensure that the application package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
 2. Build and upload the [spark-streaming](../repos/example-applications/spark-streaming/README.md) app to the package repository. Upload the file to the Object Store via the [platform-package-repository](../repos/platform-package-repository/README.md).
 3. In the console, [deploy the package](../console/packages.md). On the packages page, look for the package you have just uploaded in the list of available packages. (If you don't see it, try clicking the refresh button.) Click the deploy button next to the package, and you'll see it added to the list of deployed packages. 
 4. Create an [application](../console/applications.md) from the package. On the applications page, click "Create New Application", select the package you have just deployed, and follow the prompts to create a new application. 

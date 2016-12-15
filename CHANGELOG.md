@@ -1,8 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] 2016-12-12
+### Changed
+- PNDA-2222: Added a page covering the default UI login credentials 
+- Clarify steps to get started/provision PNDA
+- Update Platform Requirements section
+
 ## [0.1.4] 2016-10-31
-###
+### Changed
 - Updated to note details of hotfix in release 3.2.1
 
 ## [0.1.3] 2016-10-21
