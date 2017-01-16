@@ -36,6 +36,11 @@ node {
         stage 'Deploy' 
         build job: 'deploy-component', parameters: [[$class: 'StringParameterValue', name: 'branch', value: env.BRANCH_NAME],[$class: 'StringParameterValue', name: 'component', value: "public-documentation"],[$class: 'StringParameterValue', name: 'release_path', value: "resources/releases"],[$class: 'StringParameterValue', name: 'release', value: "${workspace}/pnda-guide-${version}.tar.gz"]]
 
+        if(env.BRANCH_NAME=="develop") {
+            stage 'Publish' 
+            build job: 'pnda-guide', parameters: [[$class: 'StringParameterValue', name: 'deployment', value: 'production'],[$class: 'StringParameterValue', name: 'release', value: env.BRANCH_NAME],[$class: 'StringParameterValue', name: 'release_path', value: "resources/releases"]]
+        }
+        
         emailext attachLog: true, body: "Build succeeded (see ${env.BUILD_URL})", subject: "[JENKINS] ${env.JOB_NAME} succeeded", to: "${env.EMAIL_RECIPIENTS}"
 
     }
