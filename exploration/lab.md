@@ -47,7 +47,16 @@ Loading data from HDFS can be done using PNDA [platform libaries](../repos/platf
 
 Highlight the cell below "Example 2: Create an instance of JsonDataHandler" and run.
 
- ![example 2](images/lab-example-2.png)
+**Play With RDD**
+
+RDD can be created automatically using PNDA platform library. This allows data exploration using low-level RDD APIs.
+
+**Exemple 2:** Create an instance of JsonDataHandler
+```python
+sc.addPyFile("/opt/pnda/platformlibs-0.6.8-py2.7.egg")
+from platformlibs.json_data_handler import JsonDataHandler
+handler = JsonDataHandler(sc, "test", "year=2016/month=04/day=26/hour=16")
+```
 
 When finished, data should be loaded as a RDD. You can then perform simple data transformation and action using low-level RDD APIs. Example 3 provided some basic operations that allow you to get an insight of the example datasets.
 

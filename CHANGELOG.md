@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] 2017-01-20
+### Changed
+- PNDA-2493: Align AWS and OpenStack flavors
+- Updated platform_requirements.md
+- Updated producer instructions
+
+### Fixed
+- PNDA-2553: Paths in platformlibs examples
+
 ## [0.1.5] 2016-12-12
 ### Changed
 - PNDA-2222: Added a page covering the default UI login credentials 
