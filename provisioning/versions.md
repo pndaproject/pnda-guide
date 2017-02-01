@@ -11,8 +11,8 @@ The following table lists the technologies used in this PNDA release.
 |JMX Proxy|3.2.0|
 |Kafka Manager|1.3.1.6|
 |ELK (Logserver)|Logstash 1.5.4, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
-|Jupyter Hub|0.6.1|
-|Jupyter|4.2.0|
+|Jupyter Hub|0.7.0|
+|Jupyter|4.3.1|
 |OpenTSDB|2.2.0|
 |Grafana|3.1.1|
 |Anaconda|4.0.0|
