@@ -33,7 +33,7 @@ The resource requirements for the default pico and standard flavor PNDA clusters
 Pico flavor is intended for development / learning purposes. It is fully functional, but does not run the core services in high-availability mode and does not provide much storage space or compute resource.
 
 | Role | Instance type | Number required | CPUs | Memory | Total Storage | Root Volume Storage | Log Volume Storage
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 |  `bastion`   |  ec2.t2.medium  | 1 | 2 |  4 GB   | 20 GB | 20 GB | 0 GB
 |  `saltmaster`   |  ec2.t2.medium  | 1 | 2 |  4 GB   | 20 GB | 20 GB | 0 GB
 |  `edge`      |  ec2.m3.xlarge  | 1 | 4 | 15 GB   | 30 GB | 20 GB | 10 GB
@@ -53,7 +53,7 @@ The storage per node is allocated as:
 Standard flavor is intended for meaningful PoC and investigations at scale. It runs the core services in high-availability mode and provides reasonable storage space and compute resource.
 
 | Role | Instance type | Number required | CPUs | Memory | Total Storage | Root Volume Storage | Log Volume Storage
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 |  `bastion`         |  ec2.t2.medium  | 1 | 2 |  4 GB   | 50 GB | 50 GB | 0 GB
 |  `saltmaster`      |  ec2.m3.large   | 1 | 2 |  7.5 GB | 50 GB | 50 GB | 0 GB
 |  `edge`            |  ec2.t2.medium  | 1 | 2 |  4 GB   | 370 GB | 250 GB | 120 GB
@@ -90,7 +90,7 @@ Alternatively, you can use [Salt Cloud](saltstack.md) to provision a cluster. In
 Pico flavor is intended for development / learning purposes. It is fully functional, but does not run the core services in high-availability mode and does not provide much storage space or compute resource.
 
 | Role | Instance type | Number required | CPUs | Memory | Storage
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 |  `bastion`   |  t2.medium  | 1 | 2 |  4 GB   | 20 GB
 |  `edge`      |  m3.xlarge  | 1 | 4 | 15 GB   | 30 GB
 |  `mgr1`      |  m3.xlarge  | 1 | 4 | 15 GB   | 30 GB
@@ -109,7 +109,7 @@ The storage per node is allocated as:
 Standard flavor is intended for meaningful PoC and investigations at scale. It runs the core services in high-availability mode and provides reasonable storage space and compute resource.
 
 | Role | Instance type | Number required | CPUs | Memory | Storage
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 |  `bastion`         |  t2.medium  | 1 | 2 |  4 GB   | 50 GB
 |  `saltmaster`      |  m3.large   | 1 | 2 |  7.5 GB | 50 GB
 |  `edge`            |  t2.medium  | 1 | 2 |  4 GB   | 370 GB
