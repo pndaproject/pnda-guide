@@ -34,8 +34,6 @@ This command should be run at the root of the repository and will build the appl
 - `log4j.properties`: defines the log level and behaviour for the application.
 - `hbase.json`: contains commands to create an HBase table and Impala metadata.
 - `properties.json`: contains default properties that may be overriden at application creation time.
-- `upstart.conf`: runs the spark streaming job as a supervised upstart service.
-- `yarn-kill.py`: called by upstart.conf to kill the yarn job when stopping the upstart service.
 
 ## Deploying the package and creating an application
 
