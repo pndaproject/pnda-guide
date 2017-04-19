@@ -22,7 +22,7 @@
     * [Datasets](console/datasets.md)
 * [Producers](producer/README.md)
     * [Preparing data](producer/data-preparation.md)
-    * [Integrating Logstash](repos/prod-logstash-codec-avro/README.md)
+    * [Integrating Logstash](producer/logstash.md)
     * [Integrating OpenDaylight](producer/opendl.md)
     * [Integrating OpenBMP](producer/openbmp.md)
     * [Integrating Pmacct](producer/pmacct.md)
@@ -70,7 +70,7 @@
         * [gobblin](repos/gobblin/README.md)
     * Producers
         * [prod-odl-kafka](repos/prod-odl-kafka/README.md)
-        * [prod-logstash-codec-avro](repos/prod-logstash-codec-avro/link.md)
+        * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro)
     * Examples
         * [example-applications](repos/example-applications/README.md)
             * [spark-batch](repos/example-applications/spark-batch/README.md)

@@ -34,7 +34,7 @@ There are many equivalent, competing technologies in the big data world, and man
 
 ## Data ingress
 
-Streaming data arrives in PNDA on one or more Kafka topics via a [producer](../producer/README.md), essentially an adapter between the source technology and Kafka. We provide code that enables you to get up and running quickly with [Logstash](../repos/prod-logstash-codec-avro/README.md) and [OpenDaylight](../producer/opendl.md), as well as examples that let you build your own PNDA-ready [producer](../producer/producer.md) using a variety of implementation languages.
+Streaming data arrives in PNDA on one or more Kafka topics via a [producer](../producer/README.md), essentially an adapter between the source technology and Kafka. We provide code that enables you to get up and running quickly with [Logstash](../producer/logstash.md) and [OpenDaylight](../producer/opendl.md), as well as examples that let you build your own PNDA-ready [producer](../producer/producer.md) using a variety of implementation languages.
 
 Large, arbitrary datasets — often needed to contextualize streamed event data — can be ingested via our [bulk ingest](../bulkingest/README.md) tool, which uses HTTPFS to create datasets on the distributed file system directly from your client machine.
 
