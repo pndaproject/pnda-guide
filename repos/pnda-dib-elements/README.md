@@ -78,8 +78,15 @@ export DEPLOYMENT_BASE_ELEMENTS="heat-config heat-config-script"
 # USE AN ALTERNATE UBUNTU MIRROR
 # export DIB_DISTRIBUTION_MIRROR="http://[MIRRORIP]/ubuntu"
 
+# You can specify other pnda-specific elements in the PNDA_ELEMENTS variable:
+# for example, 'pnda-disable-ipv6', 'pnda-bond0' or 'os-hardening'
+# Please look inside the elements directory
+
+# If you are using 'os-hardening' element uncomment the following line
+# export ANSIBLE_VERSION=2.2.1.0
+
 export PNDA_ELEMENTS="cloud-init-pnda"
-export IMAGE_NAME=ubuntu-software-config
+export IMAGE_NAME=pnda-image
 export ALL_ELEMENTS="\$BASE_ELEMENTS \$AGENT_ELEMENTS \$DEPLOYMENT_BASE_ELEMENTS \$DEPLOYMENT_TOOL \$PNDA_ELEMENTS"
 
 EOF
@@ -104,5 +111,5 @@ Upload the image to the OpenStack image service:
 
 ```
 . your_openstack_rc.sh
-glance image-create --name pnda-base --file ubuntu-software-config.qcow2 --progress --disk-format qcow2 --container-format bare
+glance image-create --name pnda-base --file pnda-image.qcow2 --progress --disk-format qcow2 --container-format bare
 ```

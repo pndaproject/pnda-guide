@@ -7,8 +7,3 @@ Next, read about the [SaltStack Components](https://docs.saltstack.com/en/getsta
 Once you've understood the principles, you could then go to the [SaltStack walk-through](https://docs.saltstack.com/en/latest/topics/tutorials/walkthrough.html) where you will install Salt and can begin experimenting with it.
 
 As an alternative to installing software locally, it is possible to use the [SaltStack Demo Environment](https://docs.saltstack.com/en/getstarted/fundamentals/index.html), which leverages VirtualBox and Vagrant. In less than an hour you can be up and ready to go!
-
-Then you're ready to dive into how SaltStack is used in PNDA:
-
-- [Configuring a Salt Master](saltmaster.md)
-- [Provisioning with Salt Cloud](salt-cloud.md)

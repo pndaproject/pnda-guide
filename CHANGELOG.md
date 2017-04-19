@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Changed
+- Various clarifications to the text around provisioning
+
 ## [0.1.6] 2017-01-20
 ### Changed
 - PNDA-2493: Align AWS and OpenStack flavors

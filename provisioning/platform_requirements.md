@@ -5,7 +5,7 @@ PNDA is designed to be deployed on bare metal servers, [OpenStack](https://www.o
 ## Openstack Requirements
 
 - PNDA is supported on OpenStack [Kilo](http://releases.openstack.org) or later.
-- Instances are created using [Ubuntu](http://www.ubuntu.com) version 14.04.
+- Instances are created using [Ubuntu 14.04](http://www.ubuntu.com) or [RHEL 7](https://access.redhat.com/products/red-hat-enterprise-linux)
 - PNDA is deployed using the [Heat](../repos/pnda-heat-templates/README.md) orchestration service, using `heat_template_version: 2014-10-16`. Alternatively, you can use [Salt Cloud](saltstack.md).
 - The cluster should be set up with one network and one router, and have the possibility to provision multiple virtual machines. See below.
 - The cluster must have access to the public Internet for installation of dependencies.
