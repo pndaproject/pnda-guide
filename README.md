@@ -126,7 +126,6 @@ The PNDA distribution consists of the following source code repositories and sub
  * [pnda-heat-templates](repos/pnda-heat-templates/README.md): cluster templates for creating PNDA with Heat
  * [pnda-aws-templates](repos/pnda-aws-templates/README.md): cluster templates for creating PNDA with CloudFormation on AWS
  * [pnda-dib-elements](repos/pnda-dib-elements/README.md): tools for building disk image templates
- * [pnda-package-server-docker](repos/pnda-package-server-docker/README.md): tools for creating package server
 
 ### Platform
 

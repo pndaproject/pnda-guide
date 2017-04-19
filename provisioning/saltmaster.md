@@ -153,7 +153,7 @@ keystone.auth_url: <auth url>
 
 /srv/pillar/pnda.sls
 
-This MUST contains at least the [package server](../repos/pnda-package-server-docker/README.md) URI. For example:
+This MUST contain at least the URI to the location of the PNDA package binaries. For example:
 
 ```yaml
 packages_server:

@@ -12,7 +12,6 @@ It consists of the following source code repositories and sub-projects:
  * [platform-salt-cloud](platform-salt-cloud/README.md): cluster templates for creating PNDA with salt-cloud
  * [pnda-heat-templates](pnda-heat-templates/README.md): cluster templates for creating PNDA with Heat
  * [pnda-dib-elements](pnda-dib-elements/README.md): tools for building disk image templates
- * [pnda-package-server-docker](pnda-package-server-docker/README.md): tools for creating package server
 
 ## Platform
 
