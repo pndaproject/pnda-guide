@@ -18,13 +18,18 @@ The Avro schema is:
 	  ]
 	}
 
+Explanation of the fields:
+
+* `timestamp`: Timestamp of when the event was generated/ingested by PNDA, **in milliseconds**.
+* `src`: source of the event. Where does the event come from ? (e.g. syslog, collectd) it should be a high level abstracted source
+* `host_ip`: source IP address of the machine where event is generated/ingested by PNDA
+* `rawdata`: The 'raw' data goes here, it's an array of **bytes** and is not interpreted by PNDA in any way.
+
 Events should be encoded as **Avro fragments**. This means that the schema is *not* included in each event but is instead made available at encode/decode time.
 
 Please refer to the [Avro documentation](https://avro.apache.org/docs/1.7.7/gettingstartedjava.html) for more information about encoding and decoding.
 
-## Verification 
-
-Before integrating data with PNDA, check that it is encoded correctly using `avro-tools-x.y.z.jar` available from the Avro site.
+## Verification
 
 Before integrating data with PNDA, check that it is encoded correctly using the [Avro tools](http://www.eu.apache.org/dist/avro/stable/java/).
 
@@ -32,7 +37,7 @@ Before integrating data with PNDA, check that it is encoded correctly using the 
 
 If the data has been encoded correctly, then the Avro tools will be able to decode it without any errors. In this case, `output.avro` contains some netflow data and our schema is in a file named `schema.avsc`.
 
-	$ hexdump -C output.avro | more
+	$ hexdump -C output.avro | head
 	00000000  e0 d8 8a ce 96 54 0e 6e  65 74 66 6c 6f 77 18 31  |.....T.netflow.1|
 	00000010  37 32 2e 33 30 2e 31 39  34 2e 37 c4 08 7b 22 76  |72.30.194.7..{"v|
 	00000020  65 72 73 69 6f 6e 22 3a  22 35 22 2c 22 66 6c 6f  |ersion":"5","flo|
@@ -54,8 +59,8 @@ If the data has been encoded correctly, then the Avro tools will be able to deco
 	00000120  32 22 2c 22 6f 75 74 70  75 74 5f 73 6e 6d 70 22  |2","output_snmp"|
 	00000130  3a 22 32 38 22 2c 22 69  6e 5f 70 6b 74 73 22 3a  |:"28","in_pkts":|
 	00000140  22 36 22 2c 22 69 6e 5f  62 79 74 65 73 22 3a 22  |"6","in_bytes":"|
-	$
-	$ more schema.avsc
+    
+	$ cat schema.avsc
 	{"namespace": "pnda.entity",
 	"type": "record",
 	"name": "event",
@@ -66,7 +71,7 @@ If the data has been encoded correctly, then the Avro tools will be able to deco
 	     {"name": "rawdata",   "type": "bytes"}
 	]
 	}
-	$
+	
 	$ java -jar avro-tools-1.7.7.jar fragtojson --schema-file schema.avsc output.avro
 	{
 	  "timestamp" : 1446143678000,
@@ -76,7 +81,7 @@ If the data has been encoded correctly, then the Avro tools will be able to deco
 	}
 
 
-### Topic hierarchy 
+### Topic hierarchy
 
 You can define your own topic naming scheme. For example, you can have one topic per input source.
 We recommend using a topic hierarchy such as the following:
