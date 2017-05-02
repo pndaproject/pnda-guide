@@ -41,8 +41,6 @@ This chapter describes how to provision a PNDA cluster, and includes some backgr
  * [Getting started with AWS](provisioning/aws.md)
  * [Using the PNDA AWS templates](repos/pnda-aws-templates/README.md)
  * [Getting started with SaltStack](provisioning/saltstack.md)
- * [Provisioning with Salt Cloud](provisioning/salt-cloud.md)
- * [Configuring a Salt Master](provisioning/saltmaster.md)
  * [Technology versions](provisioning/versions.md)
 
 ## [Console](console/README.md)
