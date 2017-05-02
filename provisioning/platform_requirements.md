@@ -6,7 +6,7 @@ This guide assumes that you are familiar with OpenStack, and that you have an en
 
 ## Openstack version
 
-- PNDA has been tested on versions of OpenStack between [Kilo](http://releases.openstack.org) and Newton.
+- PNDA has been tested on versions of OpenStack between [Kilo](http://releases.openstack.org) and [Newton](http://releases.openstack.org).
 
 ## Object Stores
 
