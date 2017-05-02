@@ -8,15 +8,20 @@ PNDA can be deployed on bare metal servers, [OpenStack](https://www.openstack.or
 
 ## Object Stores
 
-PNDA makes use of Amazon S3 in AWS and Swift when deploying to OpenStack. If creating your own OpenStack platform, please ensure that you deploy Swift.
+PNDA makes use of object storage for a number of reasons -
 
-### Application Packages
+- Storing and delivering user-created application packages
+- Archiving PNDA datasets that have reached age or size thresholds
 
-PNDA expects to find user created application packages in the object store.
+PNDA uses Amazon S3 when deploying to AWS and Swift when deploying to OpenStack. If creating your own OpenStack platform, please ensure that you deploy Swift.
 
-### Data Archive
+PNDA expects to find specific containers and folders in object storage. These must be created before creating PNDA. 
 
-PNDA datasets can be archived automatically to the object store.
+| What | AWS Configuration | OpenStack Configuration |
+| --- | --- | --- |
+| Application container | [PNDA_APPS_CONTAINER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | pnda_apps_container) | 
+| Application folder under container | [PNDA_APPS_FOLDER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | pnda_apps_container) | pnda_apps_folder |
+| Dataset archive container | [PNDA_ARCHIVE_CONTAINER](https://github.com/pndaproject/pnda-heat-templates/blob/master/pnda_env_example.yaml) | pnda_archive_container |
 
 ## Resources
 
