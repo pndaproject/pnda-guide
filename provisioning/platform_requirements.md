@@ -1,21 +1,23 @@
 # Cloud platform requirements
 
-PNDA can be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on Amazon Web Services (AWS). 
+PNDA can be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on [Amazon Web Services](https://aws.amazon.com/).
 
 - PNDA has been tested on versions of OpenStack between [Kilo](http://releases.openstack.org) and [Newton](http://releases.openstack.org).
 
 This guide assumes that you are familiar with these platforms and have an environment set up in which you can create instances.
 
-## Object Stores
+## Object Store
 
-PNDA makes use of object storage for a number of reasons -
+PNDA makes use of object storage for -
 
 - Storing and delivering user-created application packages
 - Archiving PNDA datasets that have reached age or size thresholds
 
+### S3 and Swift
+
 PNDA uses Amazon S3 when deploying to AWS and Swift when deploying to OpenStack. If creating your own OpenStack platform, please ensure that you deploy Swift.
 
-PNDA expects to find specific containers and folders in object storage. These must be created before creating PNDA.
+PNDA requires specific containers and folders to be created in object storage. Please do this before creating a PNDA cluster.
 
 | Container or folder | Reference (AWS) | Reference (OpenStack) |
 | --- | --- | --- |
