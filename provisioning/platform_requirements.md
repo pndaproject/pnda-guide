@@ -19,7 +19,7 @@ PNDA uses Amazon S3 when deploying to AWS and Swift when deploying to OpenStack.
 
 ### Containers and folders
 
-PNDA requires specific containers and folders to be created in object storage. Please do this before creating a PNDA cluster.
+PNDA requires specific containers and folders to be created in object storage *before* creating a PNDA cluster.
 
 | Container or folder | Reference (AWS) | Reference (OpenStack) |
 | --- | --- | --- |
