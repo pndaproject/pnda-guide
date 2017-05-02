@@ -15,12 +15,12 @@ PNDA makes use of object storage for a number of reasons -
 
 PNDA uses Amazon S3 when deploying to AWS and Swift when deploying to OpenStack. If creating your own OpenStack platform, please ensure that you deploy Swift.
 
-PNDA expects to find specific containers and folders in object storage. These must be created before creating PNDA. 
+PNDA expects to find specific containers and folders in object storage. These must be created before creating PNDA.
 
-| Containers or folder | AWS Configuration | OpenStack Configuration |
+| Container or folder | Reference (AWS) | Reference (OpenStack) |
 | --- | --- | --- |
 | Application container | [PNDA_APPS_CONTAINER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | [pnda_apps_container](https://github.com/pndaproject/pnda-heat-templates/blob/master/pnda_env_example.yaml) | 
-| Application folder under container | [PNDA_APPS_FOLDER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | [pnda_apps_folder](https://github.com/pndaproject/pnda-heat-templates/blob/master/pnda_env_example.yaml) |
+| Application folder inside container | [PNDA_APPS_FOLDER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | [pnda_apps_folder](https://github.com/pndaproject/pnda-heat-templates/blob/master/pnda_env_example.yaml) |
 | Dataset archive container | [PNDA_ARCHIVE_CONTAINER](https://github.com/pndaproject/pnda-aws-templates/blob/master/pnda_env_example.yaml) | [pnda_archive_container](https://github.com/pndaproject/pnda-heat-templates/blob/master/pnda_env_example.yaml) |
 
 ## Resources
