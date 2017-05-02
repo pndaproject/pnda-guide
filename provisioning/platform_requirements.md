@@ -2,11 +2,9 @@
 
 PNDA can be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on Amazon Web Services (AWS). 
 
-This guide assumes that you are familiar with OpenStack, and that you have an environment set up in which you can create instances, whether in a public or private cloud. Or in the case of AWS, have an account with AWS.
-
-## Openstack version
-
 - PNDA has been tested on versions of OpenStack between [Kilo](http://releases.openstack.org) and [Newton](http://releases.openstack.org).
+
+This guide assumes that you are familiar with these platforms and have an environment set up in which you can create instances.
 
 ## Object Stores
 
