@@ -1,31 +1,26 @@
 # Cloud platform requirements
 
-PNDA is designed to be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on Amazon Web Services (AWS). This guide assumes that you are familiar with OpenStack, and that you have an environment set up in which you can create instances, whether in a public or private cloud. Or in the case of AWS, have an account with AWS.
+PNDA can be deployed on bare metal servers, [OpenStack](https://www.openstack.org/) cloud computing infrastructure or on Amazon Web Services (AWS). This guide assumes that you are familiar with OpenStack, and that you have an environment set up in which you can create instances, whether in a public or private cloud. Or in the case of AWS, have an account with AWS.
 
-## Openstack Requirements
+## Openstack versions
 
-- PNDA is supported on OpenStack [Kilo](http://releases.openstack.org) or later.
-- Instances are created using [Ubuntu 14.04](http://www.ubuntu.com) or [RHEL 7](https://access.redhat.com/products/red-hat-enterprise-linux)
-- PNDA is deployed using the [Heat](../repos/pnda-heat-templates/README.md) orchestration service, using `heat_template_version: 2014-10-16`. Alternatively, you can use [Salt Cloud](saltstack.md).
-- The cluster should be set up with one network and one router, and have the possibility to provision multiple virtual machines. See below.
-- The cluster must have access to the public Internet for installation of dependencies.
+- PNDA has been tested on versions of OpenStack between [Kilo](http://releases.openstack.org) and Newton.
 
-## OpenStack Swift
+## Object Stores
 
-PNDA expects two Swift containers to be present in Swift. These must be created prior to launching a cluster. The OpenStack Horizon console can be used to create Swift containers, by navigating to `Object Store > Containers > Create Container`.
+PNDA makes use of Amazon S3 in AWS and Swift when deploying to OpenStack. If creating your own OpenStack platform, please ensure that you deploy Swift.
 
 ### Application Packages
 
-Application packages are expected to be found in a pseudo-folder named `releases` in a Swift container called `apps`. This will be shared by all PNDA clusters for distributing application packages.
-
-The Swift container and pseudo-folder path within the Swift container can be configured using the `pnda.apps_container` and `pnda.apps_folder` settings in the salt pillar.
+PNDA expects to find user created application packages in the object store.
 
 ### Data Archive
 
-Data from PNDA data sets can be archived to Swift automatically. A Swift container must be created in Swift to be used for this purpose. By default a swift container called `archive` should be created but this can be configured using the `pnda.archive_container` setting in the salt pillar.
+PNDA datasets can be archived automatically to the object store.
 
 ## Resources
-The resource requirements for the default pico and standard flavor PNDA clusters are detailed below. However, you are strongly encouraged to create a PNDA flavor specifically designed for your infrastructure.
+
+The resource requirements for the default pico and standard flavor PNDA clusters are detailed below. However, you are strongly encouraged to create a PNDA flavor specifically designed for your specific infrastructure.
 
 ### HEAT
 #### Cluster configuration: Pico
@@ -77,12 +72,6 @@ The storage per node is allocated as:
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
  - 50-250 GB operating system partition. This is configured in the templates per-node.
 
-## OpenStack Heat vs. Salt Cloud
-
-The primary way of provisioning a PNDA cluster on OpenStack cloud is with [OpenStack Heat](../repos/pnda-heat-templates/README.md).
-
-Alternatively, you can use [Salt Cloud](saltstack.md) to provision a cluster. In this case, you must manually create a salt master instance, and then run salt remotely on that instance. Please refer to [this guide](saltstack.md) for details.
-
 ### AWS
 
 #### Cluster configuration: Pico
@@ -132,5 +121,3 @@ The storage per node is allocated as:
  - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
  - 50-250 GB operating system partition. This is configured in the templates per-node.
-
-
