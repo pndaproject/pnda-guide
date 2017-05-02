@@ -16,15 +16,11 @@ This chapter covers the main components of PNDA, including:
 
 - Data ingress using Logstash, Open Daylight & the bulk ingest tool
 - Data distribution with Kafka & Zookeeper
-- High velocity stream processing with Spark Streaming it
+- High velocity stream processing with Spark Streaming
 - High volume batch processing with Spark
 - Free form data exploration with Jupyter
 - Structured query over big data with Impala
 - Handling time series with OpenTSDB & Grafana
-
-## [Download Book](downloads/README.md)
-
-You can read the latest version of this guide online, or download the book in a number of formats.
 
 ## [Getting Started](gettingstarted/README.md)
 
