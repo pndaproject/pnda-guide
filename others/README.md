@@ -24,7 +24,7 @@
 * [Kibana](https://www.elastic.co/products/kibana)
 * [Kite](http://kitesdk.org/)
 * [Logrotate](http://www.linuxcommand.org/man_pages/logrotate8.html)
-* [Logstash guide](https://www.elastic.co/guide/en/logstash/2.2/index.html)
+* [Logstash guide](https://www.elastic.co/guide/en/logstash/5.3/index.html)
 * [Logstash](https://www.elastic.co/products/logstash)
 * [Maven](https://maven.apache.org/install.html)
 * [Node Security](https://nodesecurity.io/)

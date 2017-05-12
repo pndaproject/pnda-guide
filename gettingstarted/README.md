@@ -39,7 +39,7 @@ For the purposes of this guide, we'll use the test data source for the example [
 
 1. Select a host to act as the producer. It needs to have network connectivity with Kafka.
 2. Create a topic on Kafka using the [Kafka Manager](https://github.com/yahoo/kafka-manager). Once created, the topic will appear in the [console](../console/README.md).
-3. Install and configure [Logstash](https://github.com/elastic/logstash) on the chosen host by following [these instructions](../repos/prod-logstash-codec-avro/README.md).
+3. Install and configure [Logstash](https://github.com/elastic/logstash) on the chosen host then install the following [plugin](../producer/logstash.md).
 4. Run the test data script. In the `data-source` directory of the [example-spark-streaming](../repos/example-applications/spark-streaming/README.md) repository, there is a python script that can send a stream of data over TCP into logstash. 
 5. In the [console](../console/README.md), verify that data is flowing into the topics. In the left-hand column, you should see activity on your Kafka topic.
 6. After a period of time (up to 30 minutes), the master dataset will be automatically created by [gobblin](../repos/gobblin/README.md), and you will be able to see it in the [Datasets](../console/datasets.md) page in the console.

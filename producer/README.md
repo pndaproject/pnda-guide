@@ -25,16 +25,16 @@ BGP | PMACCT (BGP listener) | http://www.pmacct.net/ | http://pnda.io/pnda-guide
 Bulk Ingest | PNDA Bulk Ingest Tool |  | http://pnda.io/pnda-guide/bulkingest/ 
 ISIS | PMACCT (ISIS listener) | http://www.pmacct.net/ | http://pnda.io/pnda-guide/producer/pmacct.html 
 Cisco XR streaming telemetry | Pipeline  | https://github.com/cisco/bigmuddy-network-telemetry-collector | 
-CollectD (CollectD supports multiple plugins as listed here https://collectd.org/wiki/index.php/Table_of_Plugins) | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-codecs-collectd.html | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/ 
+CollectD (CollectD supports multiple plugins as listed here https://collectd.org/wiki/index.php/Table_of_Plugins) | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-codecs-collectd.html | http://pnda.io/pnda-guide/producer/logstash.html
 IoT sensor via HTTP | Node-RED  | https://nodered.org | 
-Logstash (Logstash supports multiple plugins as listed here https://www.elastic.co/guide/en/logstash/current/input-plugins.html) | Logstash |  | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/ 
+Logstash (Logstash supports multiple plugins as listed here https://www.elastic.co/guide/en/logstash/current/input-plugins.html) | Logstash |  | http://pnda.io/pnda-guide/producer/logstash.html
 NETCONF Notifications | ODL | http://www.opendaylight.org/ | http://pnda.io/pnda-guide/producer/opendl.html 
-Netflow / IPFIX | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-codecs-netflow.html  | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/  
+Netflow / IPFIX | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-codecs-netflow.html  | http://pnda.io/pnda-guide/producer/logstash.html
 Netflow / IPFIX / sFlow | pmacct | http://www.pmacct.net/ | http://pnda.io/pnda-guide/producer/pmacct.html 
 Openstack | Work in progress |  | 
-sFlow | Logstash | https://github.com/ashangit/logstash-codec-sflow | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/
+sFlow | Logstash | https://github.com/ashangit/logstash-codec-sflow | http://pnda.io/pnda-guide/producer/logstash.html
 SNMP Metrics and Traps | ODL | https://wiki.opendaylight.org/view/SNMP_Plugin:Getting_Started | http://pnda.io/pnda-guide/producer/opendl.html
-SNMP Traps  | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-inputs-snmptrap.html | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/
-Syslog | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-inputs-syslog.html | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/
-Syslog (RFC3164 or RFC5424 - needed for newer IOS/IOS XR/ NX OS etc.)  | Logstash  | https://gist.github.com/donaldh/89b7304981f96497c94fe4d98bb03d71 | http://pnda.io/pnda-guide/repos/prod-logstash-codec-avro/ 
+SNMP Traps  | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-inputs-snmptrap.html | http://pnda.io/pnda-guide/producer/logstash.html
+Syslog | Logstash | https://www.elastic.co/guide/en/logstash/current/plugins-inputs-syslog.html | http://pnda.io/pnda-guide/producer/logstash.html
+Syslog (RFC3164 or RFC5424 - needed for newer IOS/IOS XR/ NX OS etc.)  | Logstash  | https://gist.github.com/donaldh/89b7304981f96497c94fe4d98bb03d71 | http://pnda.io/pnda-guide/producer/logstash.html
  

@@ -56,7 +56,7 @@ Other pages on the console let you view detailed metrics, deploy packages, run a
 Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to integrate and develop "producers", which feed data into Kafka.
 
  * [Preparing data](producer/data-preparation.md)
- * [Integrating Logstash](repos/prod-logstash-codec-avro/README.md)
+ * [Integrating Logstash](producer/logstash.md)
  * [Integrating OpenDaylight](producer/opendl.md)
  * [Integrating OpenBMP](producer/openbmp.md)
  * [Integrating Pmacct](producer/pmacct.md)
@@ -145,7 +145,7 @@ The PNDA distribution consists of the following source code repositories and sub
 ### Producers
 
  * [prod-odl-kafka](repos/prod-odl-kafka/README.md): plugin to ingest data from OpenDaylight
- * [prod-logstash-codec-avro](repos/prod-logstash-codec-avro/README.md): plugin to ingest data from Logstash
+ * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro): patched AVRO codec ingest data from Logstash
 
 ### Examples
 

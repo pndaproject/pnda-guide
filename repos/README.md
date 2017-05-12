@@ -17,7 +17,7 @@ It consists of the following source code repositories and sub-projects:
 
  * [platform-libraries](platform-libraries/README.md): libraries for working with interactive notebooks
  * [platform-tools](platform-tools/README.md): tools for operating a cluster
-     * [bulkingest](platform-tools/bulkingest/README.md): tools for performing a bulk ingest of data
+   * [bulkingest](platform-tools/bulkingest/README.md): tools for performing a bulk ingest of data
  * [platform-console-frontend](platform-console-frontend/README.md): “single pane of glass” giving operational overview and access to application and data management functions
  * [platform-console-backend](platform-console-backend/README.md): APIs that provide data to the console frontend
    * [console-backend-data-logger](platform-console-backend/console-backend-data-logger/README.md): APIs to ingest data
