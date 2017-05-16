@@ -11,7 +11,7 @@ Building and configuring OpenStack is outside the scope of this guide. Please no
 - PNDA makes use of the Swift object store. Please make sure this OpenStack service is available.
 - Before continuing, please ensure -
 	- At least one suitable tenant exists
-	- It provides sufficient resources and quota to provision one of the flavors decribed below
+	- It provides sufficient resources and quota to provision one of the flavors described below
 	- Nova VM provisioning has been shown to work and you're able to access the VM and have the expected network connectivity (which will depend on what interfaces and networks you decide to configure).
 
 ## Required resources
@@ -108,7 +108,7 @@ This container will be used for PNDA dataset archives.
 2. Make a note of the name, as it will used later when configuring PNDA
 
 
-#[Next](IMAGE.md)
+# [Next](IMAGE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Image](IMAGE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 

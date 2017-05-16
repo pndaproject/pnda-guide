@@ -219,9 +219,7 @@ for example:
 
 #### Setting up the required repositories
 
-DLRN (Delorean) builds and maintains yum repositories following OpenStack uptream commit streams.
-
-Documentation is available at http://dlrn.readthedocs.org/en/latest/
+DLRN (Delorean) builds and maintains yum repositories following OpenStack upstream commit streams. See [DLRN's documentation](http://dlrn.readthedocs.org/en/latest/)
 
 ```
 sudo curl -L -o /etc/yum.repos.d/delorean-mitaka.repo https://trunk.rdoproject.org/centos7-mitaka/current/delorean.repo
@@ -232,9 +230,7 @@ sudo sed -i -e 's%gpgcheck=.*%gpgcheck=0%' /etc/yum.repos.d/CentOS-Ceph-Jewel.re
 
 #### Installing the TripleO client
 
-TripleO is a project aimed at installing, upgrading and operating OpenStack clouds using OpenStack’s own cloud facilities as the foundation - building on Nova, Ironic, Neutron and Heat.
-
-Documentation is available at https://docs.openstack.org/developer/tripleo-docs/
+TripleO is a project aimed at installing, upgrading and operating OpenStack clouds using OpenStack’s own cloud facilities as the foundation - building on Nova, Ironic, Neutron and Heat. See [the TripleO documentation](https://docs.openstack.org/developer/tripleo-docs/)
 
 ```
 sudo yum -y install yum-plugin-priorities
@@ -341,7 +337,7 @@ There are two types of images:
 
 ##### WARNING 
 
-**As of 2017-02-20 this step doesn't seem to work. See https://bugs.launchpad.net/tripleo/+bug/1666189**
+**As of 2017-02-20 this step doesn't seem to work. See [Bug 1666189](https://bugs.launchpad.net/tripleo/+bug/1666189)**
 
 ```
 export DIB_YUM_REPO_CONF=`ls /etc/yum.repos.d/*.repo`
@@ -382,7 +378,7 @@ git clone https://github.com/pndaproject/pnda-dib-elements.git
 
 ```
 
-Then follow the [README.md](https://github.com/pndaproject/pnda-dib-elements/blob/develop/README.md) instructions
+Then follow the [README.md](https://github.com/pndaproject/pnda-dib-elements/blob/master/README.md) instructions
 
 When the image is ready,
 
@@ -397,7 +393,7 @@ openstack overcloud image upload
 glance image-create  --name pnda-image --disk-format qcow2 --container-format bare --file pnda-image.qcow2 --progress
 ```
 
-#[Next](SALTMASTER.md)
+# [Next](SALTMASTER.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

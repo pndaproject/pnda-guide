@@ -42,19 +42,19 @@ usage: heat_cli.py [-h] [-y] [-e PNDA_CLUSTER] [-n DATANODES]
                    {create,destroy}
 ```
 
-In particular note that the -s option refers to the key pair created in the OpenStack tenant during the preparation phase.
+In particular note that the -s option refers to the name of the key pair created in the OpenStack tenant during the preparation phase.
 
 Make sure you have access to the private key of this key pair otherwise you will not be able to connect to the bastion node and access the cluster.
 
 ```
-./heat_cli.py -e cation -n 3 -o 1 -k 2 -z 3 -f standard -s <existing_neutron_keypair> create
+./heat_cli.py -e cation -n 3 -o 1 -k 2 -z 3 -f standard -s <existing keypair> create
 ```
 
 In the above example we create a standard flavor PNDA named cation. We specify 3 data nodes, 1 opentsdb node, 2 kafka nodes, 3 zookeeper nodes
 
 A small cluster typically takes around 20 minutes to fully provision while a larger cluster can take 40 minutes.
 
-#[Home](../OVERVIEW.md)
+# [Home](../OVERVIEW.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | 

@@ -40,7 +40,7 @@ It is important to think about time series naming optimization in order to deter
 Think about cardinality: let's say you have another tag type such as firewall. If you are interested in
 aggregated value by type, it will be more efficient to move the type from the tag section to the metric name (`router.sys.cpu.user` and `firewall.sys.cpu.user`).
 
-The most basic operations for writting a data point are:
+The most basic operations for writing a data point are:
 
 - telnet and put `router.sys.cpu.user 1234567890 42 host=123 type=router cpu=0`
 - HTTP POST with JSON to `http://{host}:{port}/api/put`

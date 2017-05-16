@@ -65,6 +65,10 @@ Set   `pnda_application_repo.PNDA_APPS_ACCESS_KEY_ID` and `pnda_application_repo
 
 Set `mirrors.PNDA_MIRROR` to the URI determined by the placement of the mirror and build components in the staging phase.
 
+#### Other fields
+
+There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [AWS templates repository](https://github.com/pndaproject/pnda-aws-templates) for more details.
+
 #### SSH key pair
 
 Create [an ssh keypair](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) to use when creating the ec2 instances for PNDA as ```key_name```. 
@@ -75,7 +79,7 @@ Ensure that key_name.pem has 0600 permissions.
 
 For example, if the keypair in AWS is 'pnda' then the local private key file should be named 'pnda.pem'.
 
-#[Next](CREATE.md)
+# [Next](CREATE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- |

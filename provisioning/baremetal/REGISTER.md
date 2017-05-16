@@ -269,7 +269,7 @@ ssh -i test.pem cloud-user@192.0.3.6
 
 Note it can be useful to follow the instance spawning progress using ```virsh console pnda-master``` on the Build Node.
 
-#[Next](MIRROR.md)
+# [Next](MIRROR.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

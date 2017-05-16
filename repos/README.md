@@ -53,4 +53,3 @@ It consists of the following source code repositories and sub-projects:
 
  * [pnda-guide](README.md): this guide
  
-## [References](others/README.md)

@@ -67,7 +67,7 @@ iptables -t nat -I PREROUTING -p tcp -d 10.60.19.29 --dport 2222 -j DNAT --to-de
 iptables -I FORWARD -m state -d 192.168.122.0/24 --state NEW,RELATED,ESTABLISHED -j ACCEPT
 ```
 
-#[Home](../OVERVIEW.md)
+# [Home](../OVERVIEW.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

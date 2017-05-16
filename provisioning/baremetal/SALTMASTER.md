@@ -24,7 +24,7 @@ sudo virsh domiflist pnda-master
 ```
 Remember the instance's mac address
 
-#[Next](REGISTER.md)
+# [Next](REGISTER.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

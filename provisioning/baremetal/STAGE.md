@@ -26,7 +26,7 @@ Interface  Type       Source     Model       MAC
 -------------------------------------------------------
 -          network    provisioning virtio      52:54:00:67:99:43
 ```
-Create a json file to describe the app server machine (put the mac addess above into it)
+Create a json file to describe the app server machine (put the mac address above into it)
 ```
 # cat ~/pnda-apps.json 
 {
@@ -128,7 +128,7 @@ Note that ```pnda-root``` can be any location, all that is required is that the 
 
 Make a note of the URI to ```pnda-root``` as this will be used in configuring the PNDA creation process.
 
-#[Next](CONFIGURE.md)
+# [Next](CONFIGURE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

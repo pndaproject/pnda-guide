@@ -31,7 +31,7 @@ If using Red Hat, ensure the mirror is built on a clean instance that has had **
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to create and maintain the mirror file sets.
 
-Clone this repository to the mirror creation node. The tools are found in the [mirror folder](https://github.com/pndaproject/pnda).
+Clone this repository to the mirror creation node. The tools are found in the [mirror folder](https://github.com/pndaproject/pnda/tree/master/mirror).
 
 #### Build mirror file sets
 
@@ -72,9 +72,9 @@ mirror_anaconda
 mirror_cloudera
 ```
 
-For more about creating and maintaining mirrors, please refer to the [repository notes](https://github.com/pndaproject/pnda).
+For more about creating and maintaining mirrors, please refer to the [repository notes](https://github.com/pndaproject/pnda/tree/master/mirror).
 
-#[Next](BUILD.md)
+# [Next](BUILD.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | 

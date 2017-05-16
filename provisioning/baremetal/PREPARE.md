@@ -6,7 +6,7 @@
 
 The PNDA bare metal deployment process is similar to the process to deploy OpenStack itself. To deploy PNDA on top of bare metal nodes, OpenStack platform services are used. The two main services involved in this process are Ironic and Heat.
 
-The subject and content of this guide was originally developed and authored by Fabien Andrieux (fandrieu@cisco.com). 
+The subject and content of this guide was originally developed and authored by [Fabien Andrieux](https://github.com/krickwix). 
 
 # Preparing the bare metal cluster
 
@@ -49,15 +49,13 @@ The process of creating these nodes is described in the remainder of this guide.
 
 # References
 
-The PNDA project homepage: [http://pnda.io](http://pnda.io/)
+[PNDA Website](http://pnda.io/)
 
-The OpenStack project documentation:
-[http://docs.openstack.org](http://docs.openstack.org/)
+[OpenStack project documentation](http://docs.openstack.org/)
 
-The TripleO project documentation:
-[http://tripleo.org](http://tripleo.org/)
+[TripleO project documentation](http://tripleo.org/)
 
-#[Next](UNDERCLOUD.md)
+# [Next](UNDERCLOUD.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Undercloud](UNDERCLOUD.md) | [Saltmaster](SALTMASTER.md) | [Register](REGISTER.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

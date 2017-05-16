@@ -22,7 +22,7 @@ Two types of build node are supported -
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to build PNDA.
 
-Clone this repository to the build node. The tools are found in the [build folder](https://github.com/pndaproject/pnda).
+Clone this repository to the build node. The tools are found in the [build folder](https://github.com/pndaproject/pnda/tree/master/build).
 
 #### Preparing the build environment
 
@@ -63,13 +63,13 @@ cd pnda
 ./build-pnda.sh RELEASE release/3.5
 ```
 
-It is also possible to perform more complex builds including building to a specific bill-of-materials. Please refer to the [repository notes](https://github.com/pndaproject/pnda).
+It is also possible to perform more complex builds including building to a specific bill-of-materials. Please refer to the [repository notes](https://github.com/pndaproject/pnda/tree/master/build).
 
 ## Build Products
 
 All build products are assembled in the directory ```pnda-dist```.
 
-#[Next](STAGE.md)
+# [Next](STAGE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | 

@@ -8,7 +8,7 @@ Deploying PNDA using Heat templates requires an image with some pre-installed el
 
 PNDA currently uses the Ubuntu operating system, but you can use Ubuntu or Centos OSes to create the PNDA image.
 
-### Pre-requesites
+### Pre-requisites
 
 **Important:** these dependencies install correctly on an Ubuntu 14.04 *server* image but fail on a *desktop* images.
 
@@ -119,7 +119,7 @@ glance image-create --name pnda-base --file pnda-image.qcow2 --progress --disk-f
 ```
 
 
-#[Next](MIRROR.md)
+# [Next](MIRROR.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Image](IMAGE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 

@@ -2,11 +2,11 @@
 
 ## Objectives
 
-In this lab, you will discover how to compile and deploy a [Spark Streaming](../repos/example-applications/spark-streaming/README.md) application and then use [OpenTSDB](../timeseries/opentsdb.md) to query the data which have been written in [HBase](https://hbase.apache.org/).
+In this lab, you will discover how to compile and deploy a [Spark Streaming](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb) application and then use [OpenTSDB](../timeseries/opentsdb.md) to query the data which have been written in [HBase](https://hbase.apache.org/).
 
 Applications that run on PNDA are packaged as `tar.gz` archives and pushed to an application repository. The `tar` archive contains all the binaries and configuration required to run the application. 
 
-You'll learn how to use the [Deployment Manager API](../repos/platform-deployment-manager/README.md) to deploy a  package from the package repository and run it on the cluster.
+You'll learn how to use the [Deployment Manager API](https://github.com/pndaproject/platform-deployment-manager) to deploy a  package from the package repository and run it on the cluster.
 
 # Prerequisites
 
@@ -14,10 +14,12 @@ Make sure you are familiar with the following before proceeding with the lab:
 
 - The [getting started](../gettingstarted/README.md) guide will introduce you to many concepts used in this lab.
 - The [console](../console/README.md) is your starting point for interacting with a PNDA cluster. All of the main features of PNDA can be accessed from the console.
-- The [Deployment Manager API](../repos/platform-deployment-manager/README.md) provides a mechanism for discovering available packages and deploying & undeploying functionality. It works with a well-defined package structure to make it fast and straightforward to get real scalable analytics running on the platform.
+- The [Deployment Manager API](https://github.com/pndaproject/platform-deployment-manager) provides a mechanism for discovering available packages and deploying & undeploying functionality. It works with a well-defined package structure to make it fast and straightforward to get real scalable analytics running on the platform.
 - Make sure that your package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
-- The [platform-package-repository](../repos/platform-package-repository/README.md) tool lets you upload packages to OpenStack Swift. 
-- Read the technical notes in the [example repository](../repos/example-applications/kafka-spark-opentsdb/README.md).
+- The [platform-package-repository](https://github.com/pndaproject/platform-package-repository) tool lets you upload packages to OpenStack Swift. 
+- Read the technical notes in the [example repository](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb).
+
+
 
 ## Requirements
 
@@ -34,7 +36,7 @@ The PNDA distribution is available on GitHub at:
 
  * [https://github.com/pndaproject](https://github.com/pndaproject)
 
-Clone the [example-applications](../repos/example-applications/kafka-spark-opentsdb/README.md) repository. 
+Clone the [example-applications](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb) repository. 
 
 ### Compile with sbt
 
@@ -57,7 +59,7 @@ tar zcf darkvader-1.0.0.tar.gz darkvader-1.0.0
 
 ### Upload the app package to the PNDA app repository
 
-Use the [platform-package-repository](../repos/platform-package-repository/README.md) tool to upload the application tar.gz file to your application repository.
+Use the [platform-package-repository](https://github.com/pndaproject/platform-package-repository) tool to upload the application tar.gz file to your application repository.
 
 ### Run the application
 
@@ -65,7 +67,7 @@ Use the graphical interface in the console to deploy [packages](../console/packa
 
 ## Producing test data
 
-The technical notes in the [example repository](../repos/example-applications/kafka-spark-opentsdb/README.md) describe how to set up a test producer that will create suitable test data for consumption by this example application.
+The technical notes in the [example repository](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb) describe how to set up a test producer that will create suitable test data for consumption by this example application.
 
 ## Understanding what the application is doing
 

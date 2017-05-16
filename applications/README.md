@@ -17,7 +17,7 @@ The following diagram shows an overview of the purpose of the Deployment Manager
 
 ## Lifecycle Overview ##
 
-The lifecyle of packages and applications is as follows. You can manage [packages](../console/packages.md) and [applications](../console/applications.md) in the console, or using the [API](../repos/platform-deployment-manager/README.md#api-documentation).
+The lifecyle of packages and applications is as follows. You can manage [packages](../console/packages.md) and [applications](../console/applications.md) in the console, or using the [API](https://github.com/pndaproject/platform-deployment-manager/blob/master/README.md#api-documentation).
 
 - Packages are uploaded to a repository. The repository is just a file store, and the deployment manager has modules that retrieve packages from different kinds of repositories so that different storage solutions can be used to hold the tar.gz package files.
 - Packages are deployed from the repository to a PNDA cluster. They are copied from the repository to local storage on the cluster, validated and parsed for metadata.

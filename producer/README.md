@@ -2,7 +2,7 @@
 
 Kafka is the "front door" of PNDA, allowing the ingest of high-velocity data streams, distributing data to all interested consumers and decoupling data sources from data processing applications and platform clients.
 
-It is normally not necessary to create a new producer to start acquiring network data as there are a growing number of data plugins that have already been integrated with PNDA.  It’s not always clear which plugins to use for which data types, hence we’ve summarised some common combinations in the table at the bottom of this page.
+It is normally not necessary to create a new producer to start acquiring network data as there are a growing number of data plugins that have already been integrated with PNDA.  It’s not always clear which plugins to use for which data types, hence we’ve summarized some common combinations in the table at the bottom of this page.
 
 If you have have other data sources you want to integrate with PNDA it’s easy enough to write a PNDA producer – see http://pnda.io/pnda-guide/producer/producer.html
 

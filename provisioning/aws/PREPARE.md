@@ -168,7 +168,7 @@ Go back to users list, select the user just created on 1 and attach the policy t
 ![](images/attach-policy.png)
 
 
-#[Next](MIRROR.md)
+# [Next](MIRROR.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- |

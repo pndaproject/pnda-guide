@@ -26,17 +26,17 @@ This chapter covers the main components of PNDA, including:
 
 This checklist will get you started setting up a fully operational PNDA cluster, with data flowing in and out.
 
-## [Provisioning](provisioning/README.md)
+## [Creating PNDA](provisioning/README.md)
 
 This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
- * [Creating PNDA](OVERVIEW.md)
+ * [Creating PNDA](provisioning/OVERVIEW.md)
  
 ### Background information
 
- * [Getting started with Heat](heat.md)
- * [Getting started with AWS](aws.md)
- * [Getting started with SaltStack](saltstack.md)
+ * [Getting started with Heat](provisioning/heat.md)
+ * [Getting started with AWS](provisioning/aws.md)
+ * [Getting started with SaltStack](provisioning/saltstack.md)
  
 ### For a complete list of all technologies brought together by PNDA
  
@@ -69,7 +69,7 @@ Kafka is the "front door" of PNDA. It handles ingest of data streams from networ
 
 In addition to streaming ingest via Kafka producers, PNDA also provides an offline bulk ingest tool for those who would like to migrate pre-existing data into the PNDA platform. 
 
- * [Bulk-ingest tool](repos/platform-tools/bulkingest/README.md)
+ * [Bulk-ingest tool](https://github.com/pndaproject/platform-tools/tree/master/bulkingest)
 
 ## [Consumers](consumer/README.md)
 
@@ -79,7 +79,7 @@ Kafka has a simple, clean design that moves complexity traditionally found insid
 
 Packages are independently deployable units of application layer functionality, and applications are instances of packages. You can use the PNDA console to deploy packages and manage the application lifecycle. The Deployment Manager documentation explains the structure of packages, and the REST API used to deploy them. 
 
- * [Deployment Manager](repos/platform-deployment-manager/README.md)
+ * [Deployment Manager](https://github.com/pndaproject/platform-deployment-manager)
  * [Example Applications](applications/examples.md)
  * [Spark Streaming and HBase tutorial](applications/ksh.md)
  * [Spark Streaming and OpenTSDB tutorial](applications/kso.md)

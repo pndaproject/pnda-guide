@@ -59,7 +59,7 @@ Set `PndaMirror` to the URI determined by the placement of the mirror and build 
 
 There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [Heat templates repository](https://github.com/pndaproject/pnda-heat-templates) for more details.
 
-#[Next](CREATE.md)
+# [Next](CREATE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | 

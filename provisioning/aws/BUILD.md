@@ -67,7 +67,7 @@ It is also possible to perform more complex builds including building to a speci
 
 All build products are assembled in the directory ```pnda-dist```.
 
-#[Next](STAGE.md)
+# [Next](STAGE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- |

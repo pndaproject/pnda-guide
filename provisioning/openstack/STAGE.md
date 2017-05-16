@@ -42,7 +42,7 @@ Note that ```pnda-root``` can be any location, all that is required is that the 
 
 Make a note of the URI to ```pnda-root``` as this will be used in configuring the PNDA creation process.
 
-#[Next](CONFIGURE.md)
+# [Next](CONFIGURE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
 | --- | --- | --- | --- | --- | --- | --- | 
