@@ -30,13 +30,16 @@ This checklist will get you started setting up a fully operational PNDA cluster,
 
 This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
- * [Platform requirements](provisioning/platform_requirements.md)
- * [Getting started with Heat](provisioning/heat.md)
- * [Creating images for use with Heat templates](repos/pnda-dib-elements/README.md)
- * [Using the PNDA Heat templates](repos/pnda-heat-templates/README.md)
- * [Getting started with AWS](provisioning/aws.md)
- * [Using the PNDA AWS templates](repos/pnda-aws-templates/README.md)
- * [Getting started with SaltStack](provisioning/saltstack.md)
+ * [Creating PNDA](OVERVIEW.md)
+ 
+### Background information
+
+ * [Getting started with Heat](heat.md)
+ * [Getting started with AWS](aws.md)
+ * [Getting started with SaltStack](saltstack.md)
+ 
+### For a complete list of all technologies brought together by PNDA
+ 
  * [Technology versions](provisioning/versions.md)
 
 ## [Console](console/README.md)

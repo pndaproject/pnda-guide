@@ -11,14 +11,8 @@ Some of these tasks may be performed by different people in your organization. F
 
 ## Provisioning PNDA
 
-Before you get started, you will need -
-
-- The GitHub repository for downloading the source code. The default repository is [https://github.com/pndaproject](https://github.com/pndaproject). Alternatively, you can use your own fork of the project. 
-
-1. Review the [platform requirements](../provisioning/platform_requirements.md).
-2. Build PNDA and stage the built components on an HTTP server. See [these notes](https://github.com/pndaproject/pnda/blob/master/build/README.md) for more details.
-3. Carefully follow the section in this guide on [provisioning PNDA](../provisioning/README.md) for your target environment.
-4. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
+1. Carefully follow the [PNDA creation guide](../provisioning/OVERVIEW.md) for your target environment.
+2. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
 
 ## Basic data exploration
 
