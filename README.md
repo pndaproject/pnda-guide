@@ -165,13 +165,11 @@ The PNDA distribution consists of the following source code repositories and sub
  
 ## [References](others/README.md)
 
-## Release Notes
-
-From PNDA 3.3 onwards, please refer to the pnda repository for all release notes.
-
- * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
+## [Release Notes](https://github.com/pndaproject/pnda/tree/master/releases)
 
 ## Versions
 
-This guide is the latest version and describes the software found on the pndaproject develop branches. To refer to guides for specific releases, please navigate to the relevant release tag on [github](https://github.com/pndaproject/pnda-guide).
+This guide is the latest version and describes the software found on the pndaproject develop branches. 
+
+To refer to guides for specific releases, please navigate to the relevant release tag on [github](https://github.com/pndaproject/pnda-guide).
 
