@@ -91,7 +91,7 @@ To know more about their data format, refer to the [Message Bus API](http://www.
 
 Logstash is a flexible, open source data collection, enrichment, and transport pipeline designed to efficiently process a growing list of log, event, and unstructured data sources for distribution to a variety of outputs, including Elasticsearch.
 
-Install and configure Logstash by following [these installation instructions](../repos/logstash-codec-pnda-avro/README.md).
+Install and configure Logstash by following [these installation instructions](https://github.com/pndaproject/logstash-codec-pnda-avro).
 
 ### Example Logstash Configuration
 

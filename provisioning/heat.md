@@ -6,7 +6,4 @@ Start understanding how Heat fits into OpenStack by reading the [architecture gu
 
 Then, for a simple guide to getting started with developing templates for Heat you can check out the [tutorials](http://docs.openstack.org/developer/heat/template_guide/hello_world.html) on the OpenStack documentation site.
 
-Finally, to prepare images and start provisioning PNDA using Heat templates, follow the instructions in the repositories:
-
- * [Creating images for use with Heat templates](https://github.com/pndaproject/pnda-dib-elements/tree/master)
- * [Using the PNDA Heat templates](https://github.com/pndaproject/pnda-heat-templates/tree/master)
+Finally, follow the instructions for [creating PNDA on OpenStack](OVERVIEW.md).

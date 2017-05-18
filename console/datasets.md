@@ -22,8 +22,8 @@ After you have made changes, click the Save button to review and confirm the cha
 
 ## Creating datasets
 
-Datasets are automatically created based on the name of the `src` field in Kafka messages by [gobblin](../repos/gobblin/README.md). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
+Datasets are automatically created based on the name of the `src` field in Kafka messages by [gobblin](https://github.com/pndaproject/gobblin). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
 
 ## Kafka
 
-Kafka has its own data rention policy that affects how long data from producers stays in the queue for consumers to consume it. By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis. 
+Kafka has its own data retention policy that affects how long data from producers stays in the queue for consumers to consume it. By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis. 

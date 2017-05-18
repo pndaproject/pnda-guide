@@ -8,7 +8,7 @@ Metrics have a hierarchical namespace, such as `hadoop.HDFS.health` or `kafka.br
 
 You can filter the list by typing part of a metric name into the search field. For example, type `HDFS` to match `hadoop.HDFS.health`, `hadoop.HDFS.files_total`, etc. 
 
-Most components have a `health` metric that can be `OK`, `WARN` or `ERROR`. You can, for exampe, filter the list by `health` to see the health status for all components. 
+Most components have a `health` metric that can be `OK`, `WARN` or `ERROR`. You can, for example, filter the list by `health` to see the health status for all components. 
 
 Any warnings will be displayed in yellow, and any errors will be displayed in red. The overall platform health section at the top of the page shows an overview of all warnings and errors. 
 

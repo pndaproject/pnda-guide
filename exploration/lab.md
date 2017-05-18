@@ -2,7 +2,7 @@
 
 ## Objectives ##
 
-This tutorial demonstrates how to use [Jupyter](jupyter.md) to access data and make sense of data interactively using the Jupyter pyspark interpreter. This tutorial uses the PNDA [example notebook](../repos/example-applications/jupyter-notebooks/README.md), where you should be able to find how to connect and upload the example notebook to the Jupyter server on your PNDA cluster.
+This tutorial demonstrates how to use [Jupyter](jupyter.md) to access data and make sense of data interactively using the Jupyter pyspark interpreter. This tutorial uses the PNDA [example notebook](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks), where you should be able to find how to connect and upload the example notebook to the Jupyter server on your PNDA cluster.
 
 ## Technical Accomplishments ##
 
@@ -12,7 +12,7 @@ By the end of this Lab, you should be able to:
 - Load data using PNDA platform libraries
 - Get high-level data statistics using low-level RDD APIs
 - Get high-level data statistics using JsonDataHandler
-- Explorary analytics using JsonDataHandler
+- Exploratory analytics using JsonDataHandler
 - Create interactive UIs
 - Make a Matplotlib visualization
 
@@ -43,7 +43,7 @@ On completion, you should see a similar output appended under the cell.
 
 ## Section 2: Play with RDD ##
 
-Loading data from HDFS can be done using PNDA [platform libaries](../repos/platform-libraries/README.md), see example 2 cell as below. The first line of code is required to add PNDA PNDA [platform libaries](../repos/platform-libraries/README.md) to Spark context, followed by an import statement. In this case, we use JsonDataHandler implementation that was designed to process `rawdata` encoded in JSON format. Finally instantiate a JsonDataHandler instance by injecting Spark Context instance, data source name, and relative file path in HDFS.
+Loading data from HDFS can be done using PNDA [platform libaries](https://github.com/pndaproject/platform-libraries), see example 2 cell as below. The first line of code is required to add PNDA PNDA [platform libaries](https://github.com/pndaproject/platform-libraries) to Spark context, followed by an import statement. In this case, we use JsonDataHandler implementation that was designed to process `rawdata` encoded in JSON format. Finally instantiate a JsonDataHandler instance by injecting Spark Context instance, data source name, and relative file path in HDFS.
 
 Highlight the cell below "Example 2: Create an instance of JsonDataHandler" and run.
 
@@ -70,7 +70,7 @@ Go on and finish "Challenge 1" or copy the solution from [Solutions](#challenge-
 
 ## Section 3: Visualize high-level statistics ##
 
-In this section, we will learn how to use PNDA [platform libaries](../repos/platform-libraries/README.md) and matplotlib to visualize datasets.
+In this section, we will learn how to use PNDA [platform libaries](https://github.com/pndaproject/platform-libraries) and matplotlib to visualize datasets.
 
 Example 4 gives an example usage of `list_host_ip()` API, which returns a list of ("host_ip", "total number of records") pairs.
 
@@ -88,9 +88,9 @@ This section showed how to use interactive widgets to build interactive visualiz
 
 ![example 5](images/lab-example-5.png)
 
-Example 5 fulfil the similar logic as Challenge 2, but in an interactive way.
+Example 5 fulfill the similar logic as Challenge 2, but in an interactive way.
 
-Highlight the cell below "Example 5: Interactive visulization of total number of records per metric of a particular host" and run. You should notice there are not outputs appended as previous examples. Instead an interactive UI is displayed.
+Highlight the cell below "Example 5: Interactive visualization of total number of records per metric of a particular host" and run. You should notice there are not outputs appended as previous examples. Instead an interactive UI is displayed.
 
 ![example 5 ui](images/lab-example-5-ui.png)
 
@@ -109,7 +109,7 @@ Type a metric (e.g. in_bytes) you would like compare across hosts in the "metric
 
 ![example 6 output](images/lab-example-6-output.png)
 
-This example showed how to use Jupyter to interactively find out traffic blackhole of a network. Now go on with Challenge 3 and find out packet/bytes drops of a partiular host. Solution to challenge 3 can be found from the [Solutions](#challenge-3) section.
+This example showed how to use Jupyter to interactively find out traffic blackhole of a network. Now go on with Challenge 3 and find out packet/bytes drops of a particular host. Solution to challenge 3 can be found from the [Solutions](#challenge-3) section.
 
 
 ## Solutions ##

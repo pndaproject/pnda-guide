@@ -44,17 +44,17 @@ PNDA uses Kafka and Zookeeper for high velocity data distribution. Applications 
 
 ## High-volume batch processing
 
-PNDA leverages Apache Spark for petabyte-scale batch processing and deep historical insight into data. Using Java or Scala, you can construct complex application logic, package it according to the PNDA packaging scheme and deploy using the PNDA [deployment manager](../repos/platform-deployment-manager/README.md). Thereafter, applications can be created and their lifecycle controlled via a [REST API](../repos/platform-deployment-manager/README.md#api-documentation) or the PNDA [console](../console/README.md).
+PNDA leverages Apache Spark for petabyte-scale batch processing and deep historical insight into data. Using Java or Scala, you can construct complex application logic, package it according to the PNDA packaging scheme and deploy using the PNDA [deployment manager](https://github.com/pndaproject/platform-deployment-manager). Thereafter, applications can be created and their lifecycle controlled via a [REST API](https://github.com/pndaproject/platform-deployment-manager/blob/master/README.md#api-documentation) or the PNDA [console](../console/README.md).
 
 ## High-velocity stream processing
 
-PNDA uses Apache Spark Streaming to achieve high-velocity stream processing. Similarly to batch processing, you can construct your application logic using Java or Scala, and then package it for deployment and using the provided facilities. Since Spark Streaming uses the same programming model and API as Spark, it becomes possible to write your business logic once, and later decide whether it would be best run on a streaming or batch basis. This signficantly shortens the development cycle, compared to technologies with orthogonal paradigms (e.g. Apache Storm with MapReduce). 
+PNDA uses Apache Spark Streaming to achieve high-velocity stream processing. Similarly to batch processing, you can construct your application logic using Java or Scala, and then package it for deployment and using the provided facilities. Since Spark Streaming uses the same programming model and API as Spark, it becomes possible to write your business logic once, and later decide whether it would be best run on a streaming or batch basis. This significantly shortens the development cycle, compared to technologies with orthogonal paradigms (e.g. Apache Storm with MapReduce). 
 
 ## Free-form data exploration
 
-Data exploration is a prerequisite step before formal anlaysis. From a data science perspective, free-form data exploration helps the process of understanding the raw data structure, or determining how to clean or transform the data. It enables experimentation with different statistical models or machine learning algorithms, and gives early business insight into the data.   
+Data exploration is a prerequisite step before formal analysis. From a data science perspective, free-form data exploration helps the process of understanding the raw data structure, or determining how to clean or transform the data. It enables experimentation with different statistical models or machine learning algorithms, and gives early business insight into the data.   
 
-PNDA integrates [Jupyter Notebook](../repos/example-applications/jupyter-notebooks/README.md), a web-based application that enables interactive, free-form data exploration. With the predefined *Pyspark kernel* and PNDA [platform libraries](../repos/platform-libraries/README.md), you can load data from the distributed file system, run experiments in batch mode, and even rapid prototype big data applications. Together with the pre-configured graphic tools, you can also graphically review your application data or experimental results. 
+PNDA integrates [Jupyter Notebook](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks), a web-based application that enables interactive, free-form data exploration. With the predefined *Pyspark kernel* and PNDA [platform libraries](https://github.com/pndaproject/platform-libraries), you can load data from the distributed file system, run experiments in batch mode, and even rapid prototype big data applications. Together with the pre-configured graphic tools, you can also graphically review your application data or experimental results. 
 
 ## Structured query over big data
 
@@ -68,7 +68,7 @@ Impala has a sophisticated query engine, which ensures that simple queries to di
 
 ## Handling time series
 
-Often, use cases for analytics — espeically in the OSS domain — revolve around handling a large volume of metric data acquired over a period of time, and the need to access it quickly and present it effectively.
+Often, use cases for analytics — especially in the OSS domain — revolve around handling a large volume of metric data acquired over a period of time, and the need to access it quickly and present it effectively.
 
 For this reason, PNDA integrates [OpenTSDB](../timeseries/opentsdb.md) and Grafana. OpenTSDB is a horizontally scalable time series database built on top of HBase. It is designed specifically to simplify and accelerate the process of storing and analyzing large amounts of time-series data, in the realm of millions of writes per second.
 

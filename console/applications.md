@@ -1,4 +1,4 @@
-# Applicaitons
+# Applications
 
 The apps page lets you manage the lifecycle of [applications](../applications/README.md), which are instances of packages. You can create a new application from a deployed package, see the status of each application, and start, pause or delete them.
 
