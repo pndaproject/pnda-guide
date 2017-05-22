@@ -28,10 +28,6 @@ This chapter covers the main components of PNDA, including:
 - Structured query over big data with Impala
 - Handling time series with OpenTSDB & Grafana
 
-## [Download Book](downloads/README.md)
-
-You can read the latest version of this guide online, or download the book in a number of formats.
-
 ## [Getting Started](gettingstarted/README.md)
 
 This checklist will get you started setting up a fully operational PNDA cluster, with data flowing in and out.
