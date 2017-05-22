@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] 2017-05-22
+### Fixed
+- PNDA-2983: Remove downloads
+
 ## [0.1.6] 2017-01-20
 ### Changed
 - PNDA-2493: Align AWS and OpenStack flavors

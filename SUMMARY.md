@@ -2,7 +2,6 @@
 
 * [PNDA Guide](README.md)
 * [Overview](overview/README.md)
-* [Download Book](downloads/README.md)
 * [Getting Started](gettingstarted/README.md)
 * [Provisioning](provisioning/README.md)
     * [Platform requirements](provisioning/platform_requirements.md)
