@@ -1,10 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-### Changed
-- Rewrote Provisioning section
+## [0.2.0] 2017-05-23
+### Added
 - PNDA-2873: Documentation for the new Avro Codec
+### Changed
+- PNDA-2875: Adjust references to 'package server', salt-cloud & ubuntu
+- PNDA-2901: Rewrite of PNDA creation guide
+- Rewrote Provisioning section
+- Update README to reflect continuous updates
+- Update Jupyter and JupyterHub versions
+- Update platform_requirements.md
 
 ## [0.1.6] 2017-01-20
 ### Changed
