@@ -86,12 +86,12 @@ If you were to calculate `proc_ts - gen_ts` you would learn how long each messag
 
 The shard part of the `rowkey` cycles between 0 and the setting `hbase_shards` used in the PUT body. This ensures that the writes to HBase are evenly distributed around the multiple region servers that comprise HBase.
 
-The Spark Streaming code is located in:
+The Spark Streaming code is located [here](https://github.com/pndaproject/example-applications/blob/master/spark-streaming/streaming-app/src/main/scala/com/cisco/pnda/examples/spark/KafkaPipeline.scala) - 
 ```
-streaming-app/src/main/scala/com/cisco/pnda/examples/spark/KafkaToHbaseApp.scala **TODO** check path
+spark-streaming/streaming-app/src/main/scala/com/cisco/pnda/examples/spark/KafkaPipeline.scala
 ```
 
-createPipeline sets up the processing graph with three main parts:
+The application sets up the processing graph in the class KafkaPipeline with three main parts:
 - `readFromKafka` - calls `KafkaUtils.createDirectStream` to read from kafka
 - `parseMessages` - calls `DStream.flatMap` to apply parsing code to decode each message as read from kafka
 - `writeToHbase` - calls `DStream.mapPartitions` to write the parsed messages into HBase
