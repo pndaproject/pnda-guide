@@ -14,6 +14,7 @@ The PNDA console "metrics" page also contains a list of links to various UIs.
 
 ## Default Credentials
  - Cloudera Manager: admin/admin
+ - Grafana: pnda/pndapnda
  - Everything else:  pnda/pnda
 
 ## Setting Credentials
