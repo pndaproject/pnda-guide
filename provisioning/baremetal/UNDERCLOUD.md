@@ -83,8 +83,6 @@ sudo qemu-img resize /var/lib/libvirt/images/undercloud.qcow2 +120G
 
 The partition table then needs adjusting to make use of the additional space.
 
-**TODO** For me the first step throws a 'Device or resource busy' error after successfully writing the partition - assume this is safely ignored? 
-
 ```
 sudo virt-customize -a /var/lib/libvirt/images/undercloud.qcow2 --run-command 'echo -e "d\nn\n\n\n\n\nw\n" | fdisk /dev/sda'
 sudo virt-customize -a /var/lib/libvirt/images/undercloud.qcow2 --run-command 'xfs_growfs /'
@@ -126,8 +124,6 @@ sudo virsh list --all
 ```
 
 #### Place the host provisioning interface in the right bridge
-
-**TODO** - why?
 
 Determine the bridge name:
 
