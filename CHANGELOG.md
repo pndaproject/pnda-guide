@@ -6,8 +6,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-2873: Documentation for the new Avro Codec
 ### Changed
 - PNDA-2875: Adjust references to 'package server', salt-cloud & ubuntu
-- PNDA-2901: Rewrite of PNDA creation guide
-- Rewrote Provisioning section
+- PNDA-2901: Refactor guide to replace creation section and remove repository READMEs
 - Update README to reflect continuous updates
 - Update Jupyter and JupyterHub versions
 - Update platform_requirements.md
