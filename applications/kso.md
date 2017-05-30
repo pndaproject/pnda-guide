@@ -90,9 +90,9 @@ The Spark Streaming app uses raw data. Create a new structure and push it to the
   - value
 ```
 
-The Spark Streaming code is located in: **TODO** check path
+The Spark Streaming code is located [here](https://github.com/pndaproject/example-applications/blob/master/kafka-spark-opentsdb/src/main/scala/com/cisco/pnda/PndaConsumer.scala).
 ```
-streaming-app/src/main/scala/com/cisco/pnda/PndaConsumer.scala
+kafka-spark-opentsdb/src/main/scala/com/cisco/pnda/PndaConsumer.scala
 ```
 You can learn more about these Spark Streaming API calls and the rest of the API by reading the [Spark Streaming documentation](http://spark.apache.org/docs/1.3.0/streaming-programming-guide.html).
 
