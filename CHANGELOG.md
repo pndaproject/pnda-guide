@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Rewrote Provisioning section
 - PNDA-2873: Documentation for the new Avro Codec
+- PNDA-2839: Update Grafana documentation for default password
 
 ## [0.1.6] 2017-01-20
 ### Changed
