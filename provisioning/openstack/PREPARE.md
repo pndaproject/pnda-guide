@@ -35,7 +35,7 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 
 The storage per node is allocated as:
  - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
- - 20 GB operating system partition. This is configured in the templates per-node.
+ - 20 GB operating system partition. This is configured in the instance flavor definition.
  - 35 GB HDFS (only on datanode). This is configured in the templates for the datanode.
 
 #### Standard
@@ -65,7 +65,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 The storage per node is allocated as:
  - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
- - 50-250 GB operating system partition. This is configured in the templates per-node.
+ - 50-250 GB operating system partition. This is configured in the instance flavor definition.
 
 ### Credentials
 
