@@ -6,7 +6,6 @@
 * [Getting Started](gettingstarted/README.md)
 * [Provisioning](provisioning/README.md)
     * [Platform requirements](provisioning/platform_requirements.md)
-    * [Building the package server](repos/pnda-package-server-docker/README.md)
     * [Getting started with Heat](provisioning/heat.md)
     * [Creating images for use with Heat templates](repos/pnda-dib-elements/README.md)
     * [Using the PNDA Heat templates](repos/pnda-heat-templates/README.md)
@@ -52,7 +51,6 @@
         * [pnda-heat-templates](repos/pnda-heat-templates/link.md)
         * [pnda-aws-templates](repos/pnda-aws-templates/link.md)
         * [pnda-dib-elements](repos/pnda-dib-elements/link.md)
-        * [pnda-package-server-docker](repos/pnda-package-server-docker/link.md)
     * Platform
         * [platform-libraries](repos/platform-libraries/README.md)
         * [platform-tools](repos/platform-tools/README.md)
