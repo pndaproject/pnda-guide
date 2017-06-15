@@ -13,7 +13,7 @@ The following table lists the technologies used in this PNDA release.
 |ELK (Logserver)|Logstash 1.5.4, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.3.1|
-|OpenTSDB|2.2.0|
+|OpenTSDB|2.3.0|
 |Grafana|3.1.1|
 |Anaconda|4.0.0|
 |Hadoop (see below for components)|CM 5.9.0, CDH 5.9.0-1.cdh5.9.0.p0.23 |
