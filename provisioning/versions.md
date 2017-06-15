@@ -10,7 +10,7 @@ The following table lists the technologies used in this PNDA release.
 |Zookeeper for Kafka|3.4.6|
 |JMX Proxy|3.2.0|
 |Kafka Manager|1.3.3.6|
-|ELK (Logserver)|Logstash 1.5.4, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
+|ELK (Logserver)|Logstash 5.0.2, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.3.1|
 |OpenTSDB|2.3.0|
