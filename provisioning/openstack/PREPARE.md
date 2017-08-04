@@ -26,12 +26,12 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  `bastion`   |  ec2.t2.medium  | 1 | 2 |  4 GB   | 20 GB | 20 GB | 0 GB
 |  `saltmaster`   |  ec2.t2.medium  | 1 | 2 |  4 GB   | 20 GB | 20 GB | 0 GB
-|  `edge`      |  ec2.m3.xlarge  | 1 | 4 | 15 GB   | 30 GB | 20 GB | 10 GB
-|  `mgr1`      |  ec2.m3.xlarge  | 1 | 4 | 15 GB   | 30 GB | 20 GB | 10 GB
+|  `edge`      |  ec2.m4.xlarge  | 1 | 4 | 16 GB   | 50 GB | 20 GB | 10 GB
+|  `mgr1`      |  ec2.m4.xlarge  | 1 | 4 | 16 GB   | 50 GB | 20 GB | 10 GB
 |  `datanode`  |  ec2.c4.xlarge  | 1 | 4 |  7.5 GB | 65 GB | 20 GB | 10 GB
-|  `kafka`     |  ec2.m3.large   | 1 | 2 |  7.5 GB | 30 GB | 20 GB | 10 GB
+|  `kafka`     |  ec2.m4.large   | 1 | 2 |  8 GB | 50 GB | 20 GB | 10 GB
 | -  |  - | -  | -  | -  | -  |
-|  `total`     |  | 6 | 18 | 53 GB | 195 GB
+|  `total`     |  | 6 | 18 | 55,5 GB | 255 GB
 
 The storage per node is allocated as:
  - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
@@ -45,22 +45,22 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 | Role | Instance type | Number required | CPUs | Memory | Total Storage | Root Volume Storage | Log Volume Storage
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |  `bastion`         |  ec2.t2.medium  | 1 | 2 |  4 GB   | 50 GB | 50 GB | 0 GB
-|  `saltmaster`      |  ec2.m3.large   | 1 | 2 |  7.5 GB | 50 GB | 50 GB | 0 GB
+|  `saltmaster`      |  ec2.m4.large   | 1 | 2 |  8 GB | 50 GB | 50 GB | 0 GB
 |  `edge`            |  ec2.t2.medium  | 1 | 2 |  4 GB   | 370 GB | 250 GB | 120 GB
-|  `mgr1`            |  ec2.m3.2xlarge | 1 | 8 |  30 GB  | 370 GB | 250 GB | 120 GB
-|  `mgr2`            |  ec2.m3.2xlarge | 1 | 8 |  30 GB  | 370 GB | 250 GB | 120 GB
-|  `mgr3`            |  ec2.m3.2xlarge | 1 | 8 |  30 GB  | 370 GB | 250 GB | 120 GB
-|  `mgr4`            |  ec2.m3.2xlarge | 1 | 8 |  30 GB  | 370 GB | 250 GB | 120 GB
+|  `mgr1`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  | 370 GB | 250 GB | 120 GB
+|  `mgr2`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  | 370 GB | 250 GB | 120 GB
+|  `mgr3`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  | 370 GB | 250 GB | 120 GB
+|  `mgr4`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  | 370 GB | 250 GB | 120 GB
 |  `datanode`        |  ec2.m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB | 50 GB | 120 GB
-|  `opentsdb`        |  ec2.m3.xlarge  | 2 | 4 | 15 GB   | 50 GB | 50 GB | 0 GB
-|  `cloudera-manager`|  ec2.m3.xlarge  | 1 | 4 | 15 GB   | 170 GB | 50 GB | 120 GB
-|  `jupyter`         |  ec2.m3.large   | 1 | 2 |  7.5 GB | 50 GB | 50 GB | 0 GB
-|  `logserver`       |  ec2.m3.large   | 1 | 2 |  7.5 GB | 500 GB | 500 GB | 0 GB
-|  `kafka`           |  ec2.m3.xlarge  | 2 | 4 | 15 GB   | 270 GB | 150 GB | 120 GB
-|  `zookeeper`       |  ec2.m3.large   | 3 | 2 |  7.5 GB | 170 GB | 50 GB | 120 GB
-|  `tools`           |  ec2.m3.large   | 1 | 2 |  7.5 GB | 50 GB | 50 GB | 0 GB
+|  `opentsdb`        |  ec2.m4.xlarge  | 2 | 4 | 16 GB   | 50 GB | 50 GB | 0 GB
+|  `cloudera-manager`|  ec2.m4.xlarge  | 1 | 4 | 16 GB   | 170 GB | 50 GB | 120 GB
+|  `jupyter`         |  ec2.m4.large   | 1 | 2 |  8 GB | 50 GB | 50 GB | 0 GB
+|  `logserver`       |  ec2.m4.large   | 1 | 2 |  8 GB | 500 GB | 500 GB | 0 GB
+|  `kafka`           |  ec2.m4.xlarge  | 2 | 4 | 16 GB   | 270 GB | 150 GB | 120 GB
+|  `zookeeper`       |  ec2.m4.large   | 3 | 2 |  8 GB | 170 GB | 50 GB | 120 GB
+|  `tools`           |  ec2.m4.large   | 1 | 2 |  8 GB | 50 GB | 50 GB | 0 GB
 | -  |  - | -  |  - | -  | -  |
-|  `total`           |   | 21 | 94 |  352 GB | 7.3TB
+|  `total`           |   | 21 | 94 |  368 GB | 7.3TB
 
 The storage per node is allocated as:
  - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
