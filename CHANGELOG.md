@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - Rewrote Provisioning section
 - PNDA-2873: Documentation for the new Avro Codec
 - PNDA-2839: Update Grafana documentation for default password
+- PNDA-3167: Update flavor as this is m4 instead of m3
 
 ### Added
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
