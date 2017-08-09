@@ -2,6 +2,12 @@
 
 PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment. 
 
+This guide covers PNDA release 3.5
+
+Last updated: August 2017
+
+Version: 0.2.0
+
 ## Quick Links
 
 - [Website](http://pandaproject.io)
@@ -123,7 +129,7 @@ The PNDA distribution consists of the following source code repositories and sub
  * [pnda-aws-templates](http://github.com/pndaproject/pnda-aws-templates): cluster templates for creating PNDA with CloudFormation on AWS
  * [pnda-dib-elements](http://github.com/pndaproject/pnda-dib-elements): tools for building disk image templates
  * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
- 
+
 ### Platform
 
  * [platform-libraries](http://github.com/pndaproject/platform-libraries): libraries for working with interactive notebooks
