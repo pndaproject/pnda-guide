@@ -1,20 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [0.2.0] 2017-05-23
+## [Unreleased]
 ### Changed
-- PNDA-2875: Adjust references to 'package server', salt-cloud & ubuntu
-- PNDA-2901: Rewrite of PNDA creation guide
 - Rewrote Provisioning section
+- PNDA-2873: Documentation for the new Avro Codec
 - PNDA-2839: Update Grafana documentation for default password
 - PNDA-3167: Update flavor as this is m4 instead of m3
 
 ### Added
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
-- PNDA-2873: Documentation for the new Avro Codec
-- Update README to reflect continuous updates
-- Update Jupyter and JupyterHub versions
-- Update platform_requirements.md
 
 ## [0.1.6] 2017-01-20
 ### Changed
