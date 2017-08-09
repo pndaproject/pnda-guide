@@ -22,9 +22,6 @@ node {
             rm -f _book/instructions.md
             rm -f _book/pnda-guide.*
             rm -rf _book/archives
-            node_modules/gitbook-cli/bin/gitbook.js pdf ./ _book/downloads/pnda-guide.pdf
-            node_modules/gitbook-cli/bin/gitbook.js epub ./ _book/downloads/pnda-guide.epub
-            node_modules/gitbook-cli/bin/gitbook.js mobi ./ _book/downloads/pnda-guide.mobi
             mv _book pnda-guide-${version}
             tar zcf pnda-guide-${version}.tar.gz pnda-guide-${version}
         """

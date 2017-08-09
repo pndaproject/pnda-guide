@@ -1,6 +1,6 @@
 # Data Exploration
 
-## [Jupyter](../repos/example-applications/jupyter-notebooks/README.md)
+## [Jupyter](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks)
 
 The Jupyter Notebook is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text. In PNDA, it supports exploration and presentation of data from HDFS and HBase.
 

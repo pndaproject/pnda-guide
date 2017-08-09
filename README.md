@@ -2,11 +2,11 @@
 
 PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment. 
 
-This guide covers PNDA release 3.4
+This guide covers PNDA release 3.5
 
-Last updated: January 2017
+Last updated: August 2017
 
-Version: 0.1.5
+Version: 0.2.0
 
 ## Quick Links
 
@@ -22,33 +22,30 @@ This chapter covers the main components of PNDA, including:
 
 - Data ingress using Logstash, Open Daylight & the bulk ingest tool
 - Data distribution with Kafka & Zookeeper
-- High velocity stream processing with Spark Streaming it
+- High velocity stream processing with Spark Streaming
 - High volume batch processing with Spark
 - Free form data exploration with Jupyter
 - Structured query over big data with Impala
 - Handling time series with OpenTSDB & Grafana
 
-## [Download Book](downloads/README.md)
-
-You can read the latest version of this guide online, or download the book in a number of formats.
-
 ## [Getting Started](gettingstarted/README.md)
 
 This checklist will get you started setting up a fully operational PNDA cluster, with data flowing in and out.
 
-## [Provisioning](provisioning/README.md)
+## [Creating PNDA](provisioning/README.md)
 
 This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
- * [Platform requirements](provisioning/platform_requirements.md)
+ * [Creating PNDA](provisioning/OVERVIEW.md)
+ 
+### Background information
+
  * [Getting started with Heat](provisioning/heat.md)
- * [Creating images for use with Heat templates](repos/pnda-dib-elements/README.md)
- * [Using the PNDA Heat templates](repos/pnda-heat-templates/README.md)
  * [Getting started with AWS](provisioning/aws.md)
- * [Using the PNDA AWS templates](repos/pnda-aws-templates/README.md)
  * [Getting started with SaltStack](provisioning/saltstack.md)
- * [Provisioning with Salt Cloud](provisioning/salt-cloud.md)
- * [Configuring a Salt Master](provisioning/saltmaster.md)
+ 
+### For a complete list of all technologies brought together by PNDA
+ 
  * [Technology versions](provisioning/versions.md)
 
 ## [Console](console/README.md)
@@ -68,7 +65,7 @@ Other pages on the console let you view detailed metrics, deploy packages, run a
 Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to integrate and develop "producers", which feed data into Kafka.
 
  * [Preparing data](producer/data-preparation.md)
- * [Integrating Logstash](repos/prod-logstash-codec-avro/README.md)
+ * [Integrating Logstash](producer/logstash.md)
  * [Integrating OpenDaylight](producer/opendl.md)
  * [Integrating OpenBMP](producer/openbmp.md)
  * [Integrating Pmacct](producer/pmacct.md)
@@ -78,7 +75,7 @@ Kafka is the "front door" of PNDA. It handles ingest of data streams from networ
 
 In addition to streaming ingest via Kafka producers, PNDA also provides an offline bulk ingest tool for those who would like to migrate pre-existing data into the PNDA platform. 
 
- * [Bulk-ingest tool](repos/platform-tools/bulkingest/README.md)
+ * [Bulk-ingest tool](https://github.com/pndaproject/platform-tools/tree/master/bulkingest)
 
 ## [Consumers](consumer/README.md)
 
@@ -88,7 +85,7 @@ Kafka has a simple, clean design that moves complexity traditionally found insid
 
 Packages are independently deployable units of application layer functionality, and applications are instances of packages. You can use the PNDA console to deploy packages and manage the application lifecycle. The Deployment Manager documentation explains the structure of packages, and the REST API used to deploy them. 
 
- * [Deployment Manager](repos/platform-deployment-manager/README.md)
+ * [Deployment Manager](https://github.com/pndaproject/platform-deployment-manager)
  * [Example Applications](applications/examples.md)
  * [Spark Streaming and HBase tutorial](applications/ksh.md)
  * [Spark Streaming and OpenTSDB tutorial](applications/kso.md)
@@ -127,49 +124,46 @@ The PNDA distribution consists of the following source code repositories and sub
 
 ### Provisioning
 
- * [platform-salt](repos/platform-salt/README.md): provisioning logic for creating PNDA
- * [platform-salt-cloud](repos/platform-salt-cloud/README.md): cluster templates for creating PNDA with salt-cloud
- * [pnda-heat-templates](repos/pnda-heat-templates/README.md): cluster templates for creating PNDA with Heat
- * [pnda-aws-templates](repos/pnda-aws-templates/README.md): cluster templates for creating PNDA with CloudFormation on AWS
- * [pnda-dib-elements](repos/pnda-dib-elements/README.md): tools for building disk image templates
+ * [platform-salt](http://github.com/pndaproject/platform-salt): provisioning logic for creating PNDA
+ * [pnda-heat-templates](http://github.com/pndaproject/pnda-heat-templates): cluster templates for creating PNDA with Heat
+ * [pnda-aws-templates](http://github.com/pndaproject/pnda-aws-templates): cluster templates for creating PNDA with CloudFormation on AWS
+ * [pnda-dib-elements](http://github.com/pndaproject/pnda-dib-elements): tools for building disk image templates
+ * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
 
 ### Platform
 
- * [platform-libraries](repos/platform-libraries/README.md): libraries for working with interactive notebooks
- * [platform-tools](repos/platform-tools/README.md): tools for operating a cluster
-     * [bulkingest](repos/platform-tools/bulkingest/README.md): tools for performing a bulk ingest of data
- * [platform-console-frontend](repos/platform-console-frontend/README.md): “single pane of glass” giving operational overview and access to application and data management functions
- * [platform-console-backend](repos/platform-console-backend/README.md): APIs that provide data to the console frontend
-   * [console-backend-data-logger](repos/platform-console-backend/console-backend-data-logger/README.md): APIs to ingest data
-   * [console-backend-data-manager](repos/platform-console-backend/console-backend-data-manager/README.md): APIs to provide data
- * [platform-testing](repos/platform-testing/README.md): modules that test both the end to end platform and individual components and collect metrics
- * [platform-deployment-manager](repos/platform-deployment-manager/README.md): API to manage packages and application deployment and lifecycle
- * [platform-data-mgmnt](repos/platform-data-mgmnt/README.md): tools to manage data retention
-   * [data-service](repos/platform-data-mgmnt/data-service/README.md): API to set data retention policies
-   * [hdfs-cleaner](repos/platform-data-mgmnt/hdfs-cleaner/README.md): cron job to clean up HDFS data
-   * [oozie-templates](repos/platform-data-mgmnt/oozie-templates/README.md): templates that archive or delete data
- * [platform-package-repository](repos/platform-package-repository/README.md): manages a simple package repository backed by OpenStack Swift
-
-### Forked Projects
-
- * [gobblin](repos/gobblin/README.md): customized fork of the Gobblin data ingest frameworkjup
+ * [platform-libraries](http://github.com/pndaproject/platform-libraries): libraries for working with interactive notebooks
+ * [platform-tools](http://github.com/pndaproject/platform-tools): tools for operating a cluster
+     * [bulkingest](http://github.com/pndaproject/platform-tools/tree/master/bulkingest): tools for performing a bulk ingest of data
+ * [platform-console-frontend](http://github.com/pndaproject/platform-console-frontend): “single pane of glass” giving operational overview and access to application and data management functions
+ * [platform-console-backend](http://github.com/pndaproject/platform-console-backend): APIs that provide data to the console frontend
+   * [console-backend-data-logger](http://github.com/pndaproject/platform-console-backend/tree/master/console-backend-data-logger): APIs to ingest data
+   * [console-backend-data-manager](http://github.com/pndaproject/platform-console-backend/tree/master/console-backend-data-manager): APIs to provide data
+ * [platform-testing](http://github.com/pndaproject/platform-testing): modules that test both the end to end platform and individual components and collect metrics
+ * [platform-deployment-manager](http://github.com/pndaproject/platform-deployment-manager): API to manage packages and application deployment and lifecycle
+ * [platform-data-mgmnt](http://github.com/pndaproject/platform-data-mgmnt): tools to manage data retention
+   * [data-service](http://github.com/pndaproject/platform-data-mgmnt/tree/master/data-service): API to set data retention policies
+   * [hdfs-cleaner](http://github.com/pndaproject/platform-data-mgmnt/tree/master/hdfs-cleaner): cron job to clean up HDFS data
+   * [oozie-templates](http://github.com/pndaproject/platform-data-mgmnt/tree/master/oozie-templates): templates that archive or delete data
+ * [platform-package-repository](http://github.com/pndaproject/platform-package-repository): manages a simple package repository backed by OpenStack Swift
+ * [gobblin](http://github.com/pndaproject/gobblin): customized fork of the Gobblin data ingest framework
 
 ### Producers
 
- * [prod-odl-kafka](repos/prod-odl-kafka/README.md): plugin to ingest data from OpenDaylight
- * [prod-logstash-codec-avro](repos/prod-logstash-codec-avro/README.md): plugin to ingest data from Logstash
+ * [prod-odl-kafka](https://github.com/pndaproject/prod-odl-kafka): plugin to ingest data from OpenDaylight
+ * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro): patched AVRO codec ingest data from Logstash
 
 ### Examples
 
- * [example-applications](repos/example-applications/README.md): example applications that can be built and run on PNDA
-   * [spark-batch](repos/example-applications/spark-batch/README.md): example batch data processing application
-   * [spark-streaming](repos/example-applications/spark-streaming/README.md): example streaming data processing application
-   * [jupyter-notebooks](repos/example-applications/jupyter-notebooks/README.md): examples for working with Jupyter notebooks
-   * [kafka-spark-opentsdb](repos/example-applications/kafka-spark-opentsdb/README.md): example consumer that feeds data to OpenTSDB
- * [example-kafka-clients](repos/example-kafka-clients/README.md): examples for working with kafka clients
-   * [java](repos/example-kafka-clients/java/README.md)
-   * [php](repos/example-kafka-clients/php/README.md)
-   * [python](repos/example-kafka-clients/python/README.md)
+ * [example-applications](https://github.com/pndaproject/example-applications): example applications that can be built and run on PNDA
+   * [spark-batch](https://github.com/pndaproject/example-applications/tree/master/spark-batch): example batch data processing application
+   * [spark-streaming](https://github.com/pndaproject/example-applications/tree/master/spark-streaming): example streaming data processing application
+   * [jupyter-notebooks](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks): examples for working with Jupyter notebooks
+   * [kafka-spark-opentsdb](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb): example consumer that feeds data to OpenTSDB
+ * [example-kafka-clients](https://github.com/pndaproject/example-kafka-clients): examples for working with kafka clients
+   * [java](https://github.com/pndaproject/example-kafka-clients/tree/master/java)
+   * [php](https://github.com/pndaproject/example-kafka-clients/tree/master/php)
+   * [python](https://github.com/pndaproject/example-kafka-clients/tree/master/python)
  
 ### Documentation
 
@@ -177,10 +171,11 @@ The PNDA distribution consists of the following source code repositories and sub
  
 ## [References](others/README.md)
 
-## Release Notes
+## [Release Notes](https://github.com/pndaproject/pnda/tree/master/releases)
 
-From PNDA 3.3, please refer to the pnda repository for all release notes.
+## Versions
 
- * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
+This guide is the latest version and describes the software found on the pndaproject develop branches. 
 
-## [Changelog](CHANGELOG.md)
+To refer to guides for specific releases, please navigate to the relevant release tag on [github](https://github.com/pndaproject/pnda-guide).
+

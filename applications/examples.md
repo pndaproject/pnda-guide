@@ -4,16 +4,16 @@ Some example applications have been written to help with getting started using P
 
 ## Spark Batch
 
-The [spark-batch](../repos/example-applications/spark-batch/README.md) example converts data from the master data set into parquet format.
+The [spark-batch](https://github.com/pndaproject/example-applications/tree/master/spark-batch) example converts data from the master data set into parquet format.
 
 ## Spark Streaming - Kafka to HBase
 
-The [spark-streaming](../repos/example-applications/spark-streaming/README.md) example writes data from Kafka into an HBase table.
+The [spark-streaming](https://github.com/pndaproject/example-applications/tree/master/spark-streaming) example writes data from Kafka into an HBase table.
 
 The [Spark Streaming and HBase tutorial](ksh.md) provides an in-depth look at the app.
 
 ## Spark Streaming - Kafka to OpenTSDB
 
-The [kafka-spark-opentsdb](../repos/example-applications/kafka-spark-opentsdb/README.md) example writes data from Kafka in [OpenTSDB](../timeseries/opentsdb.md) metric time series.
+The [kafka-spark-opentsdb](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb) example writes data from Kafka in [OpenTSDB](../timeseries/opentsdb.md) metric time series.
 
 The [Spark Streaming and OpenTSDB tutorial](kso.md) provides an in-depth look at the app.

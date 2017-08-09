@@ -1,7 +1,7 @@
 # Provisioning using Salt Cloud
 ![](../images/provisioning-salt-cloud.png)
 
-If you want to provision a new cluster using salt-cloud, you will need first to have a functional and runing Salt Master as described in [Configuring a Salt Master](../provisioning/saltmaster.md).
+If you want to provision a new cluster using salt-cloud, you will need first to have a functional and running Salt Master as described in [Configuring a Salt Master](../provisioning/saltmaster.md).
 
 ## Getting the source code
 

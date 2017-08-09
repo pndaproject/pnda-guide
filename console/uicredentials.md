@@ -12,8 +12,9 @@ The cog icons on the PNDA console home page link to the UI for that component.
 
 The PNDA console "metrics" page also contains a list of links to various UIs.
 
-## Default Credientials
+## Default Credentials
  - Cloudera Manager: admin/admin
+ - Grafana: pnda/pndapnda
  - Everything else:  pnda/pnda
 
 ## Setting Credentials

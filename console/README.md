@@ -99,7 +99,7 @@ Impala allows data to be stored in a raw form in [HDFS](#hdfs) and [HBase](#hbas
 
 ### Jupyter
 
-The [Jupyter Notebook](../repos/example-applications/jupyter-notebooks/README.md) is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+The [Jupyter Notebook](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks) is a web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 
 In PNDA, it supports exploration and presentation of data from [HDFS](#hdfs) and [HBase](#hbase).
 
@@ -135,7 +135,7 @@ In PNDA, the [Hive metastore](http://www.cloudera.com/documentation/archive/cdh/
 
 [HDFS](http://hadoop.apache.org/) is a fault tolerant and self-healing distributed file system, suited to large-scale data processing workloads.
 
-In PNDA, [gobblin](../repos/gobblin/README.md) runs every half an hour to copy all data from [Kafka](#kafka) into the master dataset in HDFS. The master dataset is a historical store of all data. Applications can also output data in HDFS.
+In PNDA, [gobblin](https://github.com/pndaproject/gobblin) runs every half an hour to copy all data from [Kafka](#kafka) into the master dataset in HDFS. The master dataset is a historical store of all data. Applications can also output data in HDFS.
 
 ## Applications
 

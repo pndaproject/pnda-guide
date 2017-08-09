@@ -42,7 +42,7 @@ A big data infrastructure like PNDA involves a multitude of technologies and too
 
 In the world of [Kerberos](http://web.mit.edu/kerberos/), each client or service is identified by the principal. At all times, the KDC (Key Distribution Center) server maintains a list of all principals in its internal database, coordinates authentication requests across nodes, and assures that everyone is who they say they are.
 
-![Basic Authentication](Basic Authentication.png)
+![Basic Authentication](Basic-Authentication.png)
 ## End User Accounts
 
 Some underlying technologies in PNDA, such as Kafka, Hadoop, and HBase, don't include support for users. They rely on the UNIX users of the node on which they are run. Kerberos user principals typically have the format `username@realm.com`.  Hadoop converts  this two part principal into local Unix user name by stripping of domain name.
@@ -94,7 +94,7 @@ Also, the following settings need to be added as part of clients' properties:
     
 Authentication is only part of a story; Kafka also needs to have authorization rules regarding who is allowed to `CREATE/READ/WRITE` on specific topics.
 
-Kafka ACLs are specified in a general format of  “Principal P is [Allowed/Denied] Operation O From Host H On Resource R.” Common usecases about configuring Authorization include the following:
+Kafka ACLs are specified in a general format of  “Principal P is [Allowed/Denied] Operation O From Host H On Resource R.” Common use cases about configuring Authorization include the following:
 
 - Authorization rights for Kafka Manager to create a `topic` with `CREATE` and `DESCRIBE` permission.
 - Producers need `WRITE` permission on the `topic`
@@ -104,7 +104,7 @@ The above discussion is about how Security can be enabled since the Kafka 0.9.0 
 
 ### Example using SASL_SSL / ACL on a secure Kafka & clients
 
-Let's consider that you have genereated the right keys and certificate. In this example, we will use Kafka 10.0.1 and will just use PLAIN/JAAS files for authentication.
+Let's consider that you have generated the right keys and certificate. In this example, we will use Kafka 10.0.1 and will just use PLAIN/JAAS files for authentication.
 
 1. the first step is to secure the Kafka broker:
 
@@ -267,7 +267,7 @@ Let's consider that you have genereated the right keys and certificate. In this 
 
 ## Deployment Manager
 
-The [Deployment Manager](../repos/platform-deployment-manager/README.md) performs several actions on a cluster, depending on the type of component being deployed, such as creating a folder, copying files to HDFS, submitting Oozie jobs, etc. For the deployment manager to able to perform these actions on a secure cluster:
+The [Deployment Manager](http://github.com/pndaproject/platform-deployment-manager) performs several actions on a cluster, depending on the type of component being deployed, such as creating a folder, copying files to HDFS, submitting Oozie jobs, etc. For the deployment manager to able to perform these actions on a secure cluster:
 
 - It needs to have a Kerberos principal of its own, with proper authorization rights on HDFS, Oozie, and HBase.
 - It needs to authenticate itself by running a `kinit` before accessing REST APIs like HTTPFS or Oozie over SPNEGO.md.
@@ -293,7 +293,7 @@ For long-running apps, such as ones that use Spark Streaming, to be able to writ
 
 ## Gobblin
 
-Gobblin requires a user principal to run long running jobs on a secure cluster. It needs to get a delegation token periodically for accessing cluster resources, which in turn requires it to renew KDC credentials. To run Gobblin on a secure cluster, the `application.conf` file needs the Kerberos pincipal name and keytab location.
+Gobblin requires a user principal to run long running jobs on a secure cluster. It needs to get a delegation token periodically for accessing cluster resources, which in turn requires it to renew KDC credentials. To run Gobblin on a secure cluster, the `application.conf` file needs the Kerberos principal name and keytab location.
     
     gobblin.yarn.keytab.file.path="/home/gobblin/gobblin.keytab"
     gobblin.yarn.keytab.principal.name=gobblin
@@ -372,7 +372,7 @@ SPNEGO with Kerberos authentication can be configured for the Web UIs of HDFS, Y
 
 PNDA users who need terminal access to the cluster need to authenticate themselves using Kerberos over SSH at the edge node. SSH can be configured to delegate the `TGT` ticket, thereby allowing the user to access cluster services. SSH with Kerberos provides cryptographic authentication that doesn't give away the user's password, and the ticket cache offers the same advantages as the key agent, allowing for single sign-on.
 
-![SSH using Kerberos](E-HDFS Access from Shell.jpg)
+![SSH using Kerberos](E-HDFS-Access-from-Shell.jpg)
 
 # Conclusion
 As one can see from above discussion, securing a distributed system like PNDA is not only very complicated but equally challenging to meet security needs of a modern enterprise. As part of this blueprint, we barely scratched the surface. There is still a lot to be explored in areas like Transparent Encryption for Data Rest/ Motion, Centralized authorization policy management either through Apache Sentry/Ranger, Data  Audit, Lineage and Redaction needs and Service level requirements regarding Yarn queue consumption, disk quota, etc.

@@ -14,7 +14,7 @@ Plain text log files are written under `/var/log/pnda` on the logserver node.
 
 They are rotated with [logrotate](http://www.linuxcommand.org/man_pages/logrotate8.html), limiting each file to 10 MB with five prior versions retained. The logrotate config is in `/etc/logrotate.d/pnda`. It can be useful to tweak the settings for this to retain more logs for specific components when debugging a particular problem.
 
-Something to beware of is that logrotate only runs every 15 minutes. So in the case that a rogue appliction writes a lot of log data in under 15 minutes (this isn't as hard as it sounds with big data—consider per-message debug output), the logserver could run out of disk space.
+Something to beware of is that logrotate only runs every 15 minutes. So in the case that a rogue application writes a lot of log data in under 15 minutes (this isn't as hard as it sounds with big data—consider per-message debug output), the logserver could run out of disk space.
 
 ## Application Logs
 

@@ -91,7 +91,7 @@ To know more about their data format, refer to the [Message Bus API](http://www.
 
 Logstash is a flexible, open source data collection, enrichment, and transport pipeline designed to efficiently process a growing list of log, event, and unstructured data sources for distribution to a variety of outputs, including Elasticsearch.
 
-Install and configure Logstash by following [these installation instructions](../repos/prod-logstash-codec-avro/README.md).
+Install and configure Logstash by following [these installation instructions](https://github.com/pndaproject/logstash-codec-pnda-avro).
 
 ### Example Logstash Configuration
 
@@ -103,32 +103,40 @@ Assuming the PNDA kafka instances IP are `192.168.0.100` and `192.168.0.101`:
       kafka {
         zk_connect => "localhost:2181" # point to the kafka instance IP
         topic_id => "openbmp.parsed.unicast_prefix"
-        add_field => { "logsrc" => "unicast_prefix" }
       }
     }
+    
     filter {
       mutate {
-        add_field => { "host" => "localhost" } # change the IP and set something meaningful
+          add_field => {
+              "src" => "unicast_prefix"
+              "host_ip" => "localhost" # change the IP and set something meaningful
+          }
+          rename => { "message" => "rawdata" }
+          ruby {
+              code => "event.set('timestamp', (event.get('@timestamp').to_f * 1000).to_i)"
+          }
       }
     }
+    
     output {
         kafka {
           bootstrap_servers => "192.168.0.100:9092,192.168.0.101:9092" # change the broker list IPs
           topic_id => "avro.openbmp.unicast_prefix"
-          value_serializer => "org.apache.kafka.common.serialization.ByteArraySerializer"
-          codec => platformavro {}
-      }
+          compression_type => "none" # "none", "gzip", "snappy", "lz4"
+          value_serializer => 'org.apache.kafka.common.serialization.ByteArraySerializer'
+          codec => pnda-avro { schema_uri => "/home/cloud-user/pnda.avsc" }
+        }
     }
 
 Save the above configuration in `logstash.conf`.
 
 Then run logstash:
 
-    cd logstash-2.2.2/
     bin/logstash agent -f logstash.conf
 
 You should see a `Logstash startup completed` message printed on the console. If you don't see this message, something went wrong in your setup or there's an error in your configuration.
 
-For more information on Logstash, refer to the [Logstash guide](https://www.elastic.co/guide/en/logstash/2.2/index.html).
+For more information on Logstash, refer to the [Logstash guide](https://www.elastic.co/guide/en/logstash/current/index.html).
 
 You can also get some usefull information of Logstash configuration with OpenBMP on [this link](https://github.com/OpenBMP/openbmp/blob/master/docs/LOGSTASH.md).

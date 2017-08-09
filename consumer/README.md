@@ -18,4 +18,4 @@ Clients of PNDA may wish to integrate directly with Kafka instead of consuming d
 
 In this case, you can use the [Kafka Consumer API](http://kafka.apache.org/documentation.html#newconsumerapi). Example code showing how to build a straightforward consumer using this API can be found in the [Kafka Quickstart](http://kafka.apache.org/07/quickstart.html).
 
-We have several examples of building Kafka clients in our [example code repository](../repos/example-kafka-clients/README.md).
+We have several examples of building Kafka clients in our [example code repository](https://github.com/pndaproject/example-kafka-clients).
