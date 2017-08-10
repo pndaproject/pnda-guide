@@ -46,7 +46,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `mgr4`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
 |  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB
 |  `opentsdb`        |  m4.xlarge  | 2 | 4 | 16 GB   | 50 GB
-|  `cloudera-manager`|  m4.xlarge  | 1 | 4 | 16 GB   | 170 GB
+|  `hadoop-manager`  |  m4.xlarge  | 1 | 4 | 16 GB   | 170 GB
 |  `jupyter`         |  m4.large   | 1 | 2 |  8 GB | 50 GB
 |  `logserver`       |  m4.large   | 1 | 2 |  8 GB | 500 GB
 |  `kafka`           |  m4.xlarge  | 2 | 4 | 16 GB   | 270 GB

@@ -35,6 +35,12 @@ Set `ec2_access.AWS_ACCESS_KEY_ID` and `ec2_access.AWS_SECRET_ACCESS_KEY` to the
 
 These credentials are only stored on the client machine.
 
+#### Hadoop distribution
+
+Decide whether you want to run the Cloudera CDH or the Hortonworks HDP Hadoop distribution.
+
+Set `hadoop.HADOOP_DISTRO` to either `CDH` or `HDP`.
+
 #### Set source of SaltStack provisioning scripts
 
 The PNDA software is installed and configured using the SaltStack code found in the [platform-salt](https://github.com/pndaproject/platform-salt) repository.  This can be supplied in two main ways.

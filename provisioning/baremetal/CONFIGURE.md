@@ -41,6 +41,11 @@ Set `pnda_apps_folder` to the Application folder configured during the preparati
 
 Set `pnda_archive_container` to the Dataset archive container configured during the preparation phase.
 
+#### Hadoop distribution
+Decide whether you want to run the Cloudera CDH or the Hortonworks HDP Hadoop distribution.
+
+Set `hadoop_distro` to either `CDH` or `HDP`.
+
 #### Set source of SaltStack provisioning scripts
 
 The PNDA software is installed and configured using the SaltStack code found in the [platform-salt](https://github.com/pndaproject/platform-salt) repository.  This must be supplied via a URI to a git repository.

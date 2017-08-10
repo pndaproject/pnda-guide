@@ -57,6 +57,7 @@ create_mirror_misc.sh
 create_mirror_python.sh
 create_mirror_anaconda.sh
 create_mirror_cdh.sh
+create_mirror_hdp.sh
 ```
 
 Note that, as above, the deb and rpm scripts are for use on Ubuntu or RHEL hosts respectively.
@@ -70,6 +71,7 @@ mirror_misc
 mirror_python
 mirror_anaconda
 mirror_cloudera
+mirror_hdp
 ```
 
 For more about creating and maintaining mirrors, please refer to the [repository notes](https://github.com/pndaproject/pnda/tree/master/mirror).

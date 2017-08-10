@@ -1,6 +1,10 @@
 # Versions
 The following table lists the technologies used in this PNDA release.
 
+Some technologies depend on which distribution of Hadoop is chosen, as PNDA can be deployed using either Cloudera CDH or Hortonworks HDP.
+
+## Common to all variants of PNDA
+
 | Technology | Version |
 |---|---|
 |SaltStack|2015.8.11|
@@ -16,6 +20,11 @@ The following table lists the technologies used in this PNDA release.
 |OpenTSDB|2.3.0|
 |Grafana|3.1.1|
 |Anaconda|4.0.0|
+
+## For Cloudera CDH PNDA
+
+| Technology | Version |
+|---|---|
 |Hadoop (see below for components)|CM 5.9.0, CDH 5.9.0-1.cdh5.9.0.p0.23 |
 |Apache Avro |avro-1.7.6+cdh5.9.0+115|
 |Apache Crunch |crunch-0.11.0+cdh5.9.0+93|
@@ -36,3 +45,21 @@ The following table lists the technologies used in this PNDA release.
 |Apache Sqoop2 |sqoop2-1.99.5+cdh5.9.0+40|
 |Apache ZooKeeper| zookeeper-3.4.5+cdh5.9.0+98|
 
+## For Hortonworks HDP PNDA
+
+| Technology | Version |
+|---|---|
+|Apache Ambari |2.5.0.3|
+|Apache Hadoop|2.7.3|
+|Apache HBase|1.1.2|
+|Apache Hive|2.1.0|
+|Apache Mahout|0.9.0|
+|Apache Oozie |4.2.0|
+|Apache Pig |0.16.0|
+|Apache DataFu |1.3.0|
+|Apache Spark |1.6.3|
+|Apache Sqoop |1.4.6|
+|Apache ZooKeeper|3.4.6|
+|Apache Phoenix|4.7.0|
+|Apache Slider|0.92.0|
+|Apache TEZ|0.7.0|
