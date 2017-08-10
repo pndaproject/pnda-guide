@@ -2,12 +2,6 @@
 
 PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment. 
 
-This guide covers PNDA release 3.5
-
-Last updated: August 2017
-
-Version: 0.2.0
-
 ## Quick Links
 
 - [Website](http://pandaproject.io)
