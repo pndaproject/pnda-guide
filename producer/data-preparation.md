@@ -95,4 +95,60 @@ A topic name is a unique string identifying a log queue into Kafka for pushing /
 
 ## Data management
 
-By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis. 
+By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis.
+
+## Extend the Avro schema
+
+If you want to extend the current PNDA Avro schema, without breaking the platform, this is possible but you need to follow these rules:
+
+* keep the base pnda.entity fields (timestamp, src, host_ip and rawdata)
+* and the extra fields after rawdata definition
+
+Here is an example of a new schema:
+
+	{"namespace": "pnda.entity",
+	"type": "record",
+	"name": "event",
+	"fields": [
+	     {"name": "timestamp", "type": "long"},
+	     {"name": "src",       "type": "string"},
+	     {"name": "host_ip",   "type": "string"},
+	     {"name": "rawdata",   "type": "bytes"},
+	     {"name": "name",   "type": "string"},
+	     {"name": "uid",   "type": "long"},
+	     {"name": "desc",   "type": "string"},
+	]
+	}
+
+By doing this, you will ensure that this will not break any components of the platform. But keep in mind that this new fields will not be stored within HDFS as Gobblin only managed the original format. There will be no impact on other components, you will be able to use these new fields on Kafka producer/consumer side which then include the Spark Streaming application.
+
+### Producer example
+
+Based on the previous schema update, here is the updates you need to make on the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
+
+	schema_path = "./dataplatform-raw-v2.avsc"
+
+	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
+                  "src": "collecd",
+                  "host_ip": "bb80:0:1:2:a00:bbff:bbee:b123",
+                  "rawdata": collectd_alea,
+	     		  "name":"us-123",
+	     		  "uid": 123456789,
+	     		  "desc":"US 123 in SJC"}, encoder)
+
+### Consumer example
+
+On the consumer side, you just need to update the schema, here is a sample output from the Python consumer code:
+
+	ConsumerRecord(topic=u'avro.log.localtest', partition=0, offset=65, timestamp=-1, timestamp_type=0, key=None, value="\xaa\x8e\xff\xa5\xbdW\x0ccollectd:bb80:0:1:2:a00:bbff:bbee:b123\xc4\x01{'host':'pnda5','collectd_type':'memory','value':'1779803','timestamp':'2017-08-16T09:28:59.000Z'}\x0cus-123\xaa\xb4\xdeu\x1aUS 123 in SJC\x02", checksum=1582345509, serialized_key_size=-1, serialized_value_size=169)
+	{uu'src': u'collectd', u'uid': 123456789, u'timestamp': 1502875739029, u'host_ip': u'bb80:0:1:2:a00:bbff:bbee:b123', u'name': u'us-123', u'rawdata': "{'host':'pnda5','collectd_type':'memory','value':'1779803','timestamp':'2017-08-16T09:28:59.000Z'}", u'desc': u'US 123 in SJC'}
+
+### Dataset in HDFS
+
+If we now look what is stored in HDFS through Gobblin, use the Hue UI in order to browse and download the avro file and then run:
+
+	$ java -jar avro-tools-1.7.7.jar tojson cff419b3-6c2a-4e9b-b2b3-a9b4d52d230c.avro
+	{"timestamp":1502875281109,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b123","rawdata":"{'host':'pnda5','collectd_type':'cpu','value':'17','timestamp':'2017-08-16T09:21:21.000Z'}"}
+	{"timestamp":1502875282112,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b123","rawdata":"{'host':'pnda5','collectd_type':'memory','value':'3593985','timestamp':'2017-08-16T09:21:22.000Z'}"}
+
+As you can see, you only have the original field from pnda.entity version 1 stored in HDFS
