@@ -97,7 +97,10 @@ A topic name is a unique string identifying a log queue into Kafka for pushing /
 
 By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis.
 
-## Extend the Avro schema
+## Avro schema schema evolution
+
+
+### Simple schema update 
 
 If you want to extend the current PNDA Avro schema, without breaking the platform, this is possible but you need to follow these rules:
 
@@ -122,7 +125,7 @@ Here is an example of a new schema:
 
 By doing this, you will ensure that this will not break any components of the platform. But keep in mind that this new fields will not be stored within HDFS as Gobblin only managed the original format. There will be no impact on other components, you will be able to use these new fields on Kafka producer/consumer side which then include the Spark Streaming application.
 
-### Producer example
+#### Producer example
 
 Based on the previous schema update, here is the updates you need to make on the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
 
@@ -136,14 +139,14 @@ Based on the previous schema update, here is the updates you need to make on the
 	     		  "uid": 123456789,
 	     		  "desc":"US 123 in SJC"}, encoder)
 
-### Consumer example
+#### Consumer example
 
 On the consumer side, you just need to update the schema, here is a sample output from the Python consumer code:
 
 	ConsumerRecord(topic=u'avro.log.localtest', partition=0, offset=65, timestamp=-1, timestamp_type=0, key=None, value="\xaa\x8e\xff\xa5\xbdW\x0ccollectd:bb80:0:1:2:a00:bbff:bbee:b123\xc4\x01{'host':'pnda5','collectd_type':'memory','value':'1779803','timestamp':'2017-08-16T09:28:59.000Z'}\x0cus-123\xaa\xb4\xdeu\x1aUS 123 in SJC\x02", checksum=1582345509, serialized_key_size=-1, serialized_value_size=169)
 	{uu'src': u'collectd', u'uid': 123456789, u'timestamp': 1502875739029, u'host_ip': u'bb80:0:1:2:a00:bbff:bbee:b123', u'name': u'us-123', u'rawdata': "{'host':'pnda5','collectd_type':'memory','value':'1779803','timestamp':'2017-08-16T09:28:59.000Z'}", u'desc': u'US 123 in SJC'}
 
-### Dataset in HDFS
+#### Dataset in HDFS
 
 If we now look what is stored in HDFS through Gobblin, use the Hue UI in order to browse and download the avro file and then run:
 
@@ -152,3 +155,132 @@ If we now look what is stored in HDFS through Gobblin, use the Hue UI in order t
 	{"timestamp":1502875282112,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b123","rawdata":"{'host':'pnda5','collectd_type':'memory','value':'3593985','timestamp':'2017-08-16T09:21:22.000Z'}"}
 
 As you can see, you only have the original field from pnda.entity version 1 stored in HDFS
+
+
+### Avro Schema evolution 
+
+Now if you want to manage evolution of the current Avro schema without breaking the platform but also ensure you are not breaking the platform and these evolution are taking into account within the whole platform, you will need to do the same as above put upgrade Gobblin configuration and also change the kite dataset configuration.
+Let's take an example and all the steps required to well perform and manage an avro schema evolution.
+
+#### Schema upgrade and versioning
+
+So, as an example, I want to be able to manage 3 more fields in the Avro schema which then can be optional. For doing so, as above, add those extra fields after the rawdata and use [Avro Union Type](https://avro.apache.org/docs/1.8.1/spec.html#Unions) which give the ability to have optional fields which then default value. Also, update the namespace in order to include the versioning. Here is the newer version of the schema:
+
+	{
+		"namespace": "pnda.entity.v2",
+	 	"type": "record",
+	 	"name": "event",
+	 	"fields": [
+		     {"name": "timestamp",   "type": "long"},
+		     {"name": "src",         "type": "string"},
+		     {"name": "host_ip",     "type": "string"},
+		     {"name": "rawdata",     "type": "bytes"},
+		     {"name": "of_1", "type": ["null", "string"]},
+		     {"name": "of_2", "type": ["null", "long"]},
+		     {"name": "of_3", "type": ["null", "string"]}
+	 ]
+	}
+
+As you can see, we've had 3 more fields, currently 2 strings and 1 long type named of_1, of_2 and of_3. Note also that we update the namespace in order to integrate a versioning part as this is no more the base PNDA schema with namespace "pnda.entity"
+
+#### Producer example
+
+Based on the previous schema update, here is the updates you need to make on the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
+
+	schema_path = "./dataplatform-raw-v2.avsc"
+
+	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
+                  "src": "collecd",
+                  "host_ip": "bb80:0:1:2:a00:bbff:bbee:b123",
+                  "rawdata": collectd_alea,
+	     		  "of_1":"us-123",
+	     		  "of_2": 123456789,
+	     		  "of_3":"US 123 in SJC"}, encoder)
+
+	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
+                  "src": "collecd",
+                  "host_ip": "bb80:0:1:2:a00:bbff:bbee:b124",
+                  "rawdata": collectd_alea,
+	     		  "of_3":"FR 124 in Paris"}, encoder)
+
+	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
+                  "src": "collecd",
+                  "host_ip": "bb80:0:1:2:a00:bbff:bbee:b125",
+                  "rawdata": collectd_alea,
+	     		  "of_1":"uk-125"}, encoder)
+
+As you can see, I've push 3 messages where only the 1rst one had all the fields and the other 2 did not have either of_1 & of_2 or of_2 & of_3
+
+#### Gobblin and Kite update
+
+As you will need those fields & data well managed within PNDA, you will need to update Gobblin and Kite configuration.
+If you did not have provisionned your cluster, this will be simpler as you only need to update the [PNDA deployment repo named platform-salt](https://github.com/pndaproject/platform-salt). You will need to udpate:
+
+* Gobblin configuration file [mr.pull.tpl](https://github.com/pndaproject/platform-salt/blob/develop/salt/gobblin/templates/mr.pull.tpl) which contains the schema and so need to looks like now:
+
+source.schema={"namespace": "pnda.entity",                 \
+               "type": "record",                            \
+               "name": "event",                             \
+               "fields": [                                  \
+                   {"name": "timestamp", "type": "long"},   \
+                   {"name": "src",       "type": "string"}, \
+                   {"name": "host_ip",   "type": "string"}, \
+                   {"name": "rawdata",   "type": "bytes"},   \
+                   {"name": "of_1",      "type": ["null", "string"]}, \
+                   {"name": "of_2", 	 "type": ["null", "long"]},   \
+                   {"name": "of_3",      "type": ["null", "string"]} \
+               ]                                            \
+              }
+
+* Kite data set configuration, which is managed by the master-data set formula which contained the [Avro schema pnda.avsc](https://github.com/pndaproject/platform-salt/blob/develop/salt/master-dataset/files/pnda.avsc) which now need to be new schema version
+
+If you already have a running cluster, you will need to update the edge node which is containing the gobblin and master_dataset roles which installed Gobblin and Kite:
+
+
+* Gobblin: update the mr.pull.tpl file in /opt/pnda/gobblin/configs/mr.pull
+* Kite: update the file /tmp/pnda.avsc and run the command for example:
+
+	export NAMENODE=THE_IP_OF_YOUR_NAMENODE
+	kite-dataset update --schema /tmp/pnda.avsc dataset:hdfs://NAMENODE:8020/user/pnda/PNDA_datasets/datasets --partition-by /tmp/pnda_kite_partition.json
+
+### HDFS data
+
+Now, if you run the producer and download an avro file stored in HDFS by Gobblin:
+
+* checking the schema from the schema from the avro file:
+
+	java -jar avro-tools-1.7.7.jar getschema 3cfdf9d4-bd05-4456-aadd-df3a0e522ff8.avro 
+	{
+	  "type" : "record",
+	  "name" : "event",
+	  "namespace" : "pnda.entity.v2",
+	  "fields" : [ {
+	    "name" : "timestamp",
+	    "type" : "long"
+	  }, {
+	    "name" : "src",
+	    "type" : "string"
+	  }, {
+	    "name" : "host_ip",
+	    "type" : "string"
+	  }, {
+	    "name" : "rawdata",
+	    "type" : "bytes"
+	  }, {
+	    "name" : "of_1",
+	    "type" : [ "null", "string" ]
+	  }, {
+	    "name" : "of_2",
+	    "type" : [ "null", "long" ]
+	  }, {
+	    "name" : "of_3",
+	    "type" : [ "null", "string" ]
+	  } ]
+	}
+
+* check the messages:
+
+	java -jar avro-tools-1.7.7.jar tojson 3cfdf9d4-bd05-4456-aadd-df3a0e522ff8.avro 
+	{"timestamp":1503417768521,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b123","rawdata":"{'host':'pnda123','collectd_type':'cpu','value':'13','timestamp':'2017-08-22T16:02:48.000Z'}","of_1":{"string":"us-123"},"of_2":{"long":123456789},"of_3":{"string":"US 123 in SJC"}}
+	{"timestamp":1503417769523,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b124","rawdata":"{'host':'pdna124','collectd_type':'memory','value':'2820604','timestamp':'2017-08-22T16:02:49.000Z'}","of_1":null,"of_2":null,"of_3":{"string":"FR 124 in Paris"}}
+	{"timestamp":1503417770525,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b124","rawdata":"{'host':'pnda125','collectd_type':'cpu','value':'30','timestamp':'2017-08-22T16:02:50.000Z'}","of_1":{"string":"uk-125"},"of_2":null,"of_3":null}

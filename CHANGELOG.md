@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
+- PNDA-3208: Adding information on how to extend/manage Avro schema evolutions
 
 ## [0.1.6] 2017-01-20
 ### Changed
