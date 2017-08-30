@@ -97,15 +97,16 @@ A topic name is a unique string identifying a log queue into Kafka for pushing /
 
 By default, Kafka keeps data for 24 hours for each topic. You can use the Kafka Manager to override the default data retention policy on a time or size basis.
 
-## Avro schema schema evolution
+## Avro schema evolution
 
 
 ### Simple schema update 
 
-If you want to extend the current PNDA Avro schema, without breaking the platform, this is possible but you need to follow these rules:
+If you want to extend the current PNDA Avro schema this is possible but follow these rules:
 
-* keep the base pnda.entity fields (timestamp, src, host_ip and rawdata)
-* and the extra fields after rawdata definition
+* Keep the base pnda.entity fields (timestamp, src, host_ip and rawdata)
+* Add the extra fields after rawdata definition
+* Only use the Avro schema for 'envelope' data - non-domain-specific per-deployment metadata that can be truly populated for *all* data. If you're considering more than one variation of the Avro schema, probably it should be passed in rawdata instead
 
 Here is an example of a new schema:
 
@@ -123,11 +124,11 @@ Here is an example of a new schema:
 	]
 	}
 
-By doing this, you will ensure that this will not break any components of the platform. But keep in mind that this new fields will not be stored within HDFS as Gobblin only managed the original format. There will be no impact on other components, you will be able to use these new fields on Kafka producer/consumer side which then include the Spark Streaming application.
+By doing this, you will ensure compatibilty with the platform now and in the future. Keep in mind that any new fields will not be stored in HDFS by Gobblin. You will be able to use these new fields in Kafka producers/consumers, for example Spark Streaming applications.
 
 #### Producer example
 
-Based on the previous schema update, here is the updates you need to make on the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
+Based on the previous extended schema example, here are the updates you would need to make to the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
 
 	schema_path = "./dataplatform-raw-v2.avsc"
 
@@ -156,15 +157,14 @@ If we now look what is stored in HDFS through Gobblin, use the Hue UI in order t
 
 As you can see, you only have the original field from pnda.entity version 1 stored in HDFS
 
-
 ### Avro Schema evolution 
 
-Now if you want to manage evolution of the current Avro schema without breaking the platform but also ensure you are not breaking the platform and these evolution are taking into account within the whole platform, you will need to do the same as above put upgrade Gobblin configuration and also change the kite dataset configuration.
+If you want to manage evolution of the current Avro schema without breaking the platform but also ensure you are not breaking the platform and these evolution are taking into account within the whole platform, you will need to do the same as above put upgrade Gobblin configuration and also change the kite dataset configuration.
 Let's take an example and all the steps required to well perform and manage an avro schema evolution.
 
 #### Schema upgrade and versioning
 
-So, as an example, I want to be able to manage 3 more fields in the Avro schema which then can be optional. For doing so, as above, add those extra fields after the rawdata and use [Avro Union Type](https://avro.apache.org/docs/1.8.1/spec.html#Unions) which give the ability to have optional fields which then default value. Also, update the namespace in order to include the versioning. Here is the newer version of the schema:
+As an example, let's imagine we want to be able to add 3 more fields to the Avro schema that are optional. As above, add those extra fields after the rawdata and use [Avro Union Type](https://avro.apache.org/docs/1.8.1/spec.html#Unions) which allows for optional fields with a default value. Also update the namespace in order to include the versioning. Here is the newer version of the schema:
 
 	{
 		"namespace": "pnda.entity.v2",
@@ -181,16 +181,16 @@ So, as an example, I want to be able to manage 3 more fields in the Avro schema 
 	 ]
 	}
 
-As you can see, we've had 3 more fields, currently 2 strings and 1 long type named of_1, of_2 and of_3. Note also that we update the namespace in order to integrate a versioning part as this is no more the base PNDA schema with namespace "pnda.entity"
+As you can see, we've added 3 more fields, 2 strings and 1 long type named of_1, of_2 and of_3 respectively. Note also that we updated the namespace to include a version identifier to differentiate from the original pnda.entity.
 
 #### Producer example
 
-Based on the previous schema update, here is the updates you need to make on the [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
+Based on the above schema, here are the updates you need to make to [kafka clients example repo](https://github.com/pndaproject/example-kafka-clients) in Python:
 
 	schema_path = "./dataplatform-raw-v2.avsc"
 
 	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
-                  "src": "collecd",
+                  "src": "collectd",
                   "host_ip": "bb80:0:1:2:a00:bbff:bbee:b123",
                   "rawdata": collectd_alea,
 	     		  "of_1":"us-123",
@@ -198,27 +198,26 @@ Based on the previous schema update, here is the updates you need to make on the
 	     		  "of_3":"US 123 in SJC"}, encoder)
 
 	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
-                  "src": "collecd",
+                  "src": "collectd",
                   "host_ip": "bb80:0:1:2:a00:bbff:bbee:b124",
                   "rawdata": collectd_alea,
 	     		  "of_3":"FR 124 in Paris"}, encoder)
 
 	writer.write({"timestamp": CURRENT_TIME_MILLIS(),
-                  "src": "collecd",
+                  "src": "collectd",
                   "host_ip": "bb80:0:1:2:a00:bbff:bbee:b125",
                   "rawdata": collectd_alea,
 	     		  "of_1":"uk-125"}, encoder)
 
-As you can see, I've push 3 messages where only the 1rst one had all the fields and the other 2 did not have either of_1 & of_2 or of_2 & of_3
+As you can see, we've pushed 3 messages, the first of which specified all possible fields while the next 2 lack of_1 & of_2 or of_2 & of_3.
 
 #### Gobblin and Kite update
 
-As you will need those fields & data well managed within PNDA, you will need to update Gobblin and Kite configuration.
-If you did not have provisionned your cluster, this will be simpler as you only need to update the [PNDA deployment repo named platform-salt](https://github.com/pndaproject/platform-salt). You will need to udpate:
+If you wish the new fields added to the schema to be persisted to HDFS then changes are required to Gobblin & the Kite dataset configuration.
 
-* Gobblin configuration file [mr.pull.tpl](https://github.com/pndaproject/platform-salt/blob/develop/salt/gobblin/templates/mr.pull.tpl) which contains the schema and so need to looks like now:
+* Gobblin configuration file [mr.pull.tpl](https://github.com/pndaproject/platform-salt/blob/develop/salt/gobblin/templates/mr.pull.tpl) requires a schema update:
 
-source.schema={"namespace": "pnda.entity",                 \
+source.schema={"namespace": "pnda.entity.v2",                 \
                "type": "record",                            \
                "name": "event",                             \
                "fields": [                                  \
@@ -232,10 +231,9 @@ source.schema={"namespace": "pnda.entity",                 \
                ]                                            \
               }
 
-* Kite data set configuration, which is managed by the master-data set formula which contained the [Avro schema pnda.avsc](https://github.com/pndaproject/platform-salt/blob/develop/salt/master-dataset/files/pnda.avsc) which now need to be new schema version
+* Kite dataset configuration, which is managed by the master-dataset formula and contains [Avro schema pnda.avsc](https://github.com/pndaproject/platform-salt/blob/develop/salt/master-dataset/files/pnda.avsc) requires a schema update.
 
-If you already have a running cluster, you will need to update the edge node which is containing the gobblin and master_dataset roles which installed Gobblin and Kite:
-
+If you already have a running cluster, you will need to update the edge node which contains the gobblin and master_dataset roles that installed Gobblin and Kite:
 
 * Gobblin: update the mr.pull.tpl file in /opt/pnda/gobblin/configs/mr.pull
 * Kite: update the file /tmp/pnda.avsc and run the command for example:
@@ -245,9 +243,9 @@ If you already have a running cluster, you will need to update the edge node whi
 
 ### HDFS data
 
-Now, if you run the producer and download an avro file stored in HDFS by Gobblin:
+Now, having ingested some data and having downloaded an Avro file stored in HDFS by Gobblin:
 
-* checking the schema from the schema from the avro file:
+* Checking the schema from the schema from the avro file:
 
 	java -jar avro-tools-1.7.7.jar getschema 3cfdf9d4-bd05-4456-aadd-df3a0e522ff8.avro 
 	{
@@ -278,7 +276,7 @@ Now, if you run the producer and download an avro file stored in HDFS by Gobblin
 	  } ]
 	}
 
-* check the messages:
+* Check the messages:
 
 	java -jar avro-tools-1.7.7.jar tojson 3cfdf9d4-bd05-4456-aadd-df3a0e522ff8.avro 
 	{"timestamp":1503417768521,"src":"collectd","host_ip":"bb80:0:1:2:a00:bbff:bbee:b123","rawdata":"{'host':'pnda123','collectd_type':'cpu','value':'13','timestamp':'2017-08-22T16:02:48.000Z'}","of_1":{"string":"us-123"},"of_2":{"long":123456789},"of_3":{"string":"US 123 in SJC"}}
