@@ -10,7 +10,7 @@ In order to make built components available during the PNDA provisioning process
 
 Create an ordinary HTTP server in the target environment or identify an existing server. The server must have connectivity with the PNDA cluster being provisioned.
 
-See [these tips](https://github.com/pndaproject/pnda-guide/blob/develop/provisioning/openstack/EXAMPLES.md) for rapidly creating an HTTP server using a number of different approaches.
+See [these tips](EXAMPLES.md) for rapidly creating an HTTP server using a number of different approaches.
 
 Your existing CICD system may already include the capability to host and serve build artifacts over HTTP. In this case, simply make use of an appropriate location on the existing resource.
 
