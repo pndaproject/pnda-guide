@@ -4,13 +4,13 @@
 
 ## Introduction
 
-In order to make built components available during the PNDA provisioning process, they need to be staged in a location that is accessible from the target environment via HTTP. 
+In order to make built components available during the PNDA provisioning process, they need to be staged in a location that is accessible from the target environment via HTTP.
 
 ## Create server
 
-Create an ordinary HTTP server in the target environment or identify an existing server. The server must have connectivity with the PNDA cluster being provisioned. 
+Create an ordinary HTTP server in the target environment or identify an existing server. The server must have connectivity with the PNDA cluster being provisioned.
 
-See [these tips](EXAMPLES.md) for rapidly creating an HTTP server using a number of different approaches.
+See [these tips](https://github.com/pndaproject/pnda-guide/blob/develop/provisioning/openstack/EXAMPLES.md) for rapidly creating an HTTP server using a number of different approaches.
 
 Your existing CICD system may already include the capability to host and serve build artifacts over HTTP. In this case, simply make use of an appropriate location on the existing resource.
 
@@ -44,5 +44,5 @@ Make a note of the URI to ```pnda-root``` as this will be used in configuring th
 
 # [Next](CONFIGURE.md)
 
-| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | 
+| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) |
+| --- | --- | --- | --- | --- | --- | --- |
