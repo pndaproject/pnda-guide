@@ -62,7 +62,7 @@ create_mirror_hdp.sh
 
 Note that, as above, the deb and rpm scripts are for use on Ubuntu or RHEL hosts respectively.
 
-Each script creates it's output in a directory named for the respective mirror type -
+Each script creates its output in a directory named for the respective mirror type -
 
 ```
 mirror_deb
