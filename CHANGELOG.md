@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
 ### Changed
 - Rewrote Provisioning section
 - PNDA-2873: Documentation for the new Avro Codec
@@ -10,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-3231: Update SUMMARY in order to include all the provisioning parts
 
 ### Added
+- PNDA-3304: Add script to set a non-transparent proxy for the mirror build.
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
 - PNDA-3208: Adding information on how to extend/manage Avro schema evolutions
 
