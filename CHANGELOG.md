@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-2839: Update Grafana documentation for default password
 - PNDA-3167: Update flavor as this is m4 instead of m3
 - PNDA-3231: Update SUMMARY in order to include all the provisioning parts
+- PNDA-3302: upgrade edge flavor on pico
 
 ### Added
 - PNDA-3304: Add script to set a non-transparent proxy for the mirror build.
