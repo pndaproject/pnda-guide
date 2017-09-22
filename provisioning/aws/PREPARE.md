@@ -19,12 +19,12 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 | Role | Instance type | Number required | CPUs | Memory | Storage
 | --- | --- | --- | --- | --- | --- |
 |  `bastion`   |  t2.medium  | 1 | 2 |  4 GB   | 20 GB
-|  `edge`      |  m4.xlarge  | 1 | 4 | 16 GB   | 50 GB
+|  `edge`      |  m4.2xlarge  | 1 | 8 | 32 GB   | 50 GB
 |  `mgr1`      |  m4.xlarge  | 1 | 4 | 16 GB   | 50 GB
 |  `datanode`  |  c4.xlarge  | 1 | 4 |  7.5 GB | 65 GB
 |  `kafka`     |  m4.large   | 1 | 2 |  8 GB | 50 GB
 | -  |  - | -  | -  | -  | -  |
-|  `total`     |  | 5 | 16 | 51,5 GB | 235 GB
+|  `total`     |  | 5 | 20 | 67,5 GB | 235 GB
 
 The storage per node is allocated as:
  - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
