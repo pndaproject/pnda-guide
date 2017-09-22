@@ -31,9 +31,24 @@ If using Red Hat, ensure the mirror is built on a clean instance that has had **
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to create and maintain the mirror file sets.
 
-Clone this repository to the mirror creation node. The tools are found in the [mirror folder](https://github.com/pndaproject/pnda/tree/master/mirror).
+Clone this repository to the mirror creation node.
+
+#### Configure the proxy. (Optional)
+
+The entire mirror build process can be performed from behind a non-transparent proxy. 
+
+To proceeding in this mode, first set the system configuration and then run the ```set-proxy-env.sh``` script that will set up the various proxy configurations needed by the multiple build tools.
+
+```sh
+sudo su
+export http_proxy=http://<proxy_host>:<proxy_port>
+export https_proxy=http://<proxy_host>:<proxy_port>
+. set-proxy-env.sh
+```
 
 #### Build mirror file sets
+
+The build tools are found in the [mirror folder](https://github.com/pndaproject/pnda/tree/master/mirror).
 
 To run the entire mirror creation process -
 
