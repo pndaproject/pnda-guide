@@ -55,6 +55,7 @@
     * [Impala](query/impala.md)
 * [Data Exploration](exploration/README.md)
     * [Exploratory data analytics tutorial](exploration/lab.md)
+    * [How to manage application dependencies](exploration/dependencies.md)
 * [Time Series](timeseries/README.md)
     * [OpenTSDB](timeseries/opentsdb.md)
     * [Grafana](timeseries/grafana.md)
