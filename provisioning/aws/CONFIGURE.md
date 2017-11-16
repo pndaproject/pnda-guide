@@ -24,10 +24,10 @@ Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
 Set the following image related fields as below.
 
-| Field | Ubuntu | RHEL | 
-| --- | --- | --- | 
-|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | 
-|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | 
+| Field | Ubuntu | RHEL | CentOS |
+| --- | --- | --- | --- |
+|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | Select 64 bit CentOS 7 image for region |
+|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | centos | 
 
 #### Set ec2 access keys
 
