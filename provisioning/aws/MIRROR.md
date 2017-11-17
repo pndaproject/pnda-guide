@@ -8,9 +8,9 @@ As many real-world deployment environments don’t have Internet connectivity an
 
 Before PNDA can be created, first we must create the directory structure and file sets to be placed on the PNDA mirror.
 
-### Ubuntu or RHEL
+### Ubuntu, RHEL or CentOS
 
-PNDA can be created on Ubuntu or RHEL instances. Before building the PNDA mirror components, decide which instance type your deployment will use.
+PNDA can be created on Ubuntu, RHEL or CentOS instances. Before building the PNDA mirror components, decide which instance type your deployment will use.
 
 ## Create mirror
 
@@ -75,7 +75,7 @@ create_mirror_cdh.sh
 create_mirror_hdp.sh
 ```
 
-Note that, as above, the deb and rpm scripts are for use on Ubuntu or RHEL hosts respectively.
+Note that, as above, the deb and rpm scripts are for use on Ubuntu or RHEL/CentOS hosts respectively.
 
 Each script creates its output in a directory named for the respective mirror type -
 
