@@ -13,15 +13,19 @@ In terms of physically selecting the distribution, the Hadoop distribution to us
 The PNDA mirror (which provides all the resources required during PNDA creation) contains both CDH and HDP components, so there is no need to select one or the other when creating the PNDA mirror.
 
 ## Hortonworks HDP
- - Is 100% open source
+ - [Hortonworks HDP](https://hortonworks.com/products/data-center/hdp/) is 100% open source
  - Uses Amabri for cluster monitoring, management, [additional UIs](https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.1.0/bk_ambari-views/content/ch_understanding_ambari_views.html) and [setup](https://cwiki.apache.org/confluence/display/AMBARI/Blueprints)
- - Does not provide [Impala](https://impala.apache.org/) (use [Hive](https://hortonworks.com/blog/apache-hive-vs-apache-impala-query-performance-comparison/) instead). A performance evaluation would be advisable for the specific workloads you will run, if this type of SQL query is important to your use cases.
- - [Licensing](https://hortonworks.com/services/support/enterprise/) is required for support.
+ - Provides Hive for MPP SQL queries instead of Impala (a performance evaluation would be advisable for the specific workloads you will run, if this type of SQL query is important to your use cases).
+ - A [commercial subscription](https://hortonworks.com/services/support/enterprise/) is required for support.
 
 ## Cloudera CDH & Cloudera Manager
- - Cloudera CDH is 100% open source
- - [Cloudera Manager](https://www.cloudera.com/products/product-components/cloudera-manager.html) and some other components are proprietary
+ - [Cloudera CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) is 100% open source
+ - [Cloudera Manager](https://www.cloudera.com/products/product-components/cloudera-manager.html) and some other components are [proprietary](https://www.cloudera.com/content/dam/www/static/documents/datasheets/cloudera-enterprise-datasheet.pdf) (certain core features may be used for free but advanced cluster management features require a commercial licence)
  - Uses Cloudera Manager for cluster monitoring, management and [setup](https://cloudera.github.io/cm_api/)
  - Uses Hue for [additional UIs](http://gethue.com/)
  - Provides Impala for MPP SQL queries
- - [Licencing](https://www.cloudera.com/content/dam/www/static/documents/datasheets/cloudera-enterprise-datasheet.pdf) is required for support and advanced cluster management features.
+ - A [commercial subscription](https://www.cloudera.com/more/services-and-support.html) is required for support.
+
+## NOTE 
+
+All information provided about Hortonworks and Cloudera products and services is for convenience purposes only and may not reflect current licencing or pricing. Please visit or contact Hortonworks and Cloudera directly to determine your rights and obligations.
