@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.0] 2017-11-24
+
 ### Changed
 - Rewrote Provisioning section
 - PNDA-2873: Documentation for the new Avro Codec
