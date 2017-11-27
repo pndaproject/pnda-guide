@@ -72,9 +72,13 @@ Place the private key ```key_name.pem``` in the root of the pnda-cli directory.
 
 Ensure that key_name.pem has 0600 permissions. 
 
-#### Cluster descriptor
+## Cluster descriptor
 
 Edit existing-machines/production.json (or a copy of this file) with the IP addresses for the machines in the cluster. ip_address must be reachable from each machine but does not have to be reachable from where the cli is run. Add or remove datanodes, kafka nodes, zookeeper nodes and opentsdb nodes to match the number of machines that you have.
+
+## Volume descriptor
+
+Review the [volume config mapping](https://github.com/pndaproject/pnda-cli/blob/develop/bootstrap-scripts/production/volume-config.yaml) for your flavor so the number of disk volumes you have matches the ones being requested. By default the volumes are assigned out in descending size order, but it is possible to specify the device names and hard code the mappings in the volume config file. The disks can also be partitioned automatically. For an example of specifying device names and partitioning see [this volume config file](https://github.com/pndaproject/pnda-cli/blob/develop/bootstrap-scripts/production/volume-config.yaml).
 
 # [Next](CREATE.md)
 
