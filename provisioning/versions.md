@@ -49,7 +49,8 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 
 | Technology | Version |
 |---|---|
-|Apache Ambari |2.5.0.3|
+|Apache Ambari |2.6.0.0|
+|Hortonworks HDP |2.6.3.0|
 |Apache Hadoop|2.7.3|
 |Apache HBase|1.1.2|
 |Apache Hive|2.1.0|
@@ -58,6 +59,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Apache Pig |0.16.0|
 |Apache DataFu |1.3.0|
 |Apache Spark |1.6.3|
+|Apache Spark |2.2.0|
 |Apache Sqoop |1.4.6|
 |Apache ZooKeeper|3.4.6|
 |Apache Phoenix|4.7.0|

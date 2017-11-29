@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-3167: Update flavor as this is m4 instead of m3
 - PNDA-3231: Update SUMMARY in order to include all the provisioning parts
 - PNDA-3302: upgrade edge flavor on pico
+- PNDA-3530: Ambari version 2.6.0.0 and HDP version 2.6.3.0
 
 ### Added
 - PNDA-3304: Add script to set a non-transparent proxy for the mirror build.
