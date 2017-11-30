@@ -61,7 +61,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Apache Spark |1.6.3|
 |Apache Spark |2.2.0|
 |Apache Sqoop |1.4.6|
-|Apache ZooKeeper|3.4.6|
+|Apache ZooKeeper|3.4.11|
 |Apache Phoenix|4.7.0|
 |Apache Slider|0.92.0|
 |Apache TEZ|0.7.0|
