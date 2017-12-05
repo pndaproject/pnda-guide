@@ -13,7 +13,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Kafka|0.11.0.0|
 |Zookeeper for Kafka|3.4.6|
 |JMX Proxy|3.2.0|
-|Kafka Manager|1.3.3.6|
+|Kafka Manager|1.3.3.15|
 |ELK (Logserver)|Logstash 5.0.2, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.3.1|
