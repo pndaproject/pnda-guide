@@ -100,6 +100,7 @@ The [Jupyter Notebook](http://jupyter.org) is a web application that allows you 
 
 * [Using Jupyter](exploration/jupyter.md)
 * [Exploratory data analytics tutorial](exploration/lab.md)
+* [Managing application dependencies](exploration/dependencies.md)
 
 ## [Time Series](timeseries/README.md)
 

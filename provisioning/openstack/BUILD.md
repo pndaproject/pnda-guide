@@ -22,9 +22,24 @@ Two types of build node are supported -
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to build PNDA.
 
-Clone this repository to the build node. The tools are found in the [build folder](https://github.com/pndaproject/pnda/tree/master/build).
+Clone this repository to the build node.
+
+#### Configure the proxy. (Optional)
+
+The entire PNDA build process can be performed from behind a non-transparent proxy. 
+
+To proceeding in this mode, first set the system configuration and then run the ```set-proxy-env.sh``` script that will set up the various proxy configurations needed by the multiple build tools.
+
+```sh
+sudo su
+export http_proxy=http://<proxy_host>:<proxy_port>
+export https_proxy=http://<proxy_host>:<proxy_port>
+. set-proxy-env.sh
+```
 
 #### Preparing the build environment
+
+The tools are found in the [build folder](https://github.com/pndaproject/pnda/tree/master/build).
 
 The script ```install-build-tools.sh``` installs all the necessarily build prerequisites.
 

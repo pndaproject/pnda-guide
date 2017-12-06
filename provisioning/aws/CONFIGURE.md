@@ -24,16 +24,22 @@ Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
 Set the following image related fields as below.
 
-| Field | Ubuntu | RHEL | 
-| --- | --- | --- | 
-|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | 
-|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | 
+| Field | Ubuntu | RHEL | CentOS |
+| --- | --- | --- | --- |
+|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | Select 64 bit CentOS 7 image for region |
+|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | centos | 
 
 #### Set ec2 access keys
 
 Set `ec2_access.AWS_ACCESS_KEY_ID` and `ec2_access.AWS_SECRET_ACCESS_KEY` to the credentials created for accessing ec2 and CloudFormation. 
 
 These credentials are only stored on the client machine.
+
+#### Hadoop distribution
+
+Decide whether you want to run the Cloudera CDH or the Hortonworks HDP Hadoop distribution.
+
+Set `hadoop.HADOOP_DISTRO` to either `CDH` or `HDP`.
 
 #### Set source of SaltStack provisioning scripts
 

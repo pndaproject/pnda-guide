@@ -53,7 +53,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `mgr4`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  | 370 GB | 250 GB | 120 GB
 |  `datanode`        |  ec2.m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB | 50 GB | 120 GB
 |  `opentsdb`        |  ec2.m4.xlarge  | 2 | 4 | 16 GB   | 50 GB | 50 GB | 0 GB
-|  `cloudera-manager`|  ec2.m4.xlarge  | 1 | 4 | 16 GB   | 170 GB | 50 GB | 120 GB
+|  `hadoop-manager`  |  ec2.m4.xlarge  | 1 | 4 | 16 GB   | 170 GB | 50 GB | 120 GB
 |  `jupyter`         |  ec2.m4.large   | 1 | 2 |  8 GB | 50 GB | 50 GB | 0 GB
 |  `logserver`       |  ec2.m4.large   | 1 | 2 |  8 GB | 500 GB | 500 GB | 0 GB
 |  `kafka`           |  ec2.m4.xlarge  | 2 | 4 | 16 GB   | 270 GB | 150 GB | 120 GB
@@ -75,7 +75,7 @@ Two sets of credentials are used to create PNDA on OpenStack.
 
 The PNDA cluster will be created on a private network behind a bastion node. Access to the bastion node is authenticated with a key pair. This key pair must exist in the target OpenStack tenant - create a new key pair or import and existing key pair before creating PNDA.
 
-#### Keystone 
+#### Keystone
 
 The creation process accesses OpenStack APIs via Keystone authentication. Ensure that you have located the credentials for Keystone authentication before continuing.
 
@@ -94,7 +94,7 @@ Create the following containers and folders in Swift before creating a PNDA clus
 
 #### Application container
 
-This container will be used for PNDA application packages. 
+This container will be used for PNDA application packages.
 
 1. Create or designate a Swift container for this purpose.
 2. Create or designate at least one folder within this container to hold the application packages.
@@ -103,12 +103,12 @@ This container will be used for PNDA application packages.
 #### Dataset archive container
 
 This container will be used for PNDA dataset archives.
- 
+
 1. Create or designate a Swift container for this purpose.
 2. Make a note of the name, as it will used later when configuring PNDA
 
 
 # [Next](IMAGE.md)
 
-| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Image](IMAGE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | --- | 
+| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Image](IMAGE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) |
+| --- | --- | --- | --- | --- | --- | --- | --- |

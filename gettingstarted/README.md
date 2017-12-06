@@ -2,6 +2,7 @@
 
 This guide will help you get started setting up a fully operational PNDA cluster. The main tasks can be grouped as follows: 
 
+- [Selecting a Hadoop distribution](hadoop_distro.md)
 - [Creating PNDA](#creating-pnda)
 - [Basic data exploration](#basic-data-exploration)
 - [Producer integration](#producer-integration)
@@ -12,7 +13,7 @@ Some of these tasks may be performed by different people in your organization. F
 ## Creating PNDA
 
 1. Carefully follow the [PNDA creation guide](../provisioning/OVERVIEW.md) for your target environment.
-2. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
+2. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-hadoop-edge`, where `clustername` is the name of your cluster. 
 
 ## Basic data exploration
 
