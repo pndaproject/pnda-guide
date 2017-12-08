@@ -52,5 +52,5 @@ In your PySpark environment, use the SparkContext.addPyFile method to add any re
 
 Python pip dependencies must be deployed on the PNDA Mirror in the usual way. For more details regarding working with the PNDA Mirror, see the PNDA Guide.
 
-Python egg files must be deployed in ```/mirror_app_packages``` on the PNDA Mirror.
+Python egg files must be deployed in a ```/mirror_apps``` directory on the PNDA Mirror.
 
