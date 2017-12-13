@@ -46,7 +46,7 @@ Also ensure the PNDA mirror contains the corresponding packages.
 
 In your PySpark environment, use the SparkContext.addPyFile method to add any required dependencies, referencing the full HDFS path configured as mentioned above. For example:
 
-```sc.addPyFile('hdfs:///user/deployment/app_packages/sharedroutines-0.1.egg')```
+```sc.addPyFile('hdfs:///pnda/deployment/app_packages/sharedroutines-0.1.egg')```
 
 ## Mirrors ##
 
