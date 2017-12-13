@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- PNDA-3295: fix missing links on SUMMARY
+
 ## [0.3.0] 2017-11-24
 
 ### Changed
