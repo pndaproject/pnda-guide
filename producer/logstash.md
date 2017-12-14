@@ -55,7 +55,7 @@ As an example, we will see how to read TCP data and send it to PNDA.
     
     output {
             kafka {
-                    codec => pnda-avro { schema_uri => "/home/cloud-user/pnda.avsc" } # The PNDA Avro schema to use
+                    codec => pnda-avro { schema_uri => "/opt/pnda/pnda.avsc" } # The PNDA Avro schema to use
                     bootstrap_servers => "localhost:9092"
                     topic_id => 'test'
                     compression_type => "none" # "none", "gzip", "snappy", "lz4"
@@ -91,13 +91,13 @@ As an example a Logstash output section would look like this:
 ```properties
     output {
             kafka {
-                    codec => pnda-avro { schema_uri => "/home/cloud-user/pnda.avsc" } # The PNDA Avro schema to use
+                    codec => pnda-avro { schema_uri => "/opt/pnda/pnda.avsc" } # The PNDA Avro schema to use
                     bootstrap_servers => "localhost:9092"
                     topic_id => 'test'
                     compression_type => "none" # "none", "gzip", "snappy", "lz4"
                     value_serializer => 'org.apache.kafka.common.serialization.ByteArraySerializer'
                     ssl => true
-                    ssl_keystore_location => "/òpt/pnda/server.keystore.jks"
+                    ssl_keystore_location => "/opt/pnda/server.keystore.jks"
                     ssl_keystore_password => "test1234"
                     ssl_truststore_location => "/opt/pnda/server.truststore.jks"
                     ssl_truststore_password => "test1234"

@@ -34,7 +34,7 @@ Refer to the [OpenBMP collector](https://github.com/OpenBMP/docker/blob/master/c
 
 Verify if the collector is up and running:
 
-    cloud-user@openbmp-collector:~$ sudo docker ps
+    ubuntu@openbmp-collector:~$ sudo docker ps
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
     3658c7878e0d        openbmp/collector   "/usr/sbin/run"     2 minutes ago       Up 1 minute          0.0.0.0:5000->5000/tcp   openbmp_collector
 
@@ -72,7 +72,7 @@ You are now ready to direct bmp data to the collector.
 
 If you have bmp data flowing to the collector, you should see some kafka topics already created.
 
-    cloud-user@openbmp-kafka:~/kafka_2.10-0.8.2.0$ bin/kafka-topics.sh --list --zookeeper localhost:2181
+    ubuntu@openbmp-kafka:~/kafka_2.10-0.8.2.0$ bin/kafka-topics.sh --list --zookeeper localhost:2181
     __consumer_offsets
     openbmp.bmp_raw
     openbmp.parsed.base_attribute
@@ -125,7 +125,7 @@ Assuming the PNDA kafka instances IP are `192.168.0.100` and `192.168.0.101`:
           topic_id => "avro.openbmp.unicast_prefix"
           compression_type => "none" # "none", "gzip", "snappy", "lz4"
           value_serializer => 'org.apache.kafka.common.serialization.ByteArraySerializer'
-          codec => pnda-avro { schema_uri => "/home/cloud-user/pnda.avsc" }
+          codec => pnda-avro { schema_uri => "/opt/pnda/pnda.avsc" }
         }
     }
 
