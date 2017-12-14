@@ -9,7 +9,7 @@ The Salt Master can run on a modestly sized instance. For example 2 vCPUs, 8 GB 
 To setup Salt Master follow these steps. For the purpose of this guide we'll assume that:
 
 * The Salt Master is to be installed on a host called "saltmaster"
-* A user in the sudoers list on Salt Master is "cloud-user"
+* A user in the sudoers list on Salt Master is "ubuntu"
 
 ## Requirements
 
@@ -42,7 +42,7 @@ fileserver_backend:
   - minion
 
 gitfs_remotes:
-  - file:///home/cloud-user/git_repos/saltmaster.git:
+  - file:///home/ubuntu/git_repos/saltmaster.git:
     - root: salt
 
 gitfs_base: master
@@ -51,7 +51,7 @@ gitfs_base: master
 top_file_merging_strategy: same
 
 ext_pillar:
-   - git: __env__ file:///home/cloud-user/git_repos/saltmaster.git root=pillar
+   - git: __env__ file:///home/ubuntu/git_repos/saltmaster.git root=pillar
 
 # To autoload new created modules, states add and remove salt keys,
 # update bastion /etc/hosts file automatically ... add the following reactor configuration
@@ -82,8 +82,8 @@ sudo restart salt-master
 **On the Salt Master instance**, set up git (need to be done once and only once):
 
 ```sh
-mkdir /home/cloud-user/git_repos
-cd /home/cloud-user/git_repos
+mkdir /home/ubuntu/git_repos
+cd /home/ubuntu/git_repos
 for r in salt-cloud.git saltmaster.git; do
   mkdir $r
   cd $r
@@ -103,9 +103,9 @@ Then configure a remote for each repository so that you can push to the newly co
 
 ```sh
 cd <local-path>/platform-salt
-git remote add saltmaster ssh://cloud-user@saltmaster/home/cloud-user/git_repos/saltmaster.git
+git remote add saltmaster ssh://ubuntu@saltmaster/home/ubuntu/git_repos/saltmaster.git
 cd <local-path>/platform-salt-cloud
-git remote add saltmaster ssh://cloud-user@saltmaster/home/cloud-user/git_repos/salt-cloud.git
+git remote add saltmaster ssh://ubuntu@saltmaster/home/ubuntu/git_repos/salt-cloud.git
 
 ```
 Finally, push to the Salt Master.
@@ -180,6 +180,6 @@ In order to make use of the PNDA CLI and Salt Cloud, clone the salt-cloud reposi
 For example:
 
 ```sh
-cd /home/cloud-user/johndoe
-git clone file:///home/cloud-user/git_repos/salt-cloud.git
+cd /home/ubuntu/johndoe
+git clone file:///home/ubuntu/git_repos/salt-cloud.git
 ```
