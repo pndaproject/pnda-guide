@@ -10,7 +10,7 @@ With the target platform fully prepared, the PNDA software staged and the YAML c
 
 #### Install CLI dependencies
 
-On the client machine, install the pip packages required by the CLI.
+On the client machine, install the pip packages required by the CLI. Navigate to the folder containing the pnda-cli repository, then run the following commands:
 
 ```
 cd cli
