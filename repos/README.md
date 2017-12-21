@@ -10,7 +10,7 @@ It consists of the following source code repositories and sub-projects:
 
  * [platform-salt](http://github.com/pndaproject/platform-salt): provisioning logic for creating PNDA
  * [pnda-heat-templates](http://github.com/pndaproject/pnda-heat-templates): cluster templates for creating PNDA with Heat
- * [pnda-aws-templates](http://github.com/pndaproject/pnda-aws-templates): cluster templates for creating PNDA with CloudFormation on AWS
+ * [pnda-cli](http://github.com/pndaproject/pnda-cli): cluster templates for creating PNDA with CloudFormation on AWS
  * [pnda-dib-elements](http://github.com/pndaproject/pnda-dib-elements): tools for building disk image templates
  * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
  
