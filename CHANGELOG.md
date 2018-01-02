@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- PNDA-3585: Add documentation about the PNDA queue placement policy.
+
 ## [0.3.0] 2017-11-24
 
 ### Changed

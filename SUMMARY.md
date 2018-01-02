@@ -60,6 +60,7 @@
     * [OpenTSDB](timeseries/opentsdb.md)
     * [Grafana](timeseries/grafana.md)
 * [Security](security/README.md)
+* [Resource Management](resourcemanagement/README.md)
 * [Repositories](repos/README.md)
 * [References](others/README.md)
 * [Changelog](CHANGELOG.md)
