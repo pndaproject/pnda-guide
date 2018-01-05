@@ -27,8 +27,8 @@ The target can be defined with one of the following syntax.
 3) A single wildcard based rule (`asterisk`):
 <br>```*```
 <br>This rule applies to all users irrespective of their name/group. Such a rule can typically be used as:
-1) last rule to place all remaining users that didn't match any of the previous rules in a specific queue.
-2) only rule to place all applications in the same queue.
+<br>1) last rule to place all remaining users that didn't match any of the previous rules in a specific queue.
+<br>2) only rule to place all applications in the same queue.
 <br>Example: ```* root.default```
 
 Finally, here is an example where multiple rules for a same target can apply:
