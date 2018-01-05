@@ -113,6 +113,10 @@ OpenTSDB is a scalable time series database that lets you store and serve massiv
 
 A big data infrastructure like PNDA involves a multitude of technologies and tools, and may be deployed in a multi-tenant environment. Providing enterprise grade security for such system is not only complex, but is of primary concern for any production deployment. If you are implementing a client for a PNDA interface or developing a PNDA application, this chapter will cover some security guidelines that you should adhere to when working with individual components. 
 
+## [Resource Management](resourcemanagement/README.md)
+
+Hadoop distributions come with a resource management system. The ResourceManager has two main components: Scheduler and ApplicationsManager. Traditionally organization have a separate set of compute resources for development workloads and for productions workloads. This not only leads to poor average resource utilization and overhead of managing multiple independent clusters but more importantly to duplication of the data, which represent a considerable cost in a big data platform. Consequently, sharing data lakes between these two activities represent considerable cost-savings in infrastructure resources. However, sharing computes resources for production activities with development activities should be done in all respect of the critical SLA's production workloads have the abide by. In a default PNDA deployment, the yarn schedulers have been configured to prioritize the system functionality first (in order not to lose any data), then the production workload and finally as last priority the development applications if any resources are still available. Unfortunately, the Yarn schedulers and especially their queue placement tools are more designed around sharing resources across organizations rather than for a priority based queueing system. For this reason, PNDA has chosen to complement the queue placement policies with its own tool and configuration options.     
+
 ## [Repositories](repos/README.md)
 
 The PNDA distribution consists of the following source code repositories and sub-projects:
