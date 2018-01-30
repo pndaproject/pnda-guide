@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
 - PNDA-3601: disable emailtext in Jenkins file and replace it with notifier stage and job
+- PNDA-4043: Update HDP to version 2.6.4.0
 
 ### Fixed
 - PNDA-3295: fix missing links on SUMMARY
