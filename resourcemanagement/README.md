@@ -54,6 +54,12 @@ Default mapping configuration for the capacity scheduler: [capacity_scheduler_ma
 
 ## Applicability
 Currently, the following cli's and frameworks have been configured to use the PNDA queue placement policy:
-1) CLI's: `spark-submit`, `spark-shell`, `pyspark`, `mapred`
+1) CLI's: `spark-submit`, `spark-shell`, `pyspark`, `mapred`, `hive`, `beeline`
 2) Jupyter notebooks using the pyspark kernel.
 3) Applications deployed through the deployment manager.
+
+## Default overwrite
+As explained above, the first applicable rule will be used to define the queue. But when multiple queues are applicable, for some application, a preference for a particular queue can still be expresse. For example:
+1) For the `spark-submit`, `spark-shell`, `pyspark` and `mapred`CLI's this can be expressed using the `--queue <queuename>` option as explained in their respective documentation.
+2) For the `hive` and `beeline` CLI's this can be expressed through the `--hiveconf tez.queue.name=<queuename>` option as as explained in their respective documentation.
+3) For Oozie applications, this can be expressed by defining an the action specific configurations. For example, with a mapreduce action, the [mapreduce.job.queuename](https://hadoop.apache.org/docs/r2.6.3/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) Hadoop JobConf property can be specified as explained in [Map-Reduce Action](https://oozie.apache.org/docs/4.1.0/WorkflowFunctionalSpec.html#a3.2.2_Map-Reduce_Action) to express a queue preference. If the user defined a `mapreduce.job.queuename` property in the config-default.xml, then that queue will be prefered and otherwise the deployment manager will inject a matching queue itself before submission to Oozie.
