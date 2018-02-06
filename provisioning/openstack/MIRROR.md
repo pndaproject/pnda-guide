@@ -94,4 +94,4 @@ For more about creating and maintaining mirrors, please refer to the [repository
 # [Next](BUILD.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- | --- |

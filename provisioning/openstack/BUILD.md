@@ -71,6 +71,8 @@ Your environment is now ready to build PNDA.
 
 The script ```build-pnda.sh``` is invoked as a non-privileged user. 
 
+If you are running behind a non-transparent proxy, go through the [proxy configuration](#configure-the-proxy-optional) steps again for the non-privileged user (don't substitute user).
+
 For example
 
 ```sh
@@ -87,4 +89,4 @@ All build products are assembled in the directory ```pnda-dist```.
 # [Next](STAGE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- | --- |
