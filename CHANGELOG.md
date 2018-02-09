@@ -4,14 +4,19 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Changed
 - PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
-- PNDA-3601: disable emailtext in Jenkins file and replace it with notifier stage and job
+- PNDA-3601: Disable emailtext in Jenkins file and replace it with notifier stage and job
 - PNDA-4043: Update HDP to version 2.6.4.0
+- PNDA-4110: Build proxy documentation edits
+- PNDA-3555: Stop using locations under /user for PNDA 'system' functions
+- PNDA-3663: Move governance and contribution guidelines to pnda-guide
+- PNDA-3483: Allow dynamic zookeeper ip resolution 
+- PNDA-3548: upgrade KM to 1.3.3.15
 
 ### Fixed
 - PNDA-3295: fix missing links on SUMMARY
 
 ### Added
-- PNDA-3585: Add documentation about the PNDA queue placement policy.
+- PNDA-3585: Add documentation about the PNDA queue placement policy
 
 ## [0.3.0] 2017-11-24
 
