@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.4.0] 2018-02-10
 ### Changed
 - PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
 - PNDA-3601: Disable emailtext in Jenkins file and replace it with notifier stage and job
