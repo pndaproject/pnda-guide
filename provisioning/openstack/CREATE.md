@@ -46,8 +46,10 @@ In particular note that the -s option refers to the name of the key pair created
 
 Make sure you have access to the private key of this key pair otherwise you will not be able to connect to the bastion node and access the cluster.
 
+**Important:** ensure you are certain what version of PNDA you want to deploy, and specify the correct branch or tag when invoking the CLI using the -b option. In most circumstances you'll want to make sure the branch or tag you specify is identical to the branch or tag you used to build the PNDA mirror, and identical to the version you checked out from the pnda-heat-templates repository. All PNDA releases are designated with a tag such as ```release/4.0``` across all repositories.
+
 ```
-./heat_cli.py -e cation -n 3 -o 1 -k 2 -z 3 -f standard -s <existing keypair> create
+./heat_cli.py -e cation -n 3 -o 1 -k 2 -z 3 -f standard -s <existing keypair> -b <branch> create
 ```
 
 In the above example we create a standard flavor PNDA named cation. We specify 3 data nodes, 1 opentsdb node, 2 kafka nodes, 3 zookeeper nodes
