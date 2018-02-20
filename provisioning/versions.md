@@ -11,15 +11,16 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |OpenStack Heat templates|2014-10-16|
 |AWS CFN templates|2010-09-09|
 |Kafka|0.11.0.0|
-|Zookeeper for Kafka|3.4.6|
+|Zookeeper for Kafka|3.4.11|
 |JMX Proxy|3.2.0|
 |Kafka Manager|1.3.3.15|
-|ELK (Logserver)|Logstash 5.0.2, Elasticsearch 1.5.0, Kibana 4.1.6-linux-x64|
+|ELK (Logserver)|Logstash 5.2.2, Elasticsearch 6.1.2, Kibana 6.1.2|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.3.1|
 |OpenTSDB|2.3.0|
-|Grafana|3.1.1|
+|Grafana|4.2.0|
 |Anaconda|4.0.0|
+|Consul|1.0.3|
 
 ## For Cloudera CDH PNDA
 
