@@ -31,7 +31,9 @@ If using Red Hat, ensure the mirror is built on a clean instance that has had **
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to create and maintain the mirror file sets.
 
-Clone this repository to the mirror creation node.
+Decide which version of PNDA you want to create. All PNDA releases are desginated with tag similar to ```release/4.0``` across all repositories. 
+
+Clone this repository at the right version to the mirror creation node.
 
 #### Configure the proxy. (Optional)
 

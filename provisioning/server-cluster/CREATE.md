@@ -19,10 +19,12 @@ sudo pip install -r requirements.txt
 
 #### CLI invocation
 
+**Important:** ensure you are certain what version of PNDA you want to deploy, and specify the correct branch or tag when invoking the CLI using the -b option. In most circumstances you'll want to make sure the branch or tag you specify is identical to the branch or tag you used to build the PNDA mirror, and identical to the version you checked out from the pnda-cli repository. All PNDA releases are designated with a tag such as ```release/4.0``` across all repositories.
+
 An example CLI invocation -
 
 ```
-pnda-cli.py -e pnda -s mykey -f production -m 'existing-machines/production.json' create
+pnda-cli.py -e pnda -s mykey -f production -m 'existing-machines/production.json' create -b release/4.0
 ```
 
 Note the -m flag for existing-machines installation.

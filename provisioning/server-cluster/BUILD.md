@@ -22,7 +22,9 @@ Two types of build node are supported -
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to build PNDA.
 
-Clone this repository to the build node.
+Decide which version of PNDA you want to create. All PNDA releases are desginated with tag similar to ```release/4.0``` across all repositories. 
+
+Clone this repository at the right version to the build node.
 
 #### Configure the proxy. (Optional)
 
@@ -75,7 +77,7 @@ For example
 
 ```sh
 cd pnda
-./build-pnda.sh RELEASE release/3.5
+./build-pnda.sh RELEASE release/4.0
 ```
 
 It is also possible to perform more complex builds including building to a specific bill-of-materials. Please refer to the [repository notes](https://github.com/pndaproject/pnda).
