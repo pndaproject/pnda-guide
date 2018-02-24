@@ -1,7 +1,6 @@
 # Using Python application dependencies
 
-
-## Jupyter, Deployment Manager and shells
+## Jupyter, Deployment Manager and shells
 
 ### Anaconda and app-packages dependencies
 
