@@ -58,5 +58,7 @@ In your PySpark environment, use the SparkContext.addPyFile method to add any re
 
 All application dependencies must be made available on the PNDA Mirror in the usual way. For more details regarding working with the PNDA Mirror, see the PNDA Guide.
 
-Put dependencies into the ```/mirror_apps``` directory on the PNDA Mirror.
+Add dependencies to be staged on HDFS (eggs, etc) to the ```/mirror_apps``` directory on the PNDA Mirror.
+
+Add dependencies to be managed by app-packages using the tools provided for managing Python libraries on the PNDA Mirror. See [mirror tools](https://github.com/pndaproject/pnda/tree/develop/mirror/tools) for more details.
 
