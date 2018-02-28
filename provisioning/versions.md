@@ -19,7 +19,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Jupyter|4.3.1|
 |OpenTSDB|2.3.0|
 |Grafana|4.2.0|
-|Anaconda|4.0.0|
+|Anaconda|5.1.0|
 |Consul|1.0.3|
 
 ## For Cloudera CDH PNDA
