@@ -16,7 +16,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Kafka Manager|1.3.3.15|
 |ELK (Logserver)|Logstash 6.1.2, Elasticsearch 6.1.2, Kibana 6.1.2|
 |Jupyter Hub|0.7.0|
-|Jupyter|4.3.1|
+|Jupyter|4.2.1|
 |OpenTSDB|2.3.0|
 |Grafana|4.2.0|
 |Anaconda|5.1.0|
