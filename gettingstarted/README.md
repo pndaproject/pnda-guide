@@ -41,7 +41,7 @@ For the purposes of this guide, we'll use the test data source for the example [
 
 ## Packages and applications
 
-1. A pre-requisite to working with packages is to ensure that the application package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
+1. A pre-requisite to working with packages is to ensure that the application package repository is correctly configured as described in the [PREPARE phase depending your infra: AWS, OpenStack or server clusters](../provisioning/OVERVIEW.md).
 2. Build and upload the [spark-streaming](https://github.com/pndaproject/example-applications/tree/master/spark-streaming) app to the package repository. Upload the file to the Object Store via the [platform-package-repository](https://github.com/pndaproject/platform-package-repository).
 3. In the console, [deploy the package](../console/packages.md). On the packages page, look for the package you have just uploaded in the list of available packages. (If you don't see it, try clicking the refresh button.) Click the deploy button next to the package, and you'll see it added to the list of deployed packages. 
 4. Create an [application](../console/applications.md) from the package. On the applications page, click "Create New Application", select the package you have just deployed, and follow the prompts to create a new application. 

@@ -15,7 +15,7 @@ Make sure you are familiar with the following before proceeding with the lab:
 - The [getting started](../gettingstarted/README.md) guide will introduce you to many concepts used in this lab.
 - The [console](../console/README.md) is your starting point for interacting with a PNDA cluster. All of the main features of PNDA can be accessed from the console.
 - The [Deployment Manager API](https://github.com/pndaproject/platform-deployment-manager) provides a mechanism for discovering available packages and deploying & undeploying functionality. It works with a well-defined package structure to make it fast and straightforward to get real scalable analytics running on the platform.
-- Make sure that your package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
+- Make sure that your package repository is correctly configured as described in the [PREPARE phase depending your infra: AWS, OpenStack or server clusters](../provisioning/OVERVIEW.md).
 - The [platform-package-repository](https://github.com/pndaproject/platform-package-repository) tool lets you upload packages to OpenStack Swift. 
 - Read the technical notes in the [example repository](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb).
 
