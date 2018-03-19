@@ -75,6 +75,12 @@ It is used by [Kafka](#kafka) for coordination of its distributed operations, to
 
 In PNDA, it allows for both batch mode and streaming computation.
 
+### Flink
+
+[Apache Flink](http://flink.apache.org/) is framework and engine for stream processing for distributed, high-performing, always-available, and accurate data streaming applications.
+
+In PNDA, it allows for both batch mode and streaming computation.
+
 ### Batch: Oozie
 
 [Apache Oozie](https://oozie.apache.org) is a workflow scheduler system to manage Apache Hadoop jobs.
