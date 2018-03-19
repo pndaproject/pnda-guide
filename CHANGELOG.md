@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - PNDA-3585: Add documentation about the PNDA queue placement policy
+- PNDA-4460: Add Flink details and version
 
 ## [0.3.0] 2017-11-24
 
