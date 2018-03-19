@@ -4,23 +4,49 @@
 
 ## Introduction
 
-The PNDA creation process is controlled primarily via a YAML configuration file.
+The PNDA creation process is executed over SSH using key based authentication, and controlled via a YAML configuration file.
 
 A template YAML configuration can be found in the [PNDA CLI repository](https://github.com/pndaproject/pnda-cli). 
 
-## Configure pnda_env.yaml
-
-#### Designate client machine
+## Designate client machine
 
 Create or designate a suitable machine for running the PNDA CLI. We recommend Ubuntu 14.04.
 
-#### Obtain code
+## Obtain code
 
 Clone the [PNDA CLI repository](https://github.com/pndaproject/pnda-cli) repository from the master branch at a specific release tag (e.g. ```release/3.5```) to the client machine.
 
 Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
-#### Configure pnda_env.yaml
+## SSH key pair
+
+Create an SSH key pair for use when configuring the PNDA nodes as ```key_name```. 
+
+```sh
+ssh-keygen -b 2048 -t rsa -f key_name.pem -q -N ""
+```
+
+Place the private key ```key_name.pem``` in the root of the pnda-cli directory. 
+
+Ensure that key_name.pem has 0600 permissions. 
+
+## Configure sudo user
+
+Create a sudo user `<username>` on each machine:
+
+```sh
+sudo su
+adduser <username> --disabled-password --gecos ""
+echo <username> ALL=NOPASSWD: ALL >> /etc/sudoers
+```
+Allow login for that user with the created key on each machine:
+
+```sh
+mkdir /home/<username>/.ssh
+cat key_name.pem.pub >> /home/<username>/.ssh/authorized_keys
+```
+
+## Configure pnda_env.yaml
 
 ##### Set the OS user to be used in provisioning
 
@@ -63,14 +89,6 @@ Set `mirrors.PNDA_MIRROR` to the URI determined by the placement of the mirror a
 ##### Other fields
 
 There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [PNDA CLI repository](https://github.com/pndaproject/pnda-cli) for more details.
-
-#### SSH key pair
-
-Create an SSH key pair for use when configuring the PNDA nodes as ```key_name```. 
-
-Place the private key ```key_name.pem``` in the root of the pnda-cli directory. 
-
-Ensure that key_name.pem has 0600 permissions. 
 
 ## Cluster descriptor
 
