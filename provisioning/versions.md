@@ -45,6 +45,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Apache Sqoop |sqoop-1.4.6+cdh5.9.0+77|
 |Apache Sqoop2 |sqoop2-1.99.5+cdh5.9.0+40|
 |Apache ZooKeeper| zookeeper-3.4.5+cdh5.9.0+98|
+|Apache Flink |flink-1.4.0|
 
 ## For Hortonworks HDP PNDA
 
@@ -66,3 +67,4 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Apache Phoenix|4.7.0|
 |Apache Slider|0.92.0|
 |Apache TEZ|0.7.0|
+|Apache Flink |flink-1.4.0|
