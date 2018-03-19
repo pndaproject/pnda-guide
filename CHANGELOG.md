@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-3663: Move governance and contribution guidelines to pnda-guide
 - PNDA-3483: Allow dynamic zookeeper ip resolution 
 - PNDA-3548: upgrade KM to 1.3.3.15
+- PNDA-4442: Clarify steps required for creation on server cluster
 
 ### Fixed
 - PNDA-3295: fix missing links on SUMMARY
