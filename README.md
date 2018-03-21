@@ -54,6 +54,15 @@ Other pages on the console let you view detailed metrics, deploy packages, run a
  * [Datasets](console/datasets.md)
  * [UI links and credentials](console/uicredentials.md) 
 
+## [Endpoint Management and Service discovery](em_sd/README.md)
+
+Prior 4.0 PNDA release, we did not include any service discovery and we were relying on SaltStack for managing endpoints so this was static on deployment. We were relying also on /etc/hosts which was not flexible and easy to maintained. Also the deployment manager was in charge of sending endpoints but as above done by configuration on deployment.
+In the mean time, this was not possible to discover service/endpoints externally without knowing in advance the PNDA deployment scheme. That's why we decide to use [Consul.io](https://www.consul.io/) for endpoints management and service discovery. See the following parts for getting more details on the current implementation using Consul:
+
+ * [Consul basis](em_sd/consul.md)
+ * [DNS in PNDA](em_sd/dns.md)
+ * [Service discovery](em_sd/sd.md)
+
 ## [Producers](producer/README.md)
 
 Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to integrate and develop "producers", which feed data into Kafka.
