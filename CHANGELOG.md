@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Changed
+- PNDA-4009: Add application detailed summary guide
 
 ## [0.4.0] 2018-02-10
 ### Changed
