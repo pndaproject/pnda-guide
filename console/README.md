@@ -12,7 +12,7 @@ See the following pages for a description of features available on other tabs:
 
 ### Connecting
 
-Once you have provisioned a cluster, you can connect to the PNDA console at `http://clustername-hadoop-edge`, where `clustername` is the name of your cluster.
+Once you have provisioned a cluster, you can connect to the PNDA console at `http://clustername-hadoop-edge`, where `clustername` is the name of your cluster. Refer to [UI links and credentials](uicredentials.md) above for username and password details and how these are configured.
 
 ![Console Home](images/home_green.png)
 
