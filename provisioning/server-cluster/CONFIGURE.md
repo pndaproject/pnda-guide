@@ -10,7 +10,7 @@ A template YAML configuration can be found in the [PNDA CLI repository](https://
 
 ## Designate client machine
 
-Create or designate a suitable machine for running the PNDA CLI. We recommend Ubuntu 14.04.
+Create or designate a suitable machine for running the PNDA CLI. We recommend CentOS 7.
 
 ## Obtain code
 

@@ -26,7 +26,7 @@ If different passwords are required they can be configured in the platform-salt 
  - The PNDA user credentials are located in [platform-salt/pillar/pnda.sls:pnda](https://github.com/pndaproject/platform-salt/blob/develop/pillar/pnda.sls)
  - The Jupyter user credentials (when using  the default pam_module: 'pam_unix' authentication) are located in [platform-salt/pillar/identity.sls](https://github.com/pndaproject/platform-salt/blob/develop/pillar/identity.sls)
 
-Note that for the PNDA user `password_hash` should be set along with the `user` and `password`. The easiest and most reliable way to do this is to set the password on an Ubuntu 14.04 machine, then look in /etc/shadow for the password hash.
+Note that for the PNDA user `password_hash` should be set along with the `user` and `password`. The easiest and most reliable way to do this is to set the password on a RHEL 7 machine, then look in /etc/shadow for the password hash.
 
 The credentials can also be changed manually in each UI as required after PNDA has been provisioned.
 

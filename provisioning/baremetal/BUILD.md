@@ -15,7 +15,7 @@ Designate or create the PNDA build machine. This could be the same machine that 
 Two types of build node are supported -
 
 - Red Hat Enterprise Linux 7
-- Ubuntu 14.04 
+- CentOS 7 
 
 
 #### Obtain build tools
