@@ -73,7 +73,7 @@ sudo cp CentOS-7-x86_64-GenericCloud.qcow2 /var/lib/libvirt/images/undercloud.qc
 
 #### Resize the undercloud disk
 
-The generic Centos image does not have sufficient disk space. Resize it now.
+The generic CentOS image does not have sufficient disk space. Resize it now.
 
 ```
 sudo qemu-img resize /var/lib/libvirt/images/undercloud.qcow2 +120G

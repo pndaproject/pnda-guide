@@ -31,14 +31,14 @@ pnda-root
 │   ├── Anaconda-4.0.0-el7.parcel
 │   ├── etc
 │
-├── mirror_deb
-│   ├── acl_2.2.52-1_amd64.deb
+├── mirror_rpm
+│   ├── a-rpm.rpm
 │   ├── etc
 │
 ├── etc
 ```
 
-Note that ```pnda-root``` can be any location, all that is required is that the hierarchy under this is available via a known URI. For example, using a standard Apache 2 installation on Ubuntu 14.04, if the hierarchy above is placed in ```/var/www/html``` this will be available via the URI ```http://<server>/``` since ```/var/www/html``` is the default *document root*. Please refer to your HTTP server documentation for more details.
+Note that ```pnda-root``` can be any location, all that is required is that the hierarchy under this is available via a known URI. For example, using a standard Apache 2 installation on RHEL 7, if the hierarchy above is placed in ```/var/www/html``` this will be available via the URI ```http://<server>/``` since ```/var/www/html``` is the default *document root*. Please refer to your HTTP server documentation for more details.
 
 Make a note of the URI to ```pnda-root``` as this will be used in configuring the PNDA creation process.
 

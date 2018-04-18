@@ -47,7 +47,6 @@
 * [SSH Public Key](https://git-scm.com/book/be/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key)
 * [Strict versioning](http://legacy.python.org/dev/peps/pep-0386)
 * [TripleO](http://docs.openstack.org/developer/tripleo-docs/)
-* [Ubuntu](http://www.ubuntu.com)
 * [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)
 * [Zookeeper](http://zookeeper.apache.org/)
 

@@ -32,7 +32,6 @@
         * [Create PNDA cluster](provisioning/server-cluster/CREATE.md)
     * [Creating PNDA on Bare metal](provisioning/baremetal/PREPARE.md)
         * [Setting up Undercloud](provisioning/baremetal/UNDERCLOUD.md)
-        * [Setting up Saltmaster VM](provisioning/baremetal/SALTMASTER.md)
         * [Registering nodes with Undercloud](provisioning/baremetal/REGISTER.md)
         * [Create PNDA mirror components](provisioning/baremetal/MIRROR.md)
         * [Create PNDA build components](provisioning/baremetal/BUILD.md)

@@ -41,7 +41,7 @@ It will have two network interfaces. One will be dedicated to provisioning and a
 
 ![](bm-deployment.png)
 
-The build node operating system must be either a Centos 7 or Redhat Enterprise Linux 7.
+The build node operating system must be either a CentOS 7 or Redhat Enterprise Linux 7.
 
 On the build node, a number of additional nodes will be created, as KVMs. 
 

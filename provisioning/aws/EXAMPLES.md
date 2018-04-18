@@ -4,17 +4,17 @@ These are some examples of how an HTTP server can be set up to serve files for P
 
 These notes are intended for guidance only and will not be maintained or supported. You are strongly advised to refer to the official documentation for each technology.
 
-## Apache HTTP Server on Ubuntu
+## Apache HTTP Server on CentOS
 
-Assuming a working Ubuntu 14.04 server and that built components are in directory pnda-files below the current working directory -
+Assuming a working CentOS 7 server and that built components are in directory pnda-dist below the current working directory -
 
 Install Apache HTTP Server -
 
-	sudo apt-get install apache2
+	sudo yum install httpd
 
 Copy components to the HTTP server -
 
-	cp pnda-files/* /var/www/html/
+	cp pnda-dist/* /var/www/html/
 
 The components are now available via HTTP from the server -
 
@@ -52,7 +52,7 @@ Create a Vagrantfile, substituting in your AWS configuration -
 	    aws.ami 				= "<YOUR CONFIG>"
 	    aws.region 				= "<YOUR CONFIG>"
 	    aws.security_groups 	= [ '<YOUR CONFIG>' ]
-	    override.ssh.username 	= "ubuntu"
+	    override.ssh.username 	= "centos"
 	    override.ssh.private_key_path = "<YOUR CONFIG>"
 	  end
 	  config.vm.provision :shell, path: "bootstrap.sh"
@@ -60,10 +60,9 @@ Create a Vagrantfile, substituting in your AWS configuration -
 
 Create a bootstrap.sh -
 
-	apt-get update
-	apt-get install -y apache2
+	yum install -y httpd
 	rm -rf /var/www/html
-	ln -fs /vagrant/pnda-files /var/www/html
+	ln -fs /vagrant/pnda-dist /var/www/html
 
 Start the instance -
 
@@ -106,10 +105,9 @@ Create a Vagrantfile, substituting in your OpenStack configuration -
 
 Create a bootstrap.sh -
 
-	apt-get update
-	apt-get install -y apache2
+	yum install -y httpd
 	rm -rf /var/www/html
-	ln -fs /vagrant/pnda-files /var/www/html
+	ln -fs /vagrant/pnda-dist /var/www/html
 
 Start the instance -
 
@@ -130,7 +128,7 @@ Assuming a working Docker installation and that built components are in director
 Create a Dockerfile -
 
 	FROM httpd:2.4
-	COPY ./pnda-files/ /usr/local/apache2/htdocs/
+	COPY ./pnda-dist/ /usr/local/apache2/htdocs/
 
 Build the container -
 
@@ -143,6 +141,6 @@ The components are now available via HTTP from the server -
 
 If you need to update the components later -
 
-	sudo docker cp pnda-files/some-component-0.2.0.tar.gz package-server:/usr/local/apache2/htdocs/
+	sudo docker cp pnda-dist/some-component-0.2.0.tar.gz package-server:/usr/local/apache2/htdocs/
 
 

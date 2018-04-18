@@ -12,7 +12,7 @@ A template YAML configuration can be found in the [pnda-cli repository](https://
 
 #### Designate client machine
 
-Create or designate a suitable machine for running the PNDA CLI. We recommend Ubuntu 14.04.
+Create or designate a suitable machine for running the PNDA CLI. We recommend CentOS 7.
 
 #### Obtain code
 
@@ -24,10 +24,10 @@ Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
 Set the following image related fields as below.
 
-| Field | Ubuntu | RHEL | CentOS |
-| --- | --- | --- | --- |
-|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | Select 64 bit CentOS 7 image for region |
-|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | centos | 
+| Field | RHEL | CentOS |
+| --- | --- | --- |
+|  `cloud_formation_parameters.imageId`  | Select 64 bit RHEL 7 image for region | Select 64 bit CentOS 7 image for region |
+|  `ec2_access.OS_USER`  | ec2-user | centos | 
 
 #### Set ec2 access keys
 
