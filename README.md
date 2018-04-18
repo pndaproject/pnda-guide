@@ -4,10 +4,11 @@ PNDA is a simple, scalable, open big data platform supporting operational and bu
 
 ## Quick Links
 
-- [Website](http://pandaproject.io)
-- [Guide](http://pandaproject.io/guide)
 - [GitHub](https://github.com/pndaproject)
-- [Questions & Answers](http://pandaproject.io/qa)
+- [JIRA](https://issues.pnda.io)
+- [Confluence](https://cwiki.pnda.io)
+- [Website](http://pnda.io)
+- [Guide](http://pnda.io/guide)
 - [Twitter](https://twitter.com/pndaproject)
 
 ## [Overview](overview/README.md)
