@@ -20,7 +20,7 @@ For jobs to be scheduled via coordinators and workflows, do the following.
  
 ### Anaconda dependencies
 
-To your <spark-opts> section in the workflow action, add
+To your `<spark-opts>` section in the workflow action, add
 
      --conf spark.executorEnv.PYSPARK_PYTHON=/opt/pnda/anaconda/bin/python
      --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=/opt/pnda/anaconda/bin/python
