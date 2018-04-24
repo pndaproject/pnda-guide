@@ -77,3 +77,17 @@ Different status in OOZIE application are:
 - COMPLETED_WITH_FAILURES - OOZIE application finished all its workflows/jobs and one or more in failed state
 
 ![More Info Spark Batch C](images/more_info_oozie_spark_batch_c.png)
+
+### Detailed summary - Flink Streaming
+
+For Flink applications, job status will be queried from YARN and Flink server. Different status in Flink applications are:
+
+- CREATED - Flink Streaming Application is created
+- ACCEPTED - Application is with YARN, in accepted state
+- RUNNING - Application running properly with all vertices in running or succeeded state
+- RUNNING_WITH_ERRORS -  Running but one or more vertices in failed state
+- FINISHED_SUCCEDED - Application execution completed with yarn state as FINISHED and final status as SUCCEEDED
+- FAILED - Application execution completed with yarn state and final status as FAILED
+- KILLED - Application execution completed with yarn state and final status as KILLED
+
+![More Info Flink Streaming](images/more_info_flink_streaming.png)

@@ -54,7 +54,7 @@ Default mapping configuration for the capacity scheduler: [capacity_scheduler_ma
 
 ## Applicability
 Currently, the following cli's and frameworks have been configured to use the PNDA queue placement policy:
-1) CLI's: `spark-submit`, `spark-shell`, `pyspark`, `mapred`, `hive`, `beeline`
+1) CLI's: `spark-submit`, `spark-shell`, `pyspark`, `mapred`, `hive`, `beeline`, `flink`, `pyflink`, `start-scala-shell.sh`
 2) Jupyter notebooks using the pyspark kernel.
 3) Applications deployed through the deployment manager.
 

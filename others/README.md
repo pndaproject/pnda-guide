@@ -5,6 +5,7 @@
 * [Cloudera Manager](https://www.cloudera.com/products/cloudera-manager.html)
 * [ElasticSearch](https://www.elastic.co)
 * [Express with Passport](http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.VqCrvfl95p8)
+* [Flink](http://flink.apache.org/)
 * [GitBook](http://www.gitbook.com/)
 * [Gobblin](https://github.com/linkedin/gobblin/)
 * [Grafana](http://grafana.org)
