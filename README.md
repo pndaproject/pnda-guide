@@ -67,16 +67,17 @@ To solve all these problems we decided to use [Consul.io](https://www.consul.io/
  * [DNS in PNDA](em_sd/dns.md)
  * [Service discovery](em_sd/sd.md)
 
-## [Producers](producer/README.md)
+## [Streaming Ingest](streamingest/README.md)
 
-Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to integrate and develop "producers", which feed data into Kafka.
+Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to setup PNDA topics and how to integrate and develop "producers", which feed data into the Kafka topics.
 
- * [Preparing data](producer/data-preparation.md)
- * [Integrating Logstash](producer/logstash.md)
- * [Integrating OpenDaylight](producer/opendl.md)
- * [Integrating OpenBMP](producer/openbmp.md)
- * [Integrating Pmacct](producer/pmacct.md)
- * [Developing a custom producer](producer/producer.md)
+ * [Preparing topics](streamingest/topic-preparation.md)
+ * [Preparing data](streamingest/data-preparation.md)
+ * [Integrating Logstash](streamingest/logstash.md)
+ * [Integrating OpenDaylight](streamingest/opendl.md)
+ * [Integrating OpenBMP](streamingest/openbmp.md)
+ * [Integrating Pmacct](streamingest/pmacct.md)
+ * [Developing a custom producer](streamingest/producer.md)
 
 ## [Bulk Ingest](bulkingest/README.md)
 
