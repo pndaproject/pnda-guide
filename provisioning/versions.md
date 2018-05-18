@@ -8,7 +8,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 | Technology | Version |
 |---|---|
 |SaltStack|2015.8.11|
-|OpenStack Heat templates|2014-10-16|
+|OpenStack Heat templates|2015-04-30|
 |AWS CFN templates|2010-09-09|
 |Kafka|0.11.0.2|
 |Zookeeper for Kafka|3.4.11|

@@ -72,7 +72,6 @@ The different parts of the mirror can be created separately if required. The scr
 create_mirror_rpm.sh
 create_mirror_misc.sh
 create_mirror_python.sh
-create_mirror_anaconda.sh
 create_mirror_cdh.sh
 create_mirror_hdp.sh
 create_mirror_apps.sh
@@ -84,7 +83,6 @@ Each script creates its output in a directory named for the respective mirror ty
 mirror_rpm
 mirror_misc
 mirror_python
-mirror_anaconda
 mirror_cloudera
 mirror_hdp
 mirror_apps

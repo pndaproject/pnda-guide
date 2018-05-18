@@ -27,9 +27,9 @@ pnda-root
 ├── console-backend-data-logger-develop.tar.gz.sha512.txt
 ├── etc
 │
-├── mirror_anaconda
-│   ├── Anaconda-4.0.0-el7.parcel
-│   ├── etc
+├── mirror_python
+│   ├── packages/
+│   ├── simple/
 │
 ├── mirror_rpm
 │   ├── a-rpm.rpm
