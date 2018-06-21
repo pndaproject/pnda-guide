@@ -47,6 +47,13 @@ The script ```install-build-tools.sh``` installs all the necessarily build prere
 
 Run it with superuser privileges in the location that you wish to install your build tools.
 
+In case you are using Redhat, you will need to override default RedHat repos by defining the following environment variables. The names should be substituted with the appropriate names for your environment.
+```sh
+sudo su
+export RPM_OPTIONAL=rhel-7-server-optional-rpms
+export RPM_EXTRAS=rhel-7-server-extras-rpms
+```
+
 For example
 
 ```sh
@@ -78,7 +85,7 @@ If you are running behind a non-transparent proxy, go through the [proxy configu
 For example
 
 ```sh
-cd pnda
+cd pnda/build/
 ./build-pnda.sh RELEASE release/4.0
 ```
 

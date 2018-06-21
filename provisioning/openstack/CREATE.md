@@ -14,49 +14,69 @@ To use the PNDA command line interface, you will need to install the python, hea
 
 ```
 sudo yum install -y epel-release
-sudo yum install -y python python-pip python-devel
+sudo yum install -y python python-pip python-devel gcc
 
 cd cli
 sudo pip install -r requirements.txt
 sudo pip install jinja2 --upgrade
 ```
-#### Keystone authentication
-
-You must authenticate with Keystone before using the OpenStack clients.
-
-The easiest way to accomplish this is to download the credentials file usually named <project>-openrc.sh from Horizon for the given user and tenant, then source it in the shell you will use to create PNDA.
-
-```
-. <project>-openrc.sh
-```
 
 #### CLI invocation
 
-The heat_cli.py scripts allows to launch a PNDA deployment. It sits in the cli subdirectory.
-
+The pnda-cli.py script allows launching a PNDA deployment. It sits in the cli subdirectory.
 
 ```
 cd cli
-./heat_cli.py
-usage: heat_cli.py [-h] [-y] [-e PNDA_CLUSTER] [-n DATANODES]
-                   [-o OPENTSDB_NODES] [-k KAFKA_NODES] [-z ZK_NODES]
-                   [-f {standard}] [-b BRANCH] [-s KEYPAIR]
-                   {create,destroy}
+./pnda-cli.py
+usage: pnda-cli.py [-h] [-e PNDA_CLUSTER] [-n DATANODES] [-o OPENTSDB_NODES]
+                   [-k KAFKA_NODES] [-z ZK_NODES] [-f FLAVOR] [-s KEYNAME]
+                   [-x] [-b BRANCH] [-d] [-m X_MACHINES_DEFINITION] [-v]
+                   {create,expand,destroy}
 ```
 
-In particular note that the -s option refers to the name of the key pair created in the OpenStack tenant during the preparation phase.
+| Options | Description |
+| --- | --- |
+| -e | Namespaced environment for machines in this cluster.
+| -n | How many datanodes needed for the hadoop cluster
+| -o | How many Open TSDB nodes for the hadoop cluster
+| -k | How many kafka nodes for the databus cluster
+| -z | How many zookeeper nodes for the databus cluster
+| -f | PNDA flavours: ['pico', 'standard']
+| -s | Name of key-pair name created in the OpenStack Tenant during the preparation phase.
+| -b | Branch of [platform-salt](https://github.com/pndaproject/platform-salt) to use. Overrides value in pnda_env.yaml
+| -v | Verbose logging
 
-Make sure you have access to the private key of this key pair otherwise you will not be able to connect to the bastion node and access the cluster.
+Note: Make sure you have access to the private key of this key pair otherwise you will not be able to connect to the gateway node and access the cluster.
 
-**Important:** ensure you are certain what version of PNDA you want to deploy, and specify the correct branch or tag when invoking the CLI using the -b option. In most circumstances you'll want to make sure the branch or tag you specify is identical to the branch or tag you used to build the PNDA mirror, and identical to the version you checked out from the pnda-heat-templates repository. All PNDA releases are designated with a tag such as ```release/4.0``` across all repositories.
+Examples on invocation of CLI:
+
+##### Create new cluster:
+```
+cd cli
+pnda-cli.py create -e <cluster_name> -s <key_name> -f standard -o 2 -n 3 -k 2 -z 3 -b release/4.0
+```
+The options shown select the standard flavor, 2 openTSDB instances, 3 hadoop datanodes, 2 kafka brokers, and 3 zookeeper nodes. If you need to operate within the Openstack tenant instance quota of 20 instances then you can reduce this to 1 kafka and 1 zookeeper instance or use the pico flavor.
 
 ```
-./heat_cli.py -e cation -n 3 -o 1 -k 2 -z 3 -f standard -s <existing keypair> -b <branch> create
+pnda-cli.py create -e <cluster_name> -s <key_name> -f standard -o 1 -n 1 -k 1 -z 1 -b release/4.0
+pnda-cli.py create -e <cluster_name> -s <key_name> -f pico -n 1 -k 1 -b release/4.0
 ```
 
-In the above example we create a standard flavor PNDA named cation. We specify 3 data nodes, 1 opentsdb node, 2 kafka nodes, 3 zookeeper nodes
+##### Destroy existing cluster:
+```
+pnda-cli.py destroy -e <cluster_name>
+```
+##### Expand existing cluster:
+```
+pnda-cli.py expand -e <existing_cluster_name> -f standard -s <key_name> -n 10 -k 5
+```
+Either, or both, kafka (k) and datanodes (n) can be changed.
+        The value specifies the new total number of nodes.
+        Shrinking is not supported - this must be done very carefully to avoid data loss.
 
-A small cluster typically takes around 20 minutes to fully provision while a larger cluster can take 40 minutes.
+To orchestrate PNDA on Openstack clone [pnda-cli repository](https://github.com/pndaproject/pnda-cli).
+
+**Important:** ensure you are certain what version of PNDA you want to deploy, and specify the correct branch or tag when invoking the CLI using the -b option. In most circumstances you'll want to make sure the branch or tag you specify is identical to the branch or tag you used to build the PNDA mirror, and identical to the version you checked out from the pnda-cli repository. All PNDA releases are designated with a tag such as ```release/4.0``` across all repositories.
 
 # [Home](../OVERVIEW.md)
 
