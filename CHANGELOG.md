@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 - PNDA-4469: Add a section about Kafka topic creation from outside the cluster …
 - PNDA-4598: Update documentation for removal of pam_module pillar
 
+### Added
+- PNDA-4715: Add VMWare section in provisioning
+
 ## [0.4.0] 2018-02-10
 ### Changed
 - PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
