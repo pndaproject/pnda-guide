@@ -22,16 +22,16 @@ Pico flavor is intended for development / learning purposes. It is fully functio
 
 | Role | Instance type | Number required | CPUs | Memory | Storage
 | --- | --- | --- | --- | --- | --- |
-|  `bastion`   |  t2.medium  | 1 | 2 |  4 GB   | 20 GB
+|  `gateway`   |  t2.medium  | 1 | 2 |  4 GB   | 40 GB
 |  `edge`      |  m4.2xlarge  | 1 | 8 | 32 GB   | 50 GB
 |  `mgr1`      |  m4.xlarge  | 1 | 4 | 16 GB   | 50 GB
 |  `datanode`  |  c4.xlarge  | 1 | 4 |  7.5 GB | 65 GB
 |  `kafka`     |  m4.large   | 1 | 2 |  8 GB | 50 GB
 | -  |  - | -  | -  | -  | -  |
-|  `total`     |  | 5 | 20 | 67,5 GB | 235 GB
+|  `total`     |  | 5 | 20 | 67,5 GB | 255 GB
 
 The storage per node is allocated as:
- - 10 GB log volume (not present on bastion or saltmaster). This is provision-time configurable.
+ - 10 GB log volume (not present on gateway or saltmaster). This is provision-time configurable.
  - 20 GB operating system partition. This is configured in the templates per-node.
  - 35 GB HDFS (only on datanode). This is configured in the templates for the datanode.
 
@@ -41,7 +41,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 
 | Role | Instance type | Number required | CPUs | Memory | Storage
 | --- | --- | --- | --- | --- | --- |
-|  `bastion`         |  t2.medium  | 1 | 2 |  4 GB   | 50 GB
+|  `gateway`         |  t2.medium  | 1 | 2 |  4 GB   | 170 GB
 |  `saltmaster`      |  m4.large   | 1 | 2 |  8 GB | 50 GB
 |  `edge`            |  t2.medium  | 1 | 2 |  4 GB   | 370 GB
 |  `mgr1`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
@@ -49,18 +49,18 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `mgr3`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
 |  `mgr4`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
 |  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB
-|  `opentsdb`        |  m4.xlarge  | 2 | 4 | 16 GB   | 50 GB
+|  `opentsdb`        |  m4.xlarge  | 2 | 4 | 16 GB   | 170 GB
 |  `hadoop-manager`  |  m4.xlarge  | 1 | 4 | 16 GB   | 170 GB
-|  `jupyter`         |  m4.large   | 1 | 2 |  8 GB | 50 GB
+|  `jupyter`         |  m4.large   | 1 | 2 |  8 GB | 170 GB
 |  `logserver`       |  m4.large   | 1 | 2 |  8 GB | 500 GB
 |  `kafka`           |  m4.xlarge  | 2 | 4 | 16 GB   | 270 GB
 |  `zookeeper`       |  m4.large   | 3 | 2 |  8 GB | 170 GB
 |  `tools`           |  m4.large   | 1 | 2 |  8 GB | 50 GB
 | -  |  - | -  |  - | -  | -  |
-|  `total`           |   | 21 | 94 |  368 GB | 7.3TB
+|  `total`           |   | 21 | 94 |  368 GB | 7.7TB
 
 The storage per node is allocated as:
- - 120 GB log volume (not present on bastion, saltmaster, jupyter, tools or opentsdb). This is provision-time configurable.
+ - 120 GB log volume (not present on gateway, saltmaster or tools). This is provision-time configurable.
  - 1024 GB HDFS (only on datanode). This is configured in the templates for the datanode.
  - 50-250 GB operating system partition. This is configured in the templates per-node.
 
