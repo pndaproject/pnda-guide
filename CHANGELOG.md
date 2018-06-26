@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-4469: Add a section about Kafka topic creation from outside the cluster …
 - PNDA-4598: Update documentation for removal of pam_module pillar
 - PNDA-4641: Updated PNDA Guide for provisioning PNDA on OpenStack
+- PNDA-4599: Update guide for change from bastion to gateway
 
 ### Added
 - PNDA-4715: Add VMWare section in provisioning
