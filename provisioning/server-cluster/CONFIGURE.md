@@ -90,6 +90,15 @@ Set `mirrors.PNDA_MIRROR` to the URI determined by the placement of the mirror a
 
 There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [PNDA CLI repository](https://github.com/pndaproject/pnda-cli) for more details.
 
+## Security Material
+
+#### Perimeter security (FQDN's and associated certificates/private keys)
+Access to the PNDA cluster requires user authentication over a secure connection. In order to secure this user authentication, the perimeter servers require certification material which allows validating the FQDN used to access those servers to further authenticate and secure the connection to those servers.
+
+For PRODUCTION ENVIRONMENTS, this security material MUST be generated outside the PNDA realm and dropped under the ./platform-certificates directory tree. Consult the README files under that same directory and sub-directories for further details on the required material.
+
+For NON-PRODUCTION ENVIRONMENTS, a helper tool (./tools/gen-certs.py) is provided that can auto-generate the required server certificates based on an existing CA (private key) or based on a newly generated CA (when no private key is detected in the ./platform-certificates directory by the helper tool).
+
 ## Cluster descriptor
 
 Edit existing-machines/production.json (or a copy of this file) with the IP addresses for the machines in the cluster. ip_address must be reachable from each machine but does not have to be reachable from where the cli is run. Add or remove datanodes, kafka nodes, zookeeper nodes and opentsdb nodes to match the number of machines that you have.
