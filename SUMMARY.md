@@ -53,7 +53,7 @@
     * [Service discovery](em_sd/sd.md)
 * [Streaming Ingest](streamingest/README.md)
     * [Preparing topics](streamingest/topic-preparation.md)
-    * [Preparing data](streamingest/data-preparation.md)
+        * [Preparing data](streamingest/data-preparation.md)
     * [Integrating Logstash](streamingest/logstash.md)
     * [Integrating OpenDaylight](streamingest/opendl.md)
     * [Integrating OpenBMP](streamingest/openbmp.md)
