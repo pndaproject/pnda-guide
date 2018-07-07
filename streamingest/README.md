@@ -2,11 +2,11 @@
 
 Kafka is the "front door" of PNDA, allowing the ingest of high-velocity data streams, distributing data to all interested consumers and decoupling data sources from data processing applications and platform clients.
 
-It is normally not necessary to create a new producer to start acquiring network data as there are a growing number of data plugins that have already been integrated with PNDA.  It’s not always clear which plugins to use for which data types, hence we’ve summarized some common combinations in the table at the bottom of this page.
+It is normally not necessary to create a new producer to start acquiring network data as any data is supported out of the box. Additionally, some encodings do benefit from special accommodations. But even for these, no new producer should be required as there are a growing number of data plugins that have already been integrated with PNDA.  It’s not always clear which plugins to use for which data types, hence we’ve summarized some common combinations in the table at the bottom of this page.
 
-If you have have other data sources you want to integrate with PNDA it’s easy enough to write a PNDA producer – see [producer.md](producer.md)
+If you do have other data sources you want to integrate with PNDA it’s easy enough to write a PNDA producer – see [producer.md](producer.md)
 
-PNDA adopts a [schema-on-read](https://www.techopedia.com/definition/30153/schema-on-read) approach to data processing, so all data directed towards the platform is stored in as close to its raw form as possible. The only requirement is that each datum is encoded as a simple Avro schema fragment that adds the logical & network source of the data and a timestamp to the data payload.
+PNDA adopts a [schema-on-read](https://www.techopedia.com/definition/30153/schema-on-read) approach to data processing, so all data directed towards the platform is stored in as close to its raw form as possible. When data is persisted, each datum is ensured compliance to a consistent Avro wrapper that contains both the logical source of the data and a timestamp besides the data payload.
 
 Kafka data is stored in topics, each topic being divided into partitions and each partition being replicated to avoid data loss. Ingest is achieved by delivering data through a "producer" which is implemented to send data to one or more well defined topics by direct connection to the broker cluster. Load balancing is carried out by the broker cluster itself via negotiation with topic partition leaders.
 
@@ -14,7 +14,7 @@ PNDA is typically deployed with a set of well defined topics in accordance with 
 
 PNDA includes tools for managing topics, partitions and brokers and for monitoring the data flow across them.
 
-Integrators can make use of the high and low level [Kafka APIs](http://kafka.apache.org/documentation.html#api). Please refer to our [Data Preparation Guide](data-preparation.md) to understand how to encapsulate data to the required Avro schema. We will also provide a reference in a variety of common implementation languages to illustrate how to correctly use the Avro schema in conjunction with the Kafka API.
+Integrators can make use of the high and low level [Kafka APIs](http://kafka.apache.org/documentation.html#api). Please refer to our [Topic Preparation Guide](topic-preparation.md) to discover how to leverage advanced feature that come with some dedicated encodings and our [Data Preparation Guide](data-preparation.md) to understand how to encapsulate data for those encoding options.
 
 # Data types mapped to existing PNDA producers
 

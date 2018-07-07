@@ -109,8 +109,7 @@ Assuming the PNDA kafka instances IP are `192.168.0.100` and `192.168.0.101`:
     filter {
       mutate {
           add_field => {
-              "src" => "unicast_prefix"
-              "host_ip" => "localhost" # change the IP and set something meaningful
+              "source" => "unicast_prefix"
           }
           rename => { "message" => "rawdata" }
           ruby {
