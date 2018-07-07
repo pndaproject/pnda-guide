@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - PNDA-4715: Add VMWare section in provisioning
 - PNDA-4482: Update dataset compaction details in PNDA Guide
+- PNDA-4733: Add documentation about securing the cluster perimeter
 
 ## [0.4.0] 2018-02-10
 ### Changed
