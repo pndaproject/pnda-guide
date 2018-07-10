@@ -13,7 +13,7 @@ Some of these tasks may be performed by different people in your organization. F
 ## Creating PNDA
 
 1. Carefully follow the [PNDA creation guide](../provisioning/OVERVIEW.md) for your target environment.
-2. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-hadoop-edge`, where `clustername` is the name of your cluster. 
+2. Launch the [console](../console/README.md) to make sure that everything is running. Users can connect to the console by directing a browser to an URL of the form: `https://<knox FQDN>:8443/gateway/pnda/console`, where the `<knox FQDN>` is the FQDN defined during the provisioning of the security material (the FQDN was stored in the `.yaml` file located in the [pnda-cli/platform-certificates/knox/](https://github.com/pndaproject/pnda-cli/tree/develop/platform-certificates/knox) directory). Authentication is based on Linux PAM, so local cluster users (including the pnda admin user) are recognized as well LDAP users, depending on LDAP properties defined during the PNDA configuration steps. For more details, refer to out [UIs In PNDA](../console/uicredentials.md) section of the guide.
 
 ## Basic data exploration
 

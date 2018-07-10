@@ -95,9 +95,9 @@ There are a wide range of parameters that can be set, please refer to ```pnda_en
 #### Perimeter security (FQDN's and associated certificates/private keys)
 Access to the PNDA cluster requires user authentication over a secure connection. In order to secure this user authentication, the perimeter servers require certification material which allows validating the FQDN used to access those servers to further authenticate and secure the connection to those servers.
 
-For PRODUCTION ENVIRONMENTS, this security material MUST be generated outside the PNDA realm and dropped under the ./platform-certificates directory tree. Consult the README files under that same directory and sub-directories for further details on the required material.
+For PRODUCTION ENVIRONMENTS, this security material MUST be generated outside the PNDA realm and dropped under the [platform-certificates](https://github.com/pndaproject/pnda-cli/tree/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/platform-certificates) directory tree. Consult the README files under that same directory and sub-directories for further details on the required material.
 
-For NON-PRODUCTION ENVIRONMENTS, a helper tool (./tools/gen-certs.py) is provided that can auto-generate the required server certificates based on an existing CA (private key) or based on a newly generated CA (when no private key is detected in the ./platform-certificates directory by the helper tool).
+For NON-PRODUCTION ENVIRONMENTS, a helper tool ([tools/gen-certs.py](https://github.com/pndaproject/pnda-cli/blob/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/tools/gen-certs.py)) is provided that can auto-generate the required server certificates based on an existing CA (private key) or based on a newly generated CA (when no private key is detected in the ./platform-certificates directory by the helper tool).
 
 ## Cluster descriptor
 
