@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-4641: Updated PNDA Guide for provisioning PNDA on OpenStack
 - PNDA-4599: Update guide for change from bastion to gateway
 - PNDA-4440: Upgrade kafka from 0.11.0.2 to 1.1.0
+- PNDA-4509: Fix the documentation to match the new cluster access
 
 ### Added
 - PNDA-4715: Add VMWare section in provisioning
