@@ -14,14 +14,15 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Zookeeper for Kafka|3.4.11|
 |JMX Proxy|3.2.0|
 |Kafka Manager|1.3.3.15|
-|ELK (Logserver)|Logstash 6.1.2, Elasticsearch 6.1.2, Kibana 6.1.2|
+|ELK (Logserver)|Logstash 6.2.1, Elasticsearch 6.2.1, Kibana 6.2.1|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.2.1|
 |OpenTSDB|2.3.0|
 |Grafana|4.2.0|
 |Anaconda|5.1.0|
 |Consul|1.0.3|
-|Apache Flink|flink-1.4.0|
+|Apache Flink|1.4.2|
+|Apache Knox|1.0.0|
 
 ## For Cloudera CDH PNDA
 
