@@ -14,14 +14,15 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Zookeeper for Kafka|3.4.11|
 |JMX Proxy|3.2.0|
 |Kafka Manager|1.3.3.15|
-|ELK (Logserver)|Logstash 6.1.2, Elasticsearch 6.1.2, Kibana 6.1.2|
+|ELK (Logserver)|Logstash 6.2.1, Elasticsearch 6.2.1, Kibana 6.2.1|
 |Jupyter Hub|0.7.0|
 |Jupyter|4.2.1|
 |OpenTSDB|2.3.0|
 |Grafana|4.2.0|
 |Anaconda|5.1.0|
 |Consul|1.0.3|
-|Apache Flink|flink-1.4.0|
+|Apache Flink|1.4.2|
+|Apache Knox|1.0.0|
 
 ## For Cloudera CDH PNDA
 
@@ -53,17 +54,17 @@ If you want to get the full list of [CDH 5.12.1 Packaging and Tarballs](https://
 
 | Technology | Version |
 |---|---|
-|Apache Ambari |2.6.1.0|
-|Hortonworks HDP |2.6.4.0|
+|Apache Ambari |2.7.0.0|
+|Hortonworks HDP |2.6.5.0|
 |Apache Hadoop|2.7.3|
 |Apache HBase|1.1.2|
 |Apache Hive|2.1.0|
-|Apache Mahout|0.9.0|
+|Apache Mahout|0.9.0+|
 |Apache Oozie |4.2.0|
 |Apache Pig |0.16.0|
 |Apache DataFu |1.3.0|
 |Apache Spark |1.6.3|
-|Apache Spark |2.2.0|
+|Apache Spark |2.3.0|
 |Apache Sqoop |1.4.6|
 |Apache ZooKeeper|3.4.6|
 |Apache Phoenix|4.7.0|
