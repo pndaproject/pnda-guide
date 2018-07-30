@@ -20,7 +20,6 @@ sudo yum install -y python python-pip python-devel
 
 cd cli
 sudo pip install -r requirements.txt
-sudo pip install jinja2 --upgrade
 ```
 
 #### Keystone authentication
