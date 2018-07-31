@@ -18,7 +18,6 @@ sudo yum install -y python python-pip python-devel gcc
 
 cd cli
 sudo pip install -r requirements.txt
-sudo pip install jinja2 --upgrade
 ```
 
 #### CLI invocation
