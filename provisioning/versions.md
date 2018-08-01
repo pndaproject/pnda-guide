@@ -22,7 +22,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Anaconda|5.1.0|
 |Consul|1.0.3|
 |Apache Flink|1.4.2|
-|Apache Knox|1.0.0|
+|Apache Knox|1.1.0|
 
 ## For Cloudera CDH PNDA
 
