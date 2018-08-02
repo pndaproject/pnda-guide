@@ -18,7 +18,7 @@ Some technologies depend on which distribution of Hadoop is chosen, as PNDA can 
 |Jupyter Hub|0.7.0|
 |Jupyter|4.2.1|
 |OpenTSDB|2.3.0|
-|Grafana|4.2.0|
+|Grafana|5.1.3|
 |Anaconda|5.1.0|
 |Consul|1.0.3|
 |Apache Flink|1.4.2|

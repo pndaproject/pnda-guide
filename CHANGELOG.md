@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-4440: Upgrade kafka from 0.11.0.2 to 1.1.0
 - PNDA-4509: Fix the documentation to match the new cluster access
 - PNDA-4818: Update Ambari to 2.7.0.0 and HDP to 2.6.5.0
+- PNDA-4837: Upgrade Grafana from 4.2.0 to 5.1.3 
 
 ### Added
 - PNDA-4715: Add VMWare section in provisioning
