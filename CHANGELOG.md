@@ -21,6 +21,9 @@ All notable changes to this project will be documented in this file.
 - PNDA-4468: Document new ingest mechanics
 - PNDA-4827: Add a setup guide for installing PNDA with terraform
 
+### Fixed
+- PNDA-4884: OpenDaylight pnda-guide link takes to 404
+
 ## [0.4.0] 2018-02-10
 ### Changed
 - PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
