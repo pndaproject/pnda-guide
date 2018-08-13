@@ -163,7 +163,7 @@ The PNDA distribution consists of the following source code repositories and sub
 
 ### Producers
 
- * [prod-odl-kafka](https://github.com/pndaproject/prod-odl-kafka): plugin to ingest data from OpenDaylight
+ * [prod-odl-kafka](https://github.com/pndaproject/odl-kafka-plugin): plugin to ingest data from OpenDaylight
  * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro): patched AVRO codec ingest data from Logstash
 
 ### Examples
