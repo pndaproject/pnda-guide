@@ -232,8 +232,8 @@ The remaining fields, all starting with `pnda.protobuf`, are specific to the Con
 * The `pnda.protobuf.source.tag` identifies the tag of the field in the Protobuf message that should serve as the value of the `source` field (in the PNDA schema) of the datum produced by the ingest process. For our example above, one can notice that this tag matches the field that corresponds to the node_id_str in the [protocol buffer message type](https://github.com/cisco/bigmuddy-network-telemetry-proto/blob/master/staging/telemetry.proto#L36).
 
 So a datum stored on the platform originating from the `protobuf.telemetry.flow` topic would, as expected, be serialized as an Avro binary format conform to the PNDA Schema and have its successive field set as follows:
-* The `timestamp` field would contain a copy of the input datum field value corresponding to the `node_id_str`
-* The `source` field would contain a copy of the input datum field value corresponding to the `msg_timestamp`
+* The `timestamp` field would contain a copy of the input datum field value corresponding to the `msg_timestamp`
+* The `source` field would contain a copy of the input datum field value corresponding to the `node_id_str`
 * The `rawdata` field would contain the whole input datum as originally streamed to the topic, i.e. still Protobuf serialized
 
 #### Limitations
