@@ -50,7 +50,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `mgr2`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  |  370 GB | 250 GB | 120 GB |    0 GB
 |  `mgr3`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  |  370 GB | 250 GB | 120 GB |    0 GB
 |  `mgr4`            |  ec2.m4.2xlarge | 1 | 8 |  32 GB  |  370 GB | 250 GB | 120 GB |    0 GB
-|  `datanode`        |  ec2.m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB |  50 GB | 120 GB | 1024 GB
+|  `datanode`        |  ec2.m4.2xlarge | 3 | 8 |  32 GB  | 1394 GB |  250 GB | 120 GB | 1024 GB
 |  `opentsdb`        |  ec2.m4.xlarge  | 2 | 4 |  16 GB  |  170 GB |  50 GB | 120 GB |    0 GB
 |  `hadoop-manager`  |  ec2.m4.xlarge  | 1 | 4 |  16 GB  |  170 GB |  50 GB | 120 GB |    0 GB
 |  `jupyter`         |  ec2.m4.large   | 1 | 2 |   8 GB  |  170 GB |  50 GB | 120 GB |    0 GB

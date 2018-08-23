@@ -44,7 +44,7 @@ Standard flavor is intended for meaningful PoC and investigations at scale. It r
 |  `mgr2`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
 |  `mgr3`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
 |  `mgr4`            |  m4.2xlarge | 1 | 8 |  32 GB  | 370 GB
-|  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1194 GB
+|  `datanode`        |  m4.2xlarge | 3 | 8 |  32 GB  | 1394 GB
 |  `opentsdb`        |  m4.xlarge  | 2 | 4 | 16 GB   | 170 GB
 |  `hadoop-manager`  |  m4.xlarge  | 1 | 4 | 16 GB   | 170 GB
 |  `jupyter`         |  m4.large   | 1 | 2 |  8 GB | 170 GB
