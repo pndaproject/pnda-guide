@@ -12,7 +12,7 @@ See the following pages for a description of features available on other tabs:
 
 ### Connecting
 
-Once you have provisioned a cluster, you can connect to the PNDA console at `http://clustername-cdh-edge`, where `clustername` is the name of your cluster.
+Once you have provisioned a cluster, you can connect to the PNDA console at `http://clustername-hadoop-edge`, where `clustername` is the name of your cluster. Refer to [UI links and credentials](uicredentials.md) above for username and password details and how these are configured.
 
 ![Console Home](images/home_green.png)
 
@@ -72,6 +72,12 @@ It is used by [Kafka](#kafka) for coordination of its distributed operations, to
 ### Spark
 
 [Apache Spark](http://spark.apache.org) is framework and engine for distributed, large scale data processing.
+
+In PNDA, it allows for both batch mode and streaming computation.
+
+### Flink
+
+[Apache Flink](http://flink.apache.org/) is framework and engine for stream processing for distributed, high-performing, always-available, and accurate data streaming applications.
 
 In PNDA, it allows for both batch mode and streaming computation.
 

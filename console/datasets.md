@@ -22,7 +22,53 @@ After you have made changes, click the Save button to review and confirm the cha
 
 ## Creating datasets
 
-Datasets are automatically created based on the name of the `src` field in Kafka messages by [gobblin](https://github.com/pndaproject/gobblin). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
+Datasets are automatically created based on the name of the `source` field in Kafka messages by [gobblin](https://github.com/pndaproject/gobblin). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
+
+## Dataset Compaction
+
+To consolidate files in a dataset, [Gobblin Compaction](https://gobblin.readthedocs.io/en/latest/user-guide/Compaction/) can be used.  Compaction schedule is defined at the time of PNDA cluster creation.  Compaction can be enabled and set to run on hourly, daily, monthly or yearly schedule.
+
+Consider below compaction job config snippet for daily run of compaction job, scheduled to run at  01:00:00 hours as a cron.
+```
+Input directory: /user/pnda/PNDA_datasets/datasets
+compaction directory: /user/PNDA_datasets/compacted
+compaction schedule: daily
+folder pattern: “year=YYYY/month=MM/day=dd”
+min.time.ago = 1h
+max.time.ago = 1d2h
+```
+All datasets in the input directory are considered for compaction
+For example if /user/pnda/PNDA_datasets/datasets/ has dataset directories "source
+=dir1" and "source=dir2".  Contents of both directories are considered for compaction.
+
+![Compaction Timeline](images/compaction_timeline.png)
+
+List of input files for compaction from a dataset is selected based on **min.time.ago** and **max.time.ago**, as illustrated above.  Only late arrivals are picked up for compaction, from those folders which were part of the previous compaction cycle.
+
+For example, daily compaction for day 2018-03-12 will start at 2018-03-12 01:00:00 hours.
+
+It will consider all files in the dataset directories, starting from:
+```
+/user/pnda/PNDA_datasets/datasets/source=dir1/year=2018/month=03/day=10/hour=23
+/user/pnda/PNDA_datasets/datasets/source=dir1/year=2018/month=03/day=11/hour=00
+...
+...
+/user/pnda/PNDA_datasets/datasets/source=dir1/year=2018/month=03/day=11/hour=23
+/user/pnda/PNDA_datasets/datasets/source=dir1/year=2018/month=03/day=12/hour=00
+```
+Only those files with a modification time > 2018-03-11 01:00 hrs, are selected from directory “day=10/hour=23” and “day=11/hour=00”.  Other files in these directories were part of the previous compaction cycle and hence are not selected.
+
+After compaction, the compacted files are kept in the output directory (directory structure will follow the pattern defined in “folder pattern”.  In addition to the compacted file, this directory will also have \_COMPACTION\_COMPLETE and _SUCCESS.  \_COMPACTION\_COMPLETE contains the timestamp of when the compaction job started.  All files in the input folders with earlier modification timestamps have been compacted.  Next run of compaction will only consider the files in the input folders with the later timestamps.  _SUCCESS is created only when the compaction is successfully completed.  Compacted filename has the following pattern:
+
+**part-m{RecordCount}.{SystemCurrentTimeInMills}.{RandomInteger}.avro**
+
+After compaction on 2018-03-12 01:00 hrs, the compacted folder will have the following files:
+```
+/user/pnda/PNDA_datasets/compacted/source=dir1/year=2018/month=03/day=11
+/user/pnda/PNDA\_datasets/compacted/source=dir1/year=2018/month=03/day=11/\_COMPACTION_COMPLETE
+/user/pnda/PNDA\_datasets/compacted/source=dir1/year=2018/month=03/day=11/\_SUCCESS
+/user/pnda/PNDA_datasets/compacted/source=dir1/year=2018/month=03/day=11/part-m-89561.  1520869721000.794208420.avro
+```
 
 ## Kafka
 

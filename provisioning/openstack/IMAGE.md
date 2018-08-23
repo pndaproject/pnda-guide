@@ -6,7 +6,7 @@
 
 Deploying PNDA using Heat templates requires an image with some pre-installed elements, such as `os-collect-config`. 
 
-PNDA currently uses the Ubuntu operating system, but you can use Ubuntu or Centos OSes to create the PNDA image.
+PNDA currently runs on CentOS/RHEL, but you can use Ubuntu or CentOS/RHEL OSes to create the PNDA image.
 
 ### Pre-requisites
 
@@ -17,7 +17,7 @@ If you are on Ubuntu:
 sudo apt-get -y install python-pip python-dev qemu-utils libguestfs-tools
 ```
 
-If you are on Centos:
+If you are on CentOS/RHEL:
 ```
 sudo yum install epel-release
 sudo yum install python-pip python-devel libguestfs-tools
@@ -65,7 +65,7 @@ Set up environment variables, assuming you currently are in this repository's pr
 ```
 cat > dib_env.sh <<EOF
 export ELEMENTS_PATH=tripleo-image-elements/elements:heat-templates/hot/software-config/elements:elements
-export BASE_ELEMENTS="ubuntu"
+export BASE_ELEMENTS="centos"
 export DIB_RELEASE=trusty
 
 # MANDATORY ELEMENTS FOR PNDA PROVISIONING
@@ -80,7 +80,7 @@ export DEPLOYMENT_BASE_ELEMENTS="heat-config heat-config-script"
 # PNDA ELEMENTS
 
 # USE AN ALTERNATE UBUNTU MIRROR
-# export DIB_DISTRIBUTION_MIRROR="http://[MIRRORIP]/ubuntu"
+# export DIB_DISTRIBUTION_MIRROR="http://[MIRRORIP]/centos"
 
 # You can specify other pnda-specific elements in the PNDA_ELEMENTS variable:
 # for example, 'pnda-disable-ipv6', 'pnda-bond0' or 'os-hardening'

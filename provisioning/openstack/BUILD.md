@@ -15,20 +15,44 @@ Designate or create the PNDA build node. This could be the same machine that was
 Two types of build node are supported -
 
 - Red Hat Enterprise Linux 7
-- Ubuntu 14.04 
+- CentOS 7 
 
 
 #### Obtain build tools
 
 The repository [pnda](https://github.com/pndaproject/pnda) contains all the tools needed to build PNDA.
 
-Clone this repository to the build node. The tools are found in the [build folder](https://github.com/pndaproject/pnda/tree/master/build).
+Decide which version of PNDA you want to create. All PNDA releases are desginated with tag similar to ```release/4.0``` across all repositories. 
+
+Clone this repository at the right version to the build node.
+
+#### Configure the proxy. (Optional)
+
+The entire PNDA build process can be performed from behind a non-transparent proxy. 
+
+To proceeding in this mode, first set the system configuration and then run the ```set-proxy-env.sh``` script that will set up the various proxy configurations needed by the multiple build tools.
+
+```sh
+sudo su
+export http_proxy=http://<proxy_host>:<proxy_port>
+export https_proxy=http://<proxy_host>:<proxy_port>
+. set-proxy-env.sh
+```
 
 #### Preparing the build environment
+
+The tools are found in the [build folder](https://github.com/pndaproject/pnda/tree/master/build).
 
 The script ```install-build-tools.sh``` installs all the necessarily build prerequisites.
 
 Run it with superuser privileges in the location that you wish to install your build tools.
+
+In case you are using Redhat, you will need to override default RedHat repos by defining the following environment variables. The names should be substituted with the appropriate names for your environment.
+```sh
+sudo su
+export RPM_OPTIONAL=rhel-7-server-optional-rpms
+export RPM_EXTRAS=rhel-7-server-extras-rpms
+```
 
 For example
 
@@ -56,11 +80,13 @@ Your environment is now ready to build PNDA.
 
 The script ```build-pnda.sh``` is invoked as a non-privileged user. 
 
+If you are running behind a non-transparent proxy, go through the [proxy configuration](#configure-the-proxy-optional) steps again for the non-privileged user (don't substitute user).
+
 For example
 
 ```sh
-cd pnda
-./build-pnda.sh RELEASE release/3.5
+cd pnda/build/
+./build-pnda.sh RELEASE release/4.0
 ```
 
 It is also possible to perform more complex builds including building to a specific bill-of-materials. Please refer to the [repository notes](https://github.com/pndaproject/pnda/tree/master/build).
@@ -72,4 +98,4 @@ All build products are assembled in the directory ```pnda-dist```.
 # [Next](STAGE.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- | --- |

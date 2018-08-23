@@ -6,17 +6,17 @@
 
 The PNDA creation process is controlled primarily via a YAML configuration file.
 
-A template YAML configuration can be found in the [AWS templates repository](https://github.com/pndaproject/pnda-aws-templates). 
+A template YAML configuration can be found in the [pnda-cli repository](https://github.com/pndaproject/pnda-cli). 
 
 ## Configure pnda_env.yaml
 
 #### Designate client machine
 
-Create or designate a suitable machine for running the PNDA CLI. We recommend Ubuntu 14.04.
+Create or designate a suitable machine for running the PNDA CLI. We recommend CentOS 7.
 
 #### Obtain code
 
-Clone the [AWS templates repository](https://github.com/pndaproject/pnda-aws-templates) repository from the master branch at a specific release tag (e.g. ```release/3.5```) to the client machine.
+Clone the [pnda-cli repository](https://github.com/pndaproject/pnda-cli) repository from the master branch at a specific release tag (e.g. ```release/3.5```) to the client machine.
 
 Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
@@ -24,16 +24,22 @@ Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
 Set the following image related fields as below.
 
-| Field | Ubuntu | RHEL | 
-| --- | --- | --- | 
-|  `cloud_formation_parameters.imageId`   |  Select 64 bit Ubunutu 14.04 image for region  | Select 64 bit RHEL 7 image for region | 
-|  `ec2_access.OS_USER`   |  ubuntu  | ec2-user | 
+| Field | RHEL | CentOS |
+| --- | --- | --- |
+|  `cloud_formation_parameters.imageId`  | Select 64 bit RHEL 7 image for region | Select 64 bit CentOS 7 image for region |
+|  `ec2_access.OS_USER`  | ec2-user | centos | 
 
 #### Set ec2 access keys
 
 Set `ec2_access.AWS_ACCESS_KEY_ID` and `ec2_access.AWS_SECRET_ACCESS_KEY` to the credentials created for accessing ec2 and CloudFormation. 
 
 These credentials are only stored on the client machine.
+
+#### Hadoop distribution
+
+Decide whether you want to run the Cloudera CDH or the Hortonworks HDP Hadoop distribution.
+
+Set `hadoop.HADOOP_DISTRO` to either `CDH` or `HDP`.
 
 #### Set source of SaltStack provisioning scripts
 
@@ -49,7 +55,7 @@ Set `platform_salt.PLATFORM_GIT_REPO_URI` and `platform_salt.PLATFORM_GIT_BRANCH
   
 If authenticated access to `platform_salt.PLATFORM_GIT_REPO_URI` is required then place the ssh key to use, named git.pem, in the top level directory of this repository and set `platform_salt.PLATFORM_GIT_REPO_HOST` to the hostname of the server.
 
-**Note** Please ensure that the local clone of platform-salt or  `platform_salt.PLATFORM_GIT_BRANCH` correspond to the same release tag as the pnda-aws-templates repository cloned above.
+**Note** Please ensure that the local clone of platform-salt or  `platform_salt.PLATFORM_GIT_BRANCH` correspond to the same release tag as the pnda-cli repository cloned above.
 
 #### Object storage
 
@@ -67,13 +73,22 @@ Set `mirrors.PNDA_MIRROR` to the URI determined by the placement of the mirror a
 
 #### Other fields
 
-There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [AWS templates repository](https://github.com/pndaproject/pnda-aws-templates) for more details.
+There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [pnda-cli repository](https://github.com/pndaproject/pnda-cli) for more details.
+
+## Security Material
+
+#### Perimeter security (FQDN's and associated certificates/private keys)
+Access to the PNDA cluster requires user authentication over a secure connection. In order to secure this user authentication, the perimeter servers require certification material which allows validating the FQDN used to access those servers to further authenticate and secure the connection to those servers.
+
+For PRODUCTION ENVIRONMENTS, this security material MUST be generated outside the PNDA realm and dropped under the [platform-certificates](https://github.com/pndaproject/pnda-cli/tree/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/platform-certificates) directory tree. Consult the README files under that same directory and sub-directories for further details on the required material.
+
+For NON-PRODUCTION ENVIRONMENTS, a helper tool ([tools/gen-certs.py](https://github.com/pndaproject/pnda-cli/blob/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/tools/gen-certs.py)) is provided that can auto-generate the required server certificates based on an existing CA (private key) or based on a newly generated CA (when no private key is detected in the ./platform-certificates directory by the helper tool).
 
 #### SSH key pair
 
 Create [an ssh keypair](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) to use when creating the ec2 instances for PNDA as ```key_name```. 
 
-Place the private key ```key_name.pem``` in the root of the pnda-aws-templates directory. 
+Place the private key ```key_name.pem``` in the root of the pnda-cli directory. 
 
 Ensure that key_name.pem has 0600 permissions. 
 

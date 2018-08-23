@@ -10,9 +10,9 @@ At provisioning time, when Minions execute SaltStack states, software from this 
 
 Before PNDA can be created, first we must create the directory structure and file sets to be placed on the PNDA mirror.
 
-### Ubuntu or RHEL
+### CentOS or RHEL
 
-PNDA can be created on Ubuntu or RHEL instances. Before building the PNDA mirror components, decide which instance type your deployment will use.
+PNDA can be created on CentOS or RHEL instances. Before building the PNDA mirror components, decide which instance type your deployment will use.
 
 ## Create mirror
 
@@ -25,7 +25,7 @@ This can be a physical machine or a VM but it needs to reflect the type of mirro
 Two types of mirror are supported -
 
 - Red Hat Enterprise Linux 7
-- Ubuntu 14.04 
+- CentOS 7 
 
 #### Obtain mirror build tools
 
@@ -51,25 +51,23 @@ This takes about 20 minutes to run and the output will be available in a directo
 The different parts of the mirror can be created separately if required. The scripts to do this are -
 
 ```
-create_mirror_deb.sh
 create_mirror_rpm.sh
 create_mirror_misc.sh
 create_mirror_python.sh
 create_mirror_anaconda.sh
 create_mirror_cdh.sh
+create_mirror_hdp.sh
 ```
 
-Note that, as above, the deb and rpm scripts are for use on Ubuntu or RHEL hosts respectively.
-
-Each script creates it's output in a directory named for the respective mirror type -
+Each script creates its output in a directory named for the respective mirror type -
 
 ```
-mirror_deb
 mirror_rpm
 mirror_misc
 mirror_python
 mirror_anaconda
 mirror_cloudera
+mirror_hdp
 ```
 
 For more about creating and maintaining mirrors, please refer to the [repository notes](https://github.com/pndaproject/pnda/tree/master/mirror).

@@ -6,58 +6,72 @@
 
 The PNDA creation process is controlled primarily via a YAML configuration file.
 
-A template YAML configuration can be found in the [Heat templates repository](https://github.com/pndaproject/pnda-heat-templates). 
+A template YAML configuration can be found in the [pnda-cli repository](https://github.com/pndaproject/pnda-cli). 
 
 ## Configure pnda_env.yaml
 
 #### Designate client machine
 
-Create or designate a suitable machine for running the PNDA CLI. We recommend Ubuntu 14.04.
+Create or designate a suitable machine for running the PNDA CLI. We recommend CentOS 7.
 
 #### Obtain code
 
-Clone the [Heat templates repository](https://github.com/pndaproject/pnda-heat-templates) repository from the master branch at a specific release tag (e.g. ```release/3.5```) to the client machine.
+Clone the [pnda-cli repository](https://github.com/pndaproject/pnda-cli) repository from the master branch at a specific release tag (e.g. ```release/4.0```) to the client machine.
 
 Copy ```pnda_env_example.yaml``` to create ```pnda_env.yaml```
 
 #### Set access credentials
 
-Set the following fields. The values can be obtained by referring to the Keystone authentication details obtained in the preparation phase.
+Set the following fields under `openstack_parameters` section in `pnda_env.yaml` . The values can be obtained by referring to the Keystone authentication details obtained in the preparation phase.
 
 | Field | Value |
 | --- | --- |
-|keystone_user| User for creating PNDA |
-|keystone_password| Password for user |
-|keystone_tenant| Tenant for creating PNDA |
-|keystone_auth_url| Authorization URL | 
-|keystone_auth_version| 2 or 3 |
-|keystone_region_name| Region name |
+|KEYSTONE_USER| User for creating PNDA |
+|KEYSTONE_PASSWORD| Password for user |
+|KEYSTONE_TENANT| Tenant for creating PNDA |
+|KEYSTONE_AUTH_URL| Authorization URL | 
+|KEYSTONE_AUTH_VERSION| 2 |
+|KEYSTONE_REGION_NAME| Region name |
 
 #### Object storage
 
-Set `pnda_apps_container` to the Application container configured during the preparation phase.
+Set `pnda_application_repo.PNDA_APPS_CONTAINER` to the Application container configured during the preparation phase.
 
-Set `pnda_apps_folder` to the Application folder configured during the preparation phase.
+Set `pnda_application_repo.PNDA_APPS_FOLDER` to the Application folder configured during the preparation phase.
 
-Set `pnda_archive_container` to the Dataset archive container configured during the preparation phase.
+Set `pnda_data_archive.PNDA_ARCHIVE_CONTAINER` to the Dataset archive container configured during the preparation phase.
+
+#### Hadoop distribution
+
+Decide whether you want to run the Cloudera CDH or the Hortonworks HDP Hadoop distribution.
+
+Set `hadoop.HADOOP_DISTRO` to either `CDH` or `HDP`.
 
 #### Set source of SaltStack provisioning scripts
 
-The PNDA software is installed and configured using the SaltStack code found in the [platform-salt](https://github.com/pndaproject/platform-salt) repository.  This must be supplied via a URI to a git repository.
+The PNDA software is installed and configured using the SaltStack code found in the [platform-salt](https://github.com/pndaproject/platform-salt) repository. There are two main options to provide source for platform-salt:
 
-Set `platform_git_repo_uri` to the required git URI at the specified branch during provisioning.
+1. Set `platform_salt.PLATFORM_GIT_REPO_URI` to the remote git URI and `platform_salt.PLATFORM_GIT_BRANCH` at the specified branch to be cloned during provisioning.
+If authenticated access to `platform_salt.PLATFORM_GIT_REPO_URI` is required, then place the ssh key to use, named git.pem, in the top level directory of "pnda-cli" repository and also set `platform_salt.PLATFORM_GIT_REPO_HOST` to the hostname of the server.
 
-If authenticated access to `platform_git_repo_uri` is required then place the private SSH key to use, named ```deploy```, in the top level of the pnda-heat-templates repository.
-
-**Note** that by default the master branch of the specified git repository is used in provisioning. See below for other fields that can be used to control this behaviour.
+2. A local copy of platform-salt can be used by setting (`platform_salt.PLATFORM_SALT_LOCAL`) to the path to the platform-salt folder on the local machine running pnda-cli.py.
 
 #### PNDA mirror
 
-Set `PndaMirror` to the URI determined by the placement of the mirror and build components in the staging phase.
+Set `mirrors.PNDA_MIRROR` to the URI determined by the placement of the mirror and build components in the staging phase.
 
 #### Other fields
 
-There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [Heat templates repository](https://github.com/pndaproject/pnda-heat-templates) for more details.
+There are a wide range of parameters that can be set, please refer to ```pnda_env_example.yaml``` in the [pnda-cli repository](https://github.com/pndaproject/pnda-cli) for more details.
+
+## Security Material
+
+#### Perimeter security (FQDN's and associated certificates/private keys)
+Access to the PNDA cluster requires user authentication over a secure connection. In order to secure this user authentication, the perimeter servers require certification material which allows validating the FQDN used to access those servers to further authenticate and secure the connection to those servers.
+
+For PRODUCTION ENVIRONMENTS, this security material MUST be generated outside the PNDA realm and dropped under the [platform-certificates](https://github.com/pndaproject/pnda-cli/tree/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/platform-certificates) directory tree. Consult the README files under that same directory and sub-directories for further details on the required material.
+
+For NON-PRODUCTION ENVIRONMENTS, a helper tool ([tools/gen-certs.py](https://github.com/pndaproject/pnda-cli/blob/cfa40dbd94afaa5e3f3080106c852fb6c1e2d516/tools/gen-certs.py)) is provided that can auto-generate the required server certificates based on an existing CA (private key) or based on a newly generated CA (when no private key is detected in the ./platform-certificates directory by the helper tool).
 
 # [Next](CREATE.md)
 

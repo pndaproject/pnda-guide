@@ -4,11 +4,11 @@
 
 ## Introduction
 
-In order to make built components available during the PNDA provisioning process, they need to be staged in a location that is accessible from the target environment via HTTP. 
+In order to make built components available during the PNDA provisioning process, they need to be staged in a location that is accessible from the target environment via HTTP.
 
 ## Create server
 
-Create an ordinary HTTP server in the target environment or identify an existing server. The server must have connectivity with the PNDA cluster being provisioned. 
+Create an ordinary HTTP server in the target environment or identify an existing server. The server must have connectivity with the PNDA cluster being provisioned.
 
 See [these tips](EXAMPLES.md) for rapidly creating an HTTP server using a number of different approaches.
 
@@ -27,22 +27,22 @@ pnda-root
 ├── console-backend-data-logger-develop.tar.gz.sha512.txt
 ├── etc
 │
-├── mirror_anaconda
-│   ├── Anaconda-4.0.0-el7.parcel
-│   ├── etc
+├── mirror_python
+│   ├── packages/
+│   ├── simple/
 │
-├── mirror_deb
-│   ├── acl_2.2.52-1_amd64.deb
+├── mirror_rpm
+│   ├── a-rpm.rpm
 │   ├── etc
 │
 ├── etc
 ```
 
-Note that ```pnda-root``` can be any location, all that is required is that the hierarchy under this is available via a known URI. For example, using a standard Apache 2 installation on Ubuntu 14.04, if the hierarchy above is placed in ```/var/www/html``` this will be available via the URI ```http://<server>/``` since ```/var/www/html``` is the default *document root*. Please refer to your HTTP server documentation for more details.
+Note that ```pnda-root``` can be any location, all that is required is that the hierarchy under this is available via a known URI. For example, using a standard Apache 2 installation on RHEL 7, if the hierarchy above is placed in ```/var/www/html``` this will be available via the URI ```http://<server>/``` since ```/var/www/html``` is the default *document root*. Please refer to your HTTP server documentation for more details.
 
 Make a note of the URI to ```pnda-root``` as this will be used in configuring the PNDA creation process.
 
 # [Next](CONFIGURE.md)
 
-| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
-| --- | --- | --- | --- | --- | --- | --- | 
+| [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) |
+| --- | --- | --- | --- | --- | --- | --- |

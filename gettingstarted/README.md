@@ -2,6 +2,7 @@
 
 This guide will help you get started setting up a fully operational PNDA cluster. The main tasks can be grouped as follows: 
 
+- [Selecting a Hadoop distribution](hadoop_distro.md)
 - [Creating PNDA](#creating-pnda)
 - [Basic data exploration](#basic-data-exploration)
 - [Producer integration](#producer-integration)
@@ -12,7 +13,7 @@ Some of these tasks may be performed by different people in your organization. F
 ## Creating PNDA
 
 1. Carefully follow the [PNDA creation guide](../provisioning/OVERVIEW.md) for your target environment.
-2. Launch the [console](../console/README.md) to make sure that everything is running. You can connect to `http://clustername-cdh-edge`, where `clustername` is the name of your cluster. 
+2. Launch the [console](../console/README.md) to make sure that everything is running. Users can connect to the console by directing a browser to an URL of the form: `https://<knox FQDN>:8443/gateway/pnda/console`, where the `<knox FQDN>` is the FQDN defined during the provisioning of the security material (the FQDN was stored in the `.yaml` file located in the [pnda-cli/platform-certificates/knox/](https://github.com/pndaproject/pnda-cli/tree/develop/platform-certificates/knox) directory). Authentication is based on Linux PAM, so local cluster users (including the pnda admin user) are recognized as well LDAP users, depending on LDAP properties defined during the PNDA configuration steps. For more details, refer to out [UIs In PNDA](../console/uicredentials.md) section of the guide.
 
 ## Basic data exploration
 
@@ -40,7 +41,7 @@ For the purposes of this guide, we'll use the test data source for the example [
 
 ## Packages and applications
 
-1. A pre-requisite to working with packages is to ensure that the application package repository is correctly configured as described in the [platform requirements](../provisioning/platform_requirements.md).
+1. A pre-requisite to working with packages is to ensure that the application package repository is correctly configured as described in the [PREPARE phase depending your infra: AWS, OpenStack or server clusters](../provisioning/OVERVIEW.md).
 2. Build and upload the [spark-streaming](https://github.com/pndaproject/example-applications/tree/master/spark-streaming) app to the package repository. Upload the file to the Object Store via the [platform-package-repository](https://github.com/pndaproject/platform-package-repository).
 3. In the console, [deploy the package](../console/packages.md). On the packages page, look for the package you have just uploaded in the list of available packages. (If you don't see it, try clicking the refresh button.) Click the deploy button next to the package, and you'll see it added to the list of deployed packages. 
 4. Create an [application](../console/applications.md) from the package. On the applications page, click "Create New Application", select the package you have just deployed, and follow the prompts to create a new application. 

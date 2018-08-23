@@ -3,12 +3,62 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Changed
+- PNDA-4009: Add application detailed summary guide
+- PNDA-4525: Deprecate Ubuntu 14.04
+- PNDA-4469: Add a section about Kafka topic creation from outside the cluster …
+- PNDA-4598: Update documentation for removal of pam_module pillar
+- PNDA-4641: Updated PNDA Guide for provisioning PNDA on OpenStack
+- PNDA-4599: Update guide for change from bastion to gateway
+- PNDA-4440: Upgrade kafka from 0.11.0.2 to 1.1.0
+- PNDA-4509: Fix the documentation to match the new cluster access
+- PNDA-4818: Update Ambari to 2.7.0.0 and HDP to 2.6.5.0
+- PNDA-4837: Upgrade Grafana from 4.2.0 to 5.1.3 
+
+### Added
+- PNDA-4715: Add VMWare section in provisioning
+- PNDA-4482: Update dataset compaction details in PNDA Guide
+- PNDA-4733: Add documentation about securing the cluster perimeter
+- PNDA-4468: Document new ingest mechanics
+- PNDA-4827: Add a setup guide for installing PNDA with terraform
+
+### Fixed
+- PNDA-4884: OpenDaylight pnda-guide link takes to 404
+
+## [0.4.0] 2018-02-10
+### Changed
+- PNDA-2540: Stop supplying 'cloud-user' as the default operating system user as this is deployment specific and must be supplied in the pnda-env.yaml
+- PNDA-3601: Disable emailtext in Jenkins file and replace it with notifier stage and job
+- PNDA-4043: Update HDP to version 2.6.4.0
+- PNDA-4110: Build proxy documentation edits
+- PNDA-3555: Stop using locations under /user for PNDA 'system' functions
+- PNDA-3663: Move governance and contribution guidelines to pnda-guide
+- PNDA-3483: Allow dynamic zookeeper ip resolution 
+- PNDA-3548: upgrade KM to 1.3.3.15
+- PNDA-4442: Clarify steps required for creation on server cluster
+
+### Fixed
+- PNDA-3295: fix missing links on SUMMARY
+
+### Added
+- PNDA-3585: Add documentation about the PNDA queue placement policy
+- PNDA-4460: Add Flink details and version
+
+## [0.3.0] 2017-11-24
+
+### Changed
 - Rewrote Provisioning section
 - PNDA-2873: Documentation for the new Avro Codec
 - PNDA-2839: Update Grafana documentation for default password
+- PNDA-3167: Update flavor as this is m4 instead of m3
+- PNDA-3231: Update SUMMARY in order to include all the provisioning parts
+- PNDA-3302: upgrade edge flavor on pico
+- PNDA-3530: Ambari version 2.6.0.0 and HDP version 2.6.3.0
+- PNDA-3548: Upgrade Kafka manager to version 1.3.3.15
 
 ### Added
+- PNDA-3304: Add script to set a non-transparent proxy for the mirror build.
 - PNDA-2726: Added example spark-batch and spark-streaming jobs in python
+- PNDA-3208: Adding information on how to extend/manage Avro schema evolutions
 
 ## [0.1.6] 2017-01-20
 ### Changed

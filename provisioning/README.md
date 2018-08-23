@@ -9,6 +9,6 @@ This chapter describes how to create a PNDA cluster, and includes some backgroun
  * [Getting started with Heat](heat.md)
  * [Getting started with AWS](aws.md)
  * [Getting started with SaltStack](saltstack.md)
-
+ * [Getting started with VMWare](vmware.md)
 
 

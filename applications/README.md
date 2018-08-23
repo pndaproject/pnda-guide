@@ -51,7 +51,7 @@ The basic package structure is as follows:
 
  my-etl-process-1.0.23.tar.gz
     
-	my-etl-process
+	my-etl-process-1.0.23
     	oozie
     		etl-app
 

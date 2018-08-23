@@ -4,10 +4,11 @@ PNDA is a simple, scalable, open big data platform supporting operational and bu
 
 ## Quick Links
 
-- [Website](http://pandaproject.io)
-- [Guide](http://pandaproject.io/guide)
 - [GitHub](https://github.com/pndaproject)
-- [Questions & Answers](http://pandaproject.io/qa)
+- [JIRA](https://issues.pnda.io)
+- [Confluence](https://cwiki.pnda.io)
+- [Website](http://pnda.io)
+- [Guide](http://pnda.io/guide)
 - [Twitter](https://twitter.com/pndaproject)
 
 ## [Overview](overview/README.md)
@@ -54,17 +55,31 @@ Other pages on the console let you view detailed metrics, deploy packages, run a
  * [Datasets](console/datasets.md)
  * [UI links and credentials](console/uicredentials.md)
 
-## [Producers](producer/README.md)
+## [Endpoint Management and Service discovery](em_sd/README.md)
 
-Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to integrate and develop "producers", which feed data into Kafka.
+Prior to the 4.0 PNDA release a mixture of fixed IP addresses and individual hostnames were used to wire everything together, with SaltStack inserting the right values into specific config files when PNDA was created. We were also relying on /etc/hosts for all DNS resolution which was not flexible or easy to maintain when adding or removing hosts. 
 
- * [Preparing data](producer/data-preparation.md)
- * [Integrating Logstash](producer/logstash.md)
- * [Integrating OpenDaylight](producer/opendl.md)
+In addition to this, it was not possible to discover service/endpoints externally without knowing in advance the PNDA deployment scheme and which hosts to address.
+
+To solve all these problems we decided to use [Consul.io](https://www.consul.io/) for endpoints management and service discovery. See the following parts for getting more details on the current implementation using Consul:
+
+ * [Consul Overview](em_sd/consul.md)
+ * [DNS in PNDA](em_sd/dns.md)
+ * [Service discovery](em_sd/sd.md)
+
+## [Streaming Ingest](streamingest/README.md)
+
+Kafka is the "front door" of PNDA. It handles ingest of data streams from network sources and distributes data to all interested consumers. This chapter covers how to setup PNDA topics and how to integrate and develop "producers", which feed data into the Kafka topics.
+
+ * [Preparing topics](streamingest/topic-preparation.md)
+ * [Preparing data](streamingest/data-preparation.md)
+ * [Integrating Logstash](streamingest/logstash.md)
+ * [Integrating OpenDaylight](streamingest/opendl.md)
  * [Integrating VPP](producer/vpp.md)
- * [Integrating OpenBMP](producer/openbmp.md)
- * [Integrating Pmacct](producer/pmacct.md)
- * [Developing a custom producer](producer/producer.md)
+ * [Integrating OpenBMP](streamingest/openbmp.md)
+ * [Integrating Pmacct](streamingest/pmacct.md)
+ * [Developing a custom producer](streamingest/producer.md)
+
 
 ## [Bulk Ingest](bulkingest/README.md)
 
@@ -101,6 +116,8 @@ The [Jupyter Notebook](http://jupyter.org) is a web application that allows you 
 
 * [Using Jupyter](exploration/jupyter.md)
 * [Exploratory data analytics tutorial](exploration/lab.md)
+* [Managing application dependencies](exploration/dependencies.md)
+* [Using dependencies in your streaming and batch applications](exploration/dep-usage.md)
 
 ## [Time Series](timeseries/README.md)
 
@@ -113,6 +130,10 @@ OpenTSDB is a scalable time series database that lets you store and serve massiv
 
 A big data infrastructure like PNDA involves a multitude of technologies and tools, and may be deployed in a multi-tenant environment. Providing enterprise grade security for such system is not only complex, but is of primary concern for any production deployment. If you are implementing a client for a PNDA interface or developing a PNDA application, this chapter will cover some security guidelines that you should adhere to when working with individual components.
 
+## [Resource Management](resourcemanagement/README.md)
+
+Hadoop distributions come with a resource management system. The ResourceManager has two main components: Scheduler and ApplicationsManager. Traditionally organization have a separate set of compute resources for development workloads and for productions workloads. This not only leads to poor average resource utilization and overhead of managing multiple independent clusters but more importantly to duplication of the data, which represent a considerable cost in a big data platform. Consequently, sharing data lakes between these two activities represent considerable cost-savings in infrastructure resources. However, sharing computes resources for production activities with development activities should be done in all respect of the critical SLA's production workloads have the abide by. In a default PNDA deployment, the yarn schedulers have been configured to prioritize the system functionality first (in order not to lose any data), then the production workload and finally as last priority the development applications if any resources are still available. Unfortunately, the Yarn schedulers and especially their queue placement tools are more designed around sharing resources across organizations rather than for a priority based queueing system. For this reason, PNDA has chosen to complement the queue placement policies with its own tool and configuration options.     
+
 ## [Repositories](repos/README.md)
 
 The PNDA distribution consists of the following source code repositories and sub-projects:
@@ -120,8 +141,7 @@ The PNDA distribution consists of the following source code repositories and sub
 ### Provisioning
 
  * [platform-salt](http://github.com/pndaproject/platform-salt): provisioning logic for creating PNDA
- * [pnda-heat-templates](http://github.com/pndaproject/pnda-heat-templates): cluster templates for creating PNDA with Heat
- * [pnda-aws-templates](http://github.com/pndaproject/pnda-aws-templates): cluster templates for creating PNDA with CloudFormation on AWS
+ * [pnda-cli](http://github.com/pndaproject/pnda-cli): orchestration application for creating PNDA on AWS, OpenStack or an existing pre-prepared cluster 
  * [pnda-dib-elements](http://github.com/pndaproject/pnda-dib-elements): tools for building disk image templates
  * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
 
@@ -145,7 +165,7 @@ The PNDA distribution consists of the following source code repositories and sub
 
 ### Producers
 
- * [prod-odl-kafka](https://github.com/pndaproject/prod-odl-kafka): plugin to ingest data from OpenDaylight
+ * [prod-odl-kafka](https://github.com/pndaproject/odl-kafka-plugin): plugin to ingest data from OpenDaylight
  * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro): patched AVRO codec ingest data from Logstash
 
 ### Examples

@@ -27,7 +27,8 @@ Click the More Info link for more information about a warning or error.
 
 The page also has links to the following other components:
 
-- [Cloudera Manager](https://www.cloudera.com/products/cloudera-manager.html)
+- [Cloudera Manager](https://www.cloudera.com/products/cloudera-manager.html) (CDH only)
+- [Ambari](https://ambari.apache.org/) (HDP only)
 - [Grafana](http://grafana.org)
 - [Hue](http://gethue.com/)
 - [Jupyter](http://jupyter.org)

@@ -12,14 +12,14 @@ Underneath, Nova will select suitable machines via Ironic based on the earlier f
 
 #### Install CLI dependencies
 
-To use the PNDA command line interface, you will need to install the python, heat and nova clients. To install them on Ubuntu, run:
+To use the PNDA command line interface, you will need to install the python, heat and nova clients. To install them on CentOS, run:
 
 ```
-sudo apt-get -y update
-sudo apt-get -y install python python-pip python-dev
+sudo yum install -y epel-release
+sudo yum install -y python python-pip python-devel
+
 cd cli
 sudo pip install -r requirements.txt
-sudo pip install jinja2 --upgrade
 ```
 
 #### Keystone authentication
