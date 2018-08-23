@@ -1,6 +1,6 @@
 # PNDA Guide
 
-PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment. 
+PNDA is a simple, scalable, open big data platform supporting operational and business intelligence analysis for networks and services. This guide provides an overview of PNDA, and will tell you how to set up and use PNDA in your own environment.
 
 ## Quick Links
 
@@ -15,7 +15,7 @@ PNDA is a simple, scalable, open big data platform supporting operational and bu
 
 This chapter covers the main components of PNDA, including:
 
-- Data ingress using Logstash, Open Daylight & the bulk ingest tool
+- Data ingress using Logstash, Open Daylight fd.io/VPP & the bulk ingest tool
 - Data distribution with Kafka & Zookeeper
 - High velocity stream processing with Spark Streaming
 - High volume batch processing with Spark
@@ -32,28 +32,28 @@ This checklist will get you started setting up a fully operational PNDA cluster,
 This chapter describes how to provision a PNDA cluster, and includes some background information on SaltStack, OpenStack Heat and AWS CloudFormation.
 
  * [Creating PNDA](provisioning/OVERVIEW.md)
- 
+
 ### Background information
 
  * [Getting started with Heat](provisioning/heat.md)
  * [Getting started with AWS](provisioning/aws.md)
  * [Getting started with SaltStack](provisioning/saltstack.md)
- 
+
 ### For a complete list of all technologies brought together by PNDA
- 
+
  * [Technology versions](provisioning/versions.md)
 
 ## [Console](console/README.md)
 
 The PNDA console provides a real-time overview of all the components in a PNDA cluster. The home page shows health statistics for each component, color-coded by status. Components are grouped into categories, including data distribution, data processing, data storage, applications, etc.
 
-Other pages on the console let you view detailed metrics, deploy packages, run applications, and set data retention policies. 
+Other pages on the console let you view detailed metrics, deploy packages, run applications, and set data retention policies.
 
  * [Metrics](console/metrics.md)
  * [Packages](console/packages.md)
  * [Applications](console/applications.md)
  * [Datasets](console/datasets.md)
- * [UI links and credentials](console/uicredentials.md) 
+ * [UI links and credentials](console/uicredentials.md)
 
 ## [Endpoint Management and Service discovery](em_sd/README.md)
 
@@ -75,13 +75,15 @@ Kafka is the "front door" of PNDA. It handles ingest of data streams from networ
  * [Preparing data](streamingest/data-preparation.md)
  * [Integrating Logstash](streamingest/logstash.md)
  * [Integrating OpenDaylight](streamingest/opendl.md)
+ * [Integrating VPP](producer/vpp.md)
  * [Integrating OpenBMP](streamingest/openbmp.md)
  * [Integrating Pmacct](streamingest/pmacct.md)
  * [Developing a custom producer](streamingest/producer.md)
 
+
 ## [Bulk Ingest](bulkingest/README.md)
 
-In addition to streaming ingest via Kafka producers, PNDA also provides an offline bulk ingest tool for those who would like to migrate pre-existing data into the PNDA platform. 
+In addition to streaming ingest via Kafka producers, PNDA also provides an offline bulk ingest tool for those who would like to migrate pre-existing data into the PNDA platform.
 
  * [Bulk-ingest tool](https://github.com/pndaproject/platform-tools/tree/master/bulkingest)
 
@@ -91,7 +93,7 @@ Kafka has a simple, clean design that moves complexity traditionally found insid
 
 ## [Packages & Applications](applications/README.md)
 
-Packages are independently deployable units of application layer functionality, and applications are instances of packages. You can use the PNDA console to deploy packages and manage the application lifecycle. The Deployment Manager documentation explains the structure of packages, and the REST API used to deploy them. 
+Packages are independently deployable units of application layer functionality, and applications are instances of packages. You can use the PNDA console to deploy packages and manage the application lifecycle. The Deployment Manager documentation explains the structure of packages, and the REST API used to deploy them.
 
  * [Deployment Manager](https://github.com/pndaproject/platform-deployment-manager)
  * [Example Applications](applications/examples.md)
@@ -100,7 +102,7 @@ Packages are independently deployable units of application layer functionality, 
 
 ## [Log Aggregation](log-aggregation/README.md)
 
-Logs from the various component services that make up PNDA, and the applications that run on PNDA, are collected and stored on the logserver node. 
+Logs from the various component services that make up PNDA, and the applications that run on PNDA, are collected and stored on the logserver node.
 
 ## [Structured Query](query/README.md)
 
@@ -126,7 +128,7 @@ OpenTSDB is a scalable time series database that lets you store and serve massiv
 
 ## [Security](security/README.md)
 
-A big data infrastructure like PNDA involves a multitude of technologies and tools, and may be deployed in a multi-tenant environment. Providing enterprise grade security for such system is not only complex, but is of primary concern for any production deployment. If you are implementing a client for a PNDA interface or developing a PNDA application, this chapter will cover some security guidelines that you should adhere to when working with individual components. 
+A big data infrastructure like PNDA involves a multitude of technologies and tools, and may be deployed in a multi-tenant environment. Providing enterprise grade security for such system is not only complex, but is of primary concern for any production deployment. If you are implementing a client for a PNDA interface or developing a PNDA application, this chapter will cover some security guidelines that you should adhere to when working with individual components.
 
 ## [Resource Management](resourcemanagement/README.md)
 
@@ -177,18 +179,17 @@ The PNDA distribution consists of the following source code repositories and sub
    * [java](https://github.com/pndaproject/example-kafka-clients/tree/master/java)
    * [php](https://github.com/pndaproject/example-kafka-clients/tree/master/php)
    * [python](https://github.com/pndaproject/example-kafka-clients/tree/master/python)
- 
+
 ### Documentation
 
  * [pnda-guide](README.md): this guide
- 
+
 ## [References](others/README.md)
 
 ## [Release Notes](https://github.com/pndaproject/pnda/tree/master/releases)
 
 ## Versions
 
-This guide is the latest version and describes the software found on the pndaproject develop branches. 
+This guide is the latest version and describes the software found on the pndaproject develop branches.
 
 To refer to guides for specific releases, please navigate to the relevant release tag on [github](https://github.com/pndaproject/pnda-guide).
-

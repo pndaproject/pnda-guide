@@ -12,7 +12,7 @@ It consists of the following source code repositories and sub-projects:
  * [pnda-cli](http://github.com/pndaproject/pnda-cli): orchestration application for creating PNDA on AWS, OpenStack or an existing pre-prepared cluster
  * [pnda-dib-elements](http://github.com/pndaproject/pnda-dib-elements): tools for building disk image templates
  * [pnda](https://github.com/pndaproject/pnda): pnda release notes and build system
- 
+
 ### Platform
 
  * [platform-libraries](http://github.com/pndaproject/platform-libraries): libraries for working with interactive notebooks
@@ -34,6 +34,7 @@ It consists of the following source code repositories and sub-projects:
 ### Producers
 
  * [prod-odl-kafka](https://github.com/pndaproject/prod-odl-kafka): plugin to ingest data from OpenDaylight
+ * [prod-vpp-kafka](https://github.com/pndaproject/magent): agent to ingest data from VPP
  * [logstash-codec-pnda-avro](https://github.com/pndaproject/logstash-codec-pnda-avro): patched AVRO codec ingest data from Logstash
 
 ### Examples
@@ -47,8 +48,7 @@ It consists of the following source code repositories and sub-projects:
    * [java](https://github.com/pndaproject/example-kafka-clients/tree/master/java)
    * [php](https://github.com/pndaproject/example-kafka-clients/tree/master/php)
    * [python](https://github.com/pndaproject/example-kafka-clients/tree/master/python)
- 
+
 ### Documentation
 
  * [pnda-guide](README.md): this guide
- 
