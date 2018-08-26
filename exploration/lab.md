@@ -150,7 +150,7 @@ def autolabel(rects):
                 '%d' % int(height),
                 ha='center', va='bottom')
 
-if len(metric_list) > 0:
+if metric_list:
     host_ip = metric_list[0][0]
     stats = metric_list[0][1]
 
@@ -248,7 +248,7 @@ def on_button_clicked(b):
     results = handler.execute_query(filters=filters)
 
     i=0
-    if len(results) > 0:
+    if results:
         # Plot things...
         fig = plt.figure(figsize=(15, 8))
         ax=fig.add_subplot(111)
