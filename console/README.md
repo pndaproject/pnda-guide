@@ -77,7 +77,10 @@ In PNDA, it allows for both batch mode and streaming computation.
 
 ### Flink
 
-[Apache Flink](http://flink.apache.org/) is framework and engine for stream processing for distributed, high-performing, always-available, and accurate data streaming applications.
+[Apache Flink](http://flink.apache.org/) is framework and engine for stream processing for distributed, high-performing, always-available, and accurate data streaming applications. 
+Apache Flink comes with an interactive [Scala shell](https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/scala_shell.html) which can be used in local as well as yarn mode. To use scala shell in yarn mode, execute below command.
+
+`sudo -u pnda /opt/pnda/flink/bin/start-scala-shell.sh yarn -n <num of containers>`
 
 In PNDA, it allows for both batch mode and streaming computation.
 

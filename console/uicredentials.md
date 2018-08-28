@@ -7,6 +7,7 @@ PNDA pulls together many different open source technologies, several of which pr
  - Jupyter
  - Grafana
  - PNDA Logserver
+ - Flink
 
 The cog icons on the PNDA console home page link to the UI for that component.
 

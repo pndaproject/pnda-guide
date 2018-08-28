@@ -17,3 +17,7 @@ The [Spark Streaming and HBase tutorial](ksh.md) provides an in-depth look at th
 The [kafka-spark-opentsdb](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb) example writes data from Kafka in [OpenTSDB](../timeseries/opentsdb.md) metric time series.
 
 The [Spark Streaming and OpenTSDB tutorial](kso.md) provides an in-depth look at the app.
+
+## Flink Streaming
+
+The [flink-streaming](https://github.com/pndaproject/example-applications/tree/develop/flink-streaming-word-count) example reads events from a network socket and performs stream processing.

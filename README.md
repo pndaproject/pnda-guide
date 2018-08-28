@@ -173,6 +173,7 @@ The PNDA distribution consists of the following source code repositories and sub
    * [spark-streaming](https://github.com/pndaproject/example-applications/tree/master/spark-streaming): example streaming data processing application
    * [jupyter-notebooks](https://github.com/pndaproject/example-applications/tree/master/jupyter-notebooks): examples for working with Jupyter notebooks
    * [kafka-spark-opentsdb](https://github.com/pndaproject/example-applications/tree/master/kafka-spark-opentsdb): example consumer that feeds data to OpenTSDB
+   * [flink-streaming](https://github.com/pndaproject/example-applications/tree/develop/flink-streaming-word-count): example streaming application with Flink
  * [example-kafka-clients](https://github.com/pndaproject/example-kafka-clients): examples for working with kafka clients
    * [java](https://github.com/pndaproject/example-kafka-clients/tree/master/java)
    * [php](https://github.com/pndaproject/example-kafka-clients/tree/master/php)
