@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.5.0] 2018-08-28
 ### Changed
 - PNDA-4009: Add application detailed summary guide
 - PNDA-4525: Deprecate Ubuntu 14.04
