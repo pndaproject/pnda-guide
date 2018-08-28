@@ -32,6 +32,10 @@ Production flavor is intended for a reasonably sized physical cluster. It runs t
 
 We recommended dividing the storage on every node into at least a root volume (100GB is sufficient) and a data volume. We also recommend JBOD for Hadoop datanodes and RAID10 for Kafka. However, all these aspects are configurable.
 
+## Firewall setup
+The firewall needs to allow TCP and UDP (DNS service) ports within the PNDA Cluster, or firewall needs to be disabled.
+
+
 # [Next](MIRROR.md)
 
 | [Home](../OVERVIEW.md) | [Prepare](PREPARE.md) | [Mirror](MIRROR.md) | [Build](BUILD.md) | [Stage](STAGE.md) | [Configure](CONFIGURE.md) | [Create](CREATE.md) | 
