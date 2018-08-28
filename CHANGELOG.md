@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 - PNDA-4733: Add documentation about securing the cluster perimeter
 - PNDA-4468: Document new ingest mechanics
 - PNDA-4827: Add a setup guide for installing PNDA with terraform
+- PNDA-4501: Document Flink related features
 
 ### Fixed
 - PNDA-4884: OpenDaylight pnda-guide link takes to 404
