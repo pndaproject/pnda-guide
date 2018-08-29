@@ -2,10 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.5.0] 2018-08-28
 ### Changed
 - PNDA-4009: Add application detailed summary guide
 - PNDA-4525: Deprecate Ubuntu 14.04
-- PNDA-4469: Add a section about Kafka topic creation from outside the cluster …
+- PNDA-4469: Add a section about Kafka topic creation from outside the cluster
 - PNDA-4598: Update documentation for removal of pam_module pillar
 - PNDA-4641: Updated PNDA Guide for provisioning PNDA on OpenStack
 - PNDA-4599: Update guide for change from bastion to gateway
