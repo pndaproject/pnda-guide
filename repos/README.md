@@ -29,7 +29,7 @@ It consists of the following source code repositories and sub-projects:
    * [hdfs-cleaner](http://github.com/pndaproject/platform-data-mgmnt/tree/master/hdfs-cleaner): cron job to clean up HDFS data
    * [oozie-templates](http://github.com/pndaproject/platform-data-mgmnt/tree/master/oozie-templates): templates that archive or delete data
  * [platform-package-repository](http://github.com/pndaproject/platform-package-repository): manages a simple package repository backed by OpenStack Swift
- * [gobblin](http://github.com/pndaproject/gobblin): customized fork of the Gobblin data ingest framework
+ * [gobblin](https://github.com/pndaproject/platform-gobblin-modules): customized fork of the Gobblin data ingest framework
 
 ### Producers
 

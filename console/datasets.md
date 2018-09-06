@@ -22,7 +22,7 @@ After you have made changes, click the Save button to review and confirm the cha
 
 ## Creating datasets
 
-Datasets are automatically created based on the name of the `source` field in Kafka messages by [gobblin](https://github.com/pndaproject/gobblin). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
+Datasets are automatically created based on the name of the `source` field in Kafka messages by [gobblin](https://github.com/pndaproject/platform-gobblin-modules). See the [getting started](../gettingstarted/README.md#producer-integration) for more information on how datasets are created.  
 
 ## Dataset Compaction
 
